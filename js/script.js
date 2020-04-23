@@ -12,3 +12,7 @@
          hour12: false
       };
       document.getElementById("datetime").textContent = dt.toLocaleDateString('en-US', dateOptions) + " " + dt.toLocaleTimeString('en-US', timeOptions);
+
+      // get current year and update currentyear span
+      const cy = new Date();
+      document.getElementById("currentyear").textContent = cy.toLocaleString('en-US', {year: 'numeric'});
