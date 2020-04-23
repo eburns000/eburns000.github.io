@@ -2,36 +2,37 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Assignment Portal | Eric Burns</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Assignment Portal | Eric Burns</title>
 </head>
 
 <body>
-  <div id="content">
-    <header class="header">
-        <h1>Eric Burns</h1>
-        <img src="">
-    </header>
-    <main class="main">
-      <h2>WDD 230: Assignment Portal</h2>
-      <ul>
-        <li>Lesson 02: <a href="#" target="_blank">Assignment Link</a></li>
-        <li>Lesson 03: <a href="#" target="_blank">Assignment Link</a></li>
-        <li>Lesson 04: <a href="#" target="_blank">Link</a> | <a>Link</a></li>
-      </ul>
-    </main>
-    <footer class="footer">
-      <p>&copy; 2020 Eric Burns | Washington, USA | <a href="#" target="_blank">BYU-i Online Learning</a></p>
-      <p class="datetime">Last Updated: <span id="datetime"></span></p>
-    </footer>
-  </div>
+   <div id="content">
+      <header class="header">
+         <h1>Eric Burns</h1>
+         <img src="">
+      </header>
+      <main class="main">
+         <h2>WDD 230: Assignment Portal</h2>
+         <ul>
+            <li>Lesson 02: <a href="#" target="_blank">Assignment Link</a></li>
+            <li>Lesson 03: <a href="#" target="_blank">Assignment Link</a></li>
+            <li>Lesson 04: <a href="#" target="_blank">Link</a> | <a>Link</a></li>
+         </ul>
+      </main>
+      <footer class="footer">
+         <p>&copy; 2020 Eric Burns | Washington, USA | <a href="#" target="_blank">BYU-i Online Learning</a></p>
+         <p class="datetime">Last Updated: <span id="datetime"></span></p>
+      </footer>
+   </div>
+   <script>
+      var dt = new Date(document.lastModified);
+      document.getElementById("datetime").innerHTML = dt.toLocalString();
+   </script>
 </body>
 
-<script>
-  var dt = new Date(document.lastModified);
-  document.getElementById("datetime").innerHTML = dt.toLocalString();
-</script>
+
 
 </html>
