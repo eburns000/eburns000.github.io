@@ -57,7 +57,7 @@ body {
 }
 
 .main h2 {
-   font-size: 28px;
+   font-size: 1.8em;
    border-bottom: 1px solid #333;
    padding-bottom: 3px;
 }
@@ -113,7 +113,7 @@ body {
    }
 
    .header h1 {
-      font-size: 36px;
+      font-size: 2.6em;
       padding-left: 20px;
    }
 
@@ -124,7 +124,7 @@ body {
    }
 
    .main h2 {
-      font-size: 20px;
+      font-size: 1.4em;
    }
 
    .footer {
@@ -132,7 +132,7 @@ body {
    }
 
    .footer p {
-      font-size: 14px;
+      font-size: .9em;
    }
 
    .footer br {
