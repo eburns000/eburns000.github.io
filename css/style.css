@@ -1,4 +1,6 @@
+/* Removed import of LATO font and added link in html
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+*/
 
 * {
    margin: 0;
@@ -21,6 +23,11 @@ body {
    color: rgba(30, 30, 30, 0.8);
 }
 
+h1, h2, h3, h4, h5, h6 {
+   font-family: 'Oswald', sans-serif;
+   font-weight: 400;
+}
+
 .header,
 .footer {
    background-color: rgb(33, 33, 63);
@@ -38,7 +45,6 @@ body {
    padding-left: 25%;
    line-height: 120px;
    font-size: 3em;
-   font-weight: 400;
 }
 
 .header img {
