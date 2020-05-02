@@ -25,9 +25,28 @@ h1, h2, h3, h4, h5, h6 {
    font-weight: 400;
 }
 
-.footer {
+.home-grid-card {
+   border: solid 1px black;
+   border-radius: .8rem;
+   background-color: rgb(224, 224, 224);
+   padding-bottom: 20px;
+   margin-bottom: 10px;
+}
+
+.home-grid-card img {
+   width: 100%;
+   padding: 10px 5px;
+}
+
+.home-grid-card h2 {
+   padding: 5px;
+   color: white;
    background-color: rgb(33, 33, 63);
-   border-radius: .5em;
+   border-radius: .8rem .8rem 0 0;
+}
+
+.footer {
+   background-color: rgb(33, 33, 63);   
    color: white;
    padding: 10px;
    height: 80px;
@@ -41,20 +60,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header {
-   height: auto; /* 120px */
+   height: auto;
    margin-top: 0;
-   background-color: rgb(33, 33, 63);   
-   border-radius: 0 0 5px 5px;
+   background-color: rgb(33, 33, 63);      
    color: white;
-   padding-top: 20px;
+   padding-top: 18px;
 }
 
 .header h1 {
    text-align: center;
    font-size: 2.6em;
    padding-bottom: 20px;
-   padding-top: 20px;
    margin: 0;
+}
+
+.header h2 {
+   text-align: center;
+   font-size: 1.8em;
+   padding-bottom: 20px;
 }
 
 .header img {
@@ -68,23 +91,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .main {
    min-height: 275px;
-   padding: 30px 20px;
-}
-
-.main h2 {
-   font-size: 1.4em;
-   border-bottom: 1px solid #333;
-   padding-bottom: 3px;
-}
-
-.main ul {
-   margin-top: 15px;
-   padding-left: 40px;
-}
-
-.main li {
-   padding-bottom: 2px;
-
+   padding: 10px;
 }
 
 .footer br {
