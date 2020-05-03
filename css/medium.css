@@ -9,7 +9,7 @@
    .header {
       margin-top: 20px;
       border-radius: .5em;
-      height: 120px; /* added - small = auto */
+      height: 120px;
       padding-top: 0;
    }
 
@@ -37,7 +37,7 @@
    }
 
    .footer p {
-      font-size: inherit; /* check this */
+      font-size: inherit;
    }
 
    .footer br {

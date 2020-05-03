@@ -8,4 +8,20 @@
       grid-gap: 1em;
    }
 
+   .footer {
+      padding: 15px;
+   }
+
+   .footer p {
+      font-size: inherit;
+   }
+
+   .footer br {
+      display: none;
+   }
+
+   #footer-pipe {
+      display: inline;
+   }
+
 }
