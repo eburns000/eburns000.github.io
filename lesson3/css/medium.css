@@ -1,0 +1,27 @@
+/* Format for medium screen sizes */
+
+@media screen and (min-width: 52.5em) {
+
+   .home-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 1em;
+   }
+
+   .footer {
+      padding: 15px;
+   }
+
+   .footer p {
+      font-size: inherit;
+   }
+
+   .footer br {
+      display: none;
+   }
+
+   #footer-pipe {
+      display: inline;
+   }
+
+}
