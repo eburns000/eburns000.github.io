@@ -1,39 +1,5 @@
 /* Format for small screen sizes */
 
-:root {
-   /* primary and accent colors */
-   --primary-color: #355EAB;
-   --accent1-color: #AB5546;
-   --accent2-color: #495E19;
-   --accent3-color: #AB8635;
-   --background-color: #FFFAFA;
-   --normal-text-color: #444444;
-   --warning-text-color: #cc3300;
- 
-   /* heading and paragraph font */
-   --heading-font: 'Anton', sans-serif;
-   --paragraph-font: 'Signika', sans-serif;
- 
-   /* color variables */
-   --headline-main-color-on-white: #355EAB; /* blue primary, h1, h2 */
-   --headline-secondary-color-on-white: #AB8635; /* gold accent, h3, h4, h5, h6 */
-   --headline-all-color-on-color: #FFFAFA; /* snow white, h1, h2, h3, h4, h5, h6 */
-   --paragraph-color-on-white: #444444; /* dark gray */
-   --paragraph-color-on-color: #FFFAFA; /* snow white */
-   --paragraph-secondary-info-background-color: #495E19; /* green accent, for secondary paragraph information */
-   --paragraph-call-to-action-background-color: #355EAB; /* primary color, for primary call to action */
-   --paragraph-warning: #cc3300; /* warning text red */
-   --nav-link-color: #FFFAFA; /* snow white */
-   --nav-background-color: #355EAB; /* blue primary */
-   --nav-hover-link-color: #FFFAFA; /* snow white */
-   --nav-hover-background-color: #AB5546; /* red accent */
-   --button-border: #355EAB; /* blue primary */
-   --button-text: #355EAB; /* blue primary */
-   --button-fill: #FFFAFA; /* snow white */
-   --button-fill-hover: #355EAB; /* blue primary */
-   --button-text-hover: #FFFAFA; /* snow white */
- } 
-
 * {
    margin: 0;
    padding: 0;
@@ -41,35 +7,35 @@
 }
 
 body {
-   background-color: var(--background-color);
+   background-color: #FFFAFA;
 }
 
 #content {
    max-width: 80em;
    margin: 0 auto;
-   font-family: var(--paragraph-font);
+   font-family: 'Signika', sans-serif;
    font-weight: 300;
    border-radius: .5em;
-   color: var(--normal-text-color);
+   color: #444444;
 }
 
 h1, h2, h3, h4, h5, h6 {
-   font-family: var(--heading-font);
+   font-family: 'Anton', sans-serif;
    font-weight: 400;
-   color: var(--headline-main-color-on-white);
+   color: #355EAB;
 }
 
 .header {
    height: auto;
    margin-top: 0;
-   background-color: var(--primary-color);      
-   color: var(--headline-all-color-on-color);
+   background-color: #355EAB;      
+   color: #FFFAFA;
    padding-top: 18px;
    box-shadow: 0 4px 4px gray;
 }
 
 .header h1, .header h2 {
-   color: var(--headline-all-color-on-color);
+   color: #FFFAFA;
    text-align: center;
    padding-bottom: 20px;
 }
@@ -91,7 +57,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .main-nav {
-   background-color: var(--accent3-color);
+   background-color: #AB8635;
    text-align: center;
    box-shadow: 0 4px 4px gray;
 }
@@ -103,13 +69,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .main-nav ul li a {
    display: block;
-   color: var(--nav-link-color);
+   color: #FFFAFA;
    padding: .75rem;
    text-decoration: none;
 }
 
 .main-nav a:hover {
-   background-color: var(--nav-hover-background-color);
+   background-color: #AB5546;
 }
 
 .main h2, h3, h4 {
@@ -161,12 +127,12 @@ h1, h2, h3, h4, h5, h6 {
    height: 180px;
    max-width: 335px;
    margin: 1rem .6rem;
-   color: var(--paragraph-color-on-color);
+   color: #FFFAFA;
 }
 
 .color-grid-card h3 {
    padding: 20px 0 0 .8rem;
-   color: var(--headline-all-color-on-color);
+   color: #FFFAFA;
    margin-top: 0;
 }
 
@@ -177,24 +143,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #color-grid-card-primary {
-   background-color: var(--primary-color);
+   background-color: #355EAB;
 }
 
 #color-grid-card-accent1 {
-   background-color: var(--accent1-color);
+   background-color: #AB5546;
 }
 
 #color-grid-card-accent2 {
-   background-color: var(--accent2-color);
+   background-color: #495E19;
 }
 
 #color-grid-card-accent3 {
-   background-color: var(--accent3-color);
+   background-color: #AB8635;
 }
 
 .footer {
-   background-color: var(--primary-color);   
-   color: var(--paragraph-color-on-color);
+   background-color: #355EAB;   
+   color: #FFFAFA;
    padding: 10px;
    height: 80px;
    text-align: center;
@@ -219,7 +185,7 @@ h1, h2, h3, h4, h5, h6 {
 .footer a:visited,
 .footer a:hover,
 .footer a:active {
-   color: var(--paragraph-color-on-color);
+   color: #FFFAFA;
 }
 
 .datetime {
