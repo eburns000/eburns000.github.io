@@ -87,7 +87,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .main {
    min-height: 275px;
-   padding: 10px 10px 0 10px;
+   padding: 10px;
 }
 
 .main-nav {
@@ -154,6 +154,9 @@ h1, h2, h3, h4, h5, h6 {
    list-style-type: none;
    margin: .5rem 0 2rem .6rem;
 }
+
+
+
 
 
 .home-grid-card {
