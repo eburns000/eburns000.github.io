@@ -56,7 +56,8 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
    font-family: var(--heading-font);
-   font-weight: 400;   
+   font-weight: 400;
+   color: var(--headline-main-color-on-white);
 }
 
 .header {
@@ -68,22 +69,22 @@ h1, h2, h3, h4, h5, h6 {
    box-shadow: 0 4px 4px gray;
 }
 
-.header h1 {
+.header h1, .header h2 {
+   color: var(--headline-all-color-on-color);
    text-align: center;
-   font-size: 1.8rem;
    padding-bottom: 20px;
+}
+
+.header h1 {
+   font-size: 1.8rem;
    margin: 0;
    padding-left: 2rem;
    padding-right: 2rem;
 }
 
 .header h2 {
-   text-align: center;
    font-size: 1.3rem;
-   padding-bottom: 20px;
 }
-
-
 
 .main {
    min-height: 275px;
@@ -125,6 +126,7 @@ h1, h2, h3, h4, h5, h6 {
 .objectives-ul {
    margin-top: .5rem;
    padding: 0 50px;
+   list-style-type: circle;
 }
 
 .main li {
@@ -155,9 +157,41 @@ h1, h2, h3, h4, h5, h6 {
    margin: .5rem 0 2rem .6rem;
 }
 
+.color-grid-card {
+   display: block;
+   height: 180px;
+   max-width: 335px;
+   margin: 1rem .6rem;
+   color: var(--paragraph-color-on-color);
+}
 
+.color-grid-card h3 {
+   padding: 20px 0 0 .8rem;
+   color: var(--headline-all-color-on-color);
+   margin-top: 0;
+}
 
+.color-grid-card ul {
+   list-style-type: circle;
+   margin: .5rem 0 1rem 1.8rem;
+   line-height: .85rem;   
+}
 
+#color-grid-card-primary {
+   background-color: var(--primary-color);
+}
+
+#color-grid-card-accent1 {
+   background-color: var(--accent1-color);
+}
+
+#color-grid-card-accent2 {
+   background-color: var(--accent2-color);
+}
+
+#color-grid-card-accent3 {
+   background-color: var(--accent3-color);
+}
 
 .home-grid-card {
    border: solid 1px black;
