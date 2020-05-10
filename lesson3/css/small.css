@@ -60,6 +60,8 @@ h1, h2, h3, h4, h5, h6 {
    background-color: #AB8635;
    text-align: center;
    box-shadow: 0 4px 4px gray;
+   font-size: 1.2em;
+   font-weight: bold;
 }
 
 .main-nav ul {
