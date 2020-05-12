@@ -19,6 +19,16 @@ body {
    color: #444444;
 }
 
+.contentbox {
+   display: block;
+   margin: 10px auto;
+   border: 1px dashed #000;
+   padding: 15px;
+   background-color: #eee;
+   color: #444;
+   font-style: italic;
+}
+
 h1, h2, h3, h4, h5, h6 {
    font-family: 'Anton', sans-serif;
    font-weight: 400;
@@ -26,6 +36,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header {
+   display: flex;
+   align-content: center;
+   justify-content: center;
    height: auto;
    margin-top: 0;
    background-color: #355EAB;      
@@ -34,21 +47,33 @@ h1, h2, h3, h4, h5, h6 {
    box-shadow: 0 4px 4px gray;
 }
 
-.header h1, .header h2 {
+.logo-img {
+   width: 90px; /* change size so that it fits exactly what we need */
+   height: auto;
+   margin: 0 10px 20px 0;
+}
+
+.headings {
+   flex-direction: column;
+}
+
+.headings h1, .headings div {
    color: #FFFAFA;
-   text-align: center;
-   padding-bottom: 20px;
-}
-
-.header h1 {
-   font-size: 1.8rem;
+   text-align: left;
+   padding-top: 10px;
    margin: 0;
-   padding-left: 2rem;
-   padding-right: 2rem;
+   margin-top: 10px;
+   padding: 0;
 }
 
-.header h2 {
+.headings h1 {
+   font-size: 1.8rem;
+}
+
+.headings div {
    font-size: 1.3rem;
+   margin-left: 10px;
+   font-style: italic;
 }
 
 .main {
@@ -98,12 +123,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .main li {
    margin-top: .5rem;
-}
-
-.logo-img {
-   width: 90px;
-   height: auto;
-   margin: 30px;
 }
 
 .personas-img {
@@ -175,12 +194,8 @@ h1, h2, h3, h4, h5, h6 {
    padding-bottom: 2px;
 }
 
-.footer br {
-   display: inline;
-}
-
-#footer-pipe {
-   display: none;
+.footer a {
+   text-decoration: none;
 }
 
 .footer a:link,

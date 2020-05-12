@@ -1,68 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description"
-    content="Site Plan for Sherman Peak Weather by Eric Burns, a project for WDD 230: Web Frontend Development at Brigham Young University - Idaho">
-  <title>Sherman Peak Weather Site Plan | Home</title>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Signika:wght@300&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/small.css">
-  <link rel="stylesheet" href="css/medium.css">
-  <link rel="stylesheet" href="css/large.css">
-  <script src="js/script.js" defer></script>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <meta name="description"
+      content="Sherman Peak Weather, a site by Eric Burns, a project for WDD 230: Web Frontend Development at Brigham Young University - Idaho">
+   <title>Sherman Peak Weather | Preston</title>
+   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Signika:wght@300&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="css/normalize.css">
+   <link rel="stylesheet" href="css/small.css">
+   <link rel="stylesheet" href="css/medium.css">
+   <link rel="stylesheet" href="css/large.css">
+   <script src="js/script.js" defer></script>
 </head>
 
-<body>
-  <div id="content">
-    <header class="header">
-      <h1>Sherman Peak Weather and Trail Site Plan</h1>
-      <h2>by Eric Burns</h2>
-    </header>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="target-audience.html">Target Audience</a></li>
-        <li><a href="color-scheme.html">Color Scheme</a></li>
-        <li><a href="typography.html">Typography</a></li>
-      </ul>
-    </nav>
-    <main class="main">
-      <h2>Site Name</h2>
-      <p>Sherman Peak Weather and Trail</p>
-      <h2>Site Purpose</h2>
-      <p>Sherman Peak is the highest point in the Bear River Range in Southeast Idaho. The Bear River Range is the
-        backyard outdoor playground for hiking and climbing enthusiasts of those residing or vacationing in the
-        surrounding communities including Preston, Soda Springs, and Fish Haven. The purpose of this site is to
-        provide weather and trail information to climbers and hikers including local climbing enthusiasts and those
-        vacationing in the area, including the popular Bear Lake. The primary objectives of the site are to:
-      </p>
-      <ul class="objectives-ul">
-        <li>Provide weather for all three communities surrounding the Bear River Range, including Preston, Soda
-          Springs, and Fish Haven, Idaho.</li>
-        <li>Provide information on various hiking and climbing options for people visiting the area.</li>
-        <li>Provide updates on routes and trails that may be affected adversely affected by the weather, such as
-          hazards or closures.</li>
-        <li>Allow users of the site to share recent climbing or hiking experiences to provide reviews of hikes or
-          climbs and to give visitors to the area a sense of what the range has to offer.</li>
-      </ul>
-      <h2>Domain Name</h2>
-      <p>The domain for the site will be shermanpeakweather.com. This domain is currently not registered and is
-        available.</p>
-      <h2>Logo</h2>
-      <p>The icon for the site has a free commerical use open license. The icon below was selected from iconfinder.com
-      </p>
+<!-- Add Your Own Content, Images, Color, and Typography -->
+
+<body id="content"> <!-- Add onload function to parse js - see Sis Campbell note-->
+   <header class="header"> <!-- Span entire screen in all views -->
       <img class="logo-img" src="images/iconfinder_5-Mountains_2828156.png" alt="two mountains with snow">
-    </main>
-    <footer class="footer">
-      <p>&copy; <span id="currentyear"></span> | Eric Burns | Washington, USA <span id="footer-pipe">| </span><br><a
-          href="https://www.byui.edu/online" target="_blank">BYU-i Online Learning</a></p>
-      <p class="datetime">Last Updated: <span id="datetime"></span></p>
-    </footer>
-  </div>
+      <section class="headings">
+         <h1>Sherman Peak Weather and Trail</h1>
+         <div>Your Weather Source for the Ridge</div>
+      </section>
+   </header>
+   <nav class="main-nav"> <!-- span entire screen in all views -->
+      <ul>
+         <li><a href="#">Menu</a></li> <!-- use JS to toggle navigation -->
+         <li><a href="#">Home</a></li>
+         <li><a href="#" class="active">Preston</a></li>
+         <li><a href="#">Soda Springs</a></li>
+         <li><a href="#">Fish Haven</a></li>
+         <li><a href="#">Storm Center</a></li>
+         <li><a href="#">Gallery</a></li>         
+      </ul>
+   </nav>
+   <main class="main"> <!-- Limit width in large view -->
+      <h2>Preston Idaho</h2>
+      <div class="contentbox">Hero image/weather summary</div>
+      <div class="contentbox forecast">5 day forecast</div>
+      <div class="contentbox">Article</div>
+      <div class="contentbox">Contact information</div>
+   </main>
+   <footer class="footer"> <!-- Limit width in Large view -->
+      <p>&copy; <span id="currentyear"></span> Sherman Peak Weather | <a
+         href="#" target="_blank">Attributions</a> | Eric Burns</p>
+      <p class="datetime"><span id="datetime"></span></p>
+      <!-- change date format to Wednesday, 24 July 2020 -->
+   </footer>
 </body>
 
 </html>
