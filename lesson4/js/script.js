@@ -3,18 +3,21 @@
 // get date document was last modified and update datetime span
 const dt = new Date(document.lastModified);
 const dateOptions = {
+   weekday: 'long',
    year: 'numeric',
-   month: '2-digit',
+   month: 'long',
    day: '2-digit'
 };
-const timeOptions = {
-   hour: '2-digit',
-   minute: '2-digit',
-   second: '2-digit',
-   hour12: false
-};
-document.getElementById("datetime").textContent = dt.toLocaleDateString('en-US', dateOptions) + " " + dt.toLocaleTimeString('en-US', timeOptions);
+document.getElementById("datetime").textContent = dt.toLocaleDateString('en-GB', dateOptions);
 
 // get current year and update currentyear span
 const cy = new Date();
 document.getElementById("currentyear").textContent = cy.toLocaleString('en-US', {year: 'numeric'});
+
+// toggle hamburger menu
+const hambutton = document.querySelector('.ham');
+const mainnav = document.querySelector('.main-nav');
+
+hambutton.addEventListener('click', () =>
+{mainnav.classList.toggle('responsive')}, false);
+

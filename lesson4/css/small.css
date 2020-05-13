@@ -11,12 +11,15 @@ body {
 }
 
 #content {
-   max-width: 80em;
-   margin: 0 auto;
    font-family: 'Signika', sans-serif;
    font-weight: 300;
    border-radius: .5em;
    color: #444444;
+}
+
+.main, .footer {
+   max-width: 60rem;
+   margin: 0 auto;
 }
 
 .contentbox {
@@ -37,43 +40,43 @@ h1, h2, h3, h4, h5, h6 {
 
 .header {
    display: flex;
-   align-content: center;
    justify-content: center;
-   height: auto;
+   align-items: flex-end;
    margin-top: 0;
    background-color: #355EAB;      
    color: #FFFAFA;
-   padding-top: 18px;
+   padding-top: 10px;
    box-shadow: 0 4px 4px gray;
 }
 
 .logo-img {
-   width: 90px; /* change size so that it fits exactly what we need */
-   height: auto;
-   margin: 0 10px 20px 0;
+   width: 75px;
+   height: 75px;
+   margin-right: 1.25rem;
+   overflow: none;
 }
 
-.headings {
-   flex-direction: column;
+.headings, .logo-img {
+   margin-bottom: 1.25rem;
 }
 
 .headings h1, .headings div {
    color: #FFFAFA;
-   text-align: left;
-   padding-top: 10px;
-   margin: 0;
-   margin-top: 10px;
+   text-align: center;   
    padding: 0;
+   margin: 0;
 }
 
 .headings h1 {
-   font-size: 1.8rem;
+   font-size: 1.3rem;
+   line-height: 1.35;
+   margin-top: 10px;
 }
 
 .headings div {
-   font-size: 1.3rem;
-   margin-left: 10px;
+   font-size: 0.85rem;
    font-style: italic;
+   margin-top: 5px;
 }
 
 .main {
@@ -83,7 +86,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .main-nav {
    background-color: #AB8635;
-   text-align: center;
+   text-align: left;
    box-shadow: 0 4px 4px gray;
    font-size: 1.2em;
    font-weight: bold;
@@ -92,6 +95,26 @@ h1, h2, h3, h4, h5, h6 {
 .main-nav ul {
    list-style-type: none;
    overflow: hidden;
+}
+
+.main-nav ul li {
+   border-bottom: 1px solid rgba(0, 0, 0, .2);
+}
+
+.main-nav ul li:last-child {
+   border-bottom: none;
+}
+
+.main-nav ul li:first-child {
+   display: block;
+}
+
+.main-nav ul li {
+   display: none;
+}
+
+.responsive ul li {
+   display: block;
 }
 
 .main-nav ul li a {
@@ -103,6 +126,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .main-nav a:hover {
    background-color: #AB5546;
+}
+
+.active {
+   background-color: rgba(0, 0, 0, .2);
 }
 
 .main h2, h3, h4 {
@@ -203,6 +230,14 @@ h1, h2, h3, h4, h5, h6 {
 .footer a:hover,
 .footer a:active {
    color: #FFFAFA;
+}
+
+.footer br {
+   display: inline;
+}
+
+#footer-pipe {
+   display: none;
 }
 
 .datetime {

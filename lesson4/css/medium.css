@@ -1,13 +1,27 @@
 /* Format for medium screen sizes */
 
-@media screen and (min-width: 32.5em) {
+@media screen and (min-width: 32.5rem) {
 
-   .main-nav ul {
-      display: flex;
+   .headings h1 br {
+      display: none;
    }
 
-   .main-nav ul li {
-      flex: 1 1 100%;
+   .headings div {
+      text-align: left;
+      font-size: 1.2rem;
+   }
+
+   .headings h1 {
+      font-size: 1.8rem;
+   }
+
+   .headings h1, .headings div {
+      line-height: 1.15;
+   }
+
+   .logo-img {
+      width: 90px;
+      height: auto;
    }
 
    .colors-grid {
