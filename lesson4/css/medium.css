@@ -19,11 +19,6 @@
       line-height: 1.15;
    }
 
-   .logo-img {
-      width: 90px;
-      height: auto;
-   }
-
    .colors-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
