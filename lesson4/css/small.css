@@ -84,7 +84,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .main-nav {
-   background-color: #AB8635; /* #AB8635  #91722D*/
+   background-color: #695221;
+   /* Original color #AB8635 Changed to #695221 for WAVE accessibility requirements to create more contrast with nav buttons */
    text-align: left;
    box-shadow: 0 4px 4px gray;
    font-size: 1.2em;
@@ -128,7 +129,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .active {
-   background-color: rgba(0, 0, 0, .2);
+   background-color: rgba(0, 0, 0, .3);
 }
 
 .main h2, h3, h4 {
