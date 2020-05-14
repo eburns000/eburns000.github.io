@@ -1,4 +1,4 @@
-// script.js: script file for design-principles.html
+// script.js: script file for shermanpeakweather.com site
 
 function wrapper() {
 
