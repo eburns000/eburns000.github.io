@@ -15,7 +15,8 @@
       font-size: 1.8rem;
    }
 
-   .headings h1, .headings div {
+   .headings h1,
+   .headings div {
       line-height: 1.15;
    }
 

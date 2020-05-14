@@ -16,7 +16,7 @@
    <script src="js/script.js" defer></script>
 </head>
 
-<body id="content"> <!-- Add onload function to parse js - see Sis Campbell note-->
+<body id="content" onload="wrapper()">
    <header class="header">
       <img class="logo-img" src="images/iconfinder_5-Mountains_2828156-90x76.png" alt="two mountains with snow">
       <section class="headings">
@@ -26,13 +26,13 @@
    </header>
    <nav class="main-nav">
       <ul>
-         <li><a href="#" class="ham">&#9776; Menu</a></li> <!-- use JS to toggle navigation -->
+         <li><a href="#" class="ham">&#9776; Menu</a></li>
          <li><a href="#">Home</a></li>
          <li><a href="#" class="active">Preston</a></li>
          <li><a href="#">Soda Springs</a></li>
          <li><a href="#">Fish Haven</a></li>
          <li><a href="#">Storm Center</a></li>
-         <li><a href="#">Gallery</a></li>         
+         <li><a href="#">Gallery</a></li>
       </ul>
    </nav>
    <main class="main">
@@ -43,10 +43,9 @@
       <div class="contentbox">Contact information</div>
    </main>
    <footer class="footer">
-      <p>&copy; <span id="currentyear"></span> Sherman Peak Weather | <a
-         href="#">Attributions</a><span id="footer-pipe"> | </span><br>Eric Burns</p>
+      <p>&copy; <span id="currentyear"></span> Sherman Peak Weather | <a href="#">Attributions</a><span
+            id="footer-pipe"> | </span><br>Eric Burns</p>
       <p class="datetime"><span id="datetime"></span></p>
-      <!-- change date format to Wednesday, 24 July 2020 -->
    </footer>
 </body>
 
