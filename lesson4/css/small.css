@@ -86,14 +86,12 @@ h6 {
    margin-top: 5px;
 }
 
-.main {
-   min-height: 275px;
-   padding: 10px;
-}
-
 .main-nav {
-   background-color: #695221;
-   /* Original color #AB8635 Changed to #695221 for WAVE accessibility requirements to create more contrast with nav buttons */
+   background-color: #795548;
+   /* Original color #AB8635 Changed to #695221 for WAVE accessibility requirements to create more contrast with nav buttons
+      - changed this color again on 5/15, from #695221 to #795548 to 
+        match the color of the front mountain in the logo, while 
+        maintaining the same contrast ratio for WAVE requirements */
    text-align: left;
    box-shadow: 0 4px 4px gray;
    font-size: 1.2em;
@@ -140,10 +138,19 @@ h6 {
    background-color: rgba(0, 0, 0, .3);
 }
 
+.main {
+   min-height: 275px;
+   padding: 10px;
+}
+
 .main h2,
 h3,
 h4 {
    margin-top: 1.5rem;
+}
+
+.main h2 {
+   font-size: 1.3rem;
 }
 
 .main p {
@@ -160,60 +167,6 @@ h4 {
 
 .main li {
    margin-top: .5rem;
-}
-
-.personas-img {
-   width: 200px;
-   height: auto;
-   margin: 1.3rem .6rem .5rem .6rem;
-}
-
-.personas-ul {
-   list-style-type: none;
-   margin: .5rem 0 1rem .6rem;
-   line-height: .85rem;
-   font-weight: bold;
-}
-
-.scenarios-ul {
-   list-style-type: none;
-   margin: .5rem 0 2rem .6rem;
-}
-
-.color-grid-card {
-   display: block;
-   height: 180px;
-   max-width: 335px;
-   margin: 1rem .6rem;
-   color: #FFFAFA;
-}
-
-.color-grid-card h3 {
-   padding: 20px 0 0 .8rem;
-   color: #FFFAFA;
-   margin-top: 0;
-}
-
-.color-grid-card ul {
-   list-style-type: circle;
-   margin: .5rem 0 1rem 1.8rem;
-   line-height: .85rem;
-}
-
-#color-grid-card-primary {
-   background-color: #355EAB;
-}
-
-#color-grid-card-accent1 {
-   background-color: #AB5546;
-}
-
-#color-grid-card-accent2 {
-   background-color: #495E19;
-}
-
-#color-grid-card-accent3 {
-   background-color: #AB8635;
 }
 
 .footer {

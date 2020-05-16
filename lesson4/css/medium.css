@@ -20,10 +20,8 @@
       line-height: 1.15;
    }
 
-   .colors-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-gap: .5em;
+   .main h2 {
+      font-size: 1.5rem;
    }
 
    .footer {
