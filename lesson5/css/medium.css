@@ -1,0 +1,43 @@
+/* Format for medium screen sizes */
+
+@media screen and (min-width: 32.5rem) {
+
+   .headings h1 br {
+      display: none;
+   }
+
+   .headings div {
+      text-align: left;
+      font-size: 1.2rem;
+   }
+
+   .headings h1 {
+      font-size: 1.8rem;
+   }
+
+   .headings h1,
+   .headings div {
+      line-height: 1.15;
+   }
+
+   .main h2 {
+      font-size: 1.5rem;
+   }
+
+   .footer {
+      padding: 15px;
+   }
+
+   .footer p {
+      font-size: inherit;
+   }
+
+   .footer br {
+      display: none;
+   }
+
+   #footer-pipe {
+      display: inline;
+   }
+
+}
