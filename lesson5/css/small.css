@@ -285,8 +285,7 @@ h6 {
 }
 
 .contact-address {
-   margin: 0 auto 20px; /* bottom 20px */
-   /* padding: 0 20px; */
+   margin: 0 auto 20px;   
 }
 
 .contact-address img {
@@ -301,6 +300,11 @@ h6 {
 .contact-address a {
    text-decoration: none;
    color: #444;
+}
+
+.social-media {
+   margin-top: 5px;
+   margin-right: 3px;
 }
 
 .contact-map {
