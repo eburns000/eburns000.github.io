@@ -10,7 +10,7 @@ document.getElementById("currentyear").textContent = dt.toLocaleString('en-US', 
    year: 'numeric'
 });
 
-// display current date in datetim span in "Weekday, Day Month Year" format, as in Monday, 18 May 2020
+// display current date in datetime span in "Weekday, Day Month Year" format, as in Monday, 18 May 2020
 const dateOptions = {
    weekday: 'long',
    year: 'numeric',
@@ -33,9 +33,11 @@ hambutton.addEventListener('click', () => {
  * Display banner message given day of week
  ************************************/
 let weekday = dt.getDay();
-if (weekday === 3) { // TODO: CHANGE TO 5 AFTER ALL STYING IS COMPLETE
+if (weekday === 5) {
 
-   /* another method */
+   /* another method - just a personal note */
+   /* I could have used this easier method, but I wanted to
+      experiement with the create element and create text node methods */
    /* let myBanner = document.querySelector(".my-banner");
    myBanner.style.display = "block"; */
    

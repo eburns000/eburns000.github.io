@@ -2,8 +2,15 @@
 
 function wrapper() {
 
-// get date document was last modified and update datetime span
-const dt = new Date(document.lastModified);
+// get current date for currentyear span and datetime span
+const dt = new Date();
+
+// update currentyear span
+document.getElementById("currentyear").textContent = dt.toLocaleString('en-US', {
+   year: 'numeric'
+});
+
+// get current date and display in datetime span in "Weekday, Day Month Year" format, as in Monday, 18 May 2020
 const dateOptions = {
    weekday: 'long',
    year: 'numeric',
@@ -11,12 +18,6 @@ const dateOptions = {
    day: '2-digit'
 };
 document.getElementById("datetime").textContent = dt.toLocaleDateString('en-GB', dateOptions);
-
-// get current year and update currentyear span
-const cy = new Date();
-document.getElementById("currentyear").textContent = cy.toLocaleString('en-US', {
-   year: 'numeric'
-});
 
 // toggle hamburger menu
 const hambutton = document.querySelector('.ham');
