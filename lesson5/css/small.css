@@ -85,10 +85,6 @@ h6 {
 
 .main-nav {
    background-color: #795548;
-   /* Original color #AB8635 Changed to #695221 for WAVE accessibility requirements to create more contrast with nav buttons
-      - changed this color again on 5/15, from #695221 to #795548 to 
-        match the color of the front mountain in the logo, while 
-        maintaining the same contrast ratio for WAVE requirements */
    text-align: left;
    box-shadow: 0 4px 4px gray;
    font-size: 1.2em;
@@ -140,20 +136,15 @@ h6 {
    padding: 10px;
 }
 
-.main h2,
-h3,
-h4 {
-   margin-top: 1.5rem;
-}
-
 .main h2 {
    font-size: 1.3rem;
+   margin-top: 1.5rem; /* added to small - see above */
 }
 
 .main p {
    margin-top: .5rem;
    padding: 0 .6rem;
-   line-height: 1.25rem;
+   line-height: 1.35rem;
 }
 
 .objectives-ul {
@@ -166,49 +157,36 @@ h4 {
    margin-top: .5rem;
 }
 
-.contentbox {
+.main-content {
    display: block;
    margin: 10px auto;
-   border: 1px dashed #000;
    padding: 15px;
-   background-color: #eee;
    color: #444;
 }
 
-#contentbox1 {
+.hero {
    position: relative;
 }
 
-#contentbox1 img {
+.hero img {
    width: 100%;
-}
-
-#contentbox3 {
-   clear: both;
-}
-
-#contentbox3 img {
-   float: right;
-   width: 300px;
-   height: auto;
-   box-shadow: 0 0 20px rgba(0, 0, 0, .75);
-   margin: 15px;
 }
 
 /* Weather Summary Call-out */
 
 .summary-grid {
    position: absolute;
-   top: 2rem;
-   right: 2rem;
+   top: 1.1rem;
+   right: 1.1rem;
    background-color: rgba(53, 94, 171, .8);
    display: grid;
    grid-template-columns: 1fr 1fr;
    align-items: center;
-   width: 15rem;
-   height: 12rem;
+   width: 10rem;
+   height: 9rem;
    box-shadow: 0 0 20px rgba(0, 0, 0, .75);
-   padding: 15px;
+   padding: 15px 10px 20px 10px;
+   font-size: .75rem;
 }
 
 .summary-grid h3, .summary-grid-label {
@@ -244,10 +222,9 @@ h4 {
 /* 5-day forecast */
 
 .forecast {
-   display: block;
-   margin: 10px auto;
+   display: none;
+   margin: 15px auto;
    width: 500px;
-   padding: 15px;
    color: #444;
 }
 
@@ -257,7 +234,7 @@ h4 {
 
 .table {
    margin-top: 15px;
-   margin-bottom: 15px;
+   margin-bottom: 5px;
    display: table;
    width: 100%;
    border-collapse: collapse;
@@ -291,28 +268,47 @@ h4 {
    display: block;
 }
 
+/* article blog-post */
+
+.article img { 
+   max-width: 300px;
+   width: 100%;
+   height: auto;
+   box-shadow: 2px 2px 5px rgba(0, 0, 0, .75);
+   margin: 20px 10px 10px 10px;
+}
+
 /* Contact Information */
 .contact {
-   display: flex;
+   display: block;
+   margin: 20px 0px;
 }
 
-.contact-map, .contact-address {
-   flex: 1 1 100%;
+.contact-address {
+   margin: 0 auto 20px; /* bottom 20px */
+   /* padding: 0 20px; */
 }
 
-.contact-address p img {
+.contact-address img {
    width: 14px;
    height: auto;
 }
 
-.contact-address p span {
+.contact-address span {
    font-weight: 700;
 }
 
-.contact-map {
-   
+.contact-address a {
+   text-decoration: none;
+   color: #444;
 }
 
+.contact-map {
+   box-shadow: 2px 2px 5px rgba(0, 0, 0, .75);
+   max-width: 400px;
+   width: 95%;
+   margin-left: .6rem;
+}
 
 /* footer */
 
