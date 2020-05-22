@@ -195,6 +195,8 @@ h4 {
    margin: 15px;
 }
 
+/* Weather Summary Call-out */
+
 .summary-grid {
    position: absolute;
    top: 2rem;
@@ -206,7 +208,7 @@ h4 {
    width: 15rem;
    height: 12rem;
    box-shadow: 0 0 20px rgba(0, 0, 0, .75);
-   padding: 0 15px;
+   padding: 15px;
 }
 
 .summary-grid h3, .summary-grid-label {
@@ -238,6 +240,8 @@ h4 {
    margin: 0;
    padding: 0 .2rem;
 }
+
+/* 5-day forecast */
 
 .forecast {
    display: block;
@@ -286,6 +290,31 @@ h4 {
    margin: 5px auto;
    display: block;
 }
+
+/* Contact Information */
+.contact {
+   display: flex;
+}
+
+.contact-map, .contact-address {
+   flex: 1 1 100%;
+}
+
+.contact-address p img {
+   width: 14px;
+   height: auto;
+}
+
+.contact-address p span {
+   font-weight: 700;
+}
+
+.contact-map {
+   
+}
+
+
+/* footer */
 
 .footer {
    background-color: #355EAB;

@@ -33,8 +33,12 @@ hambutton.addEventListener('click', () => {
  * Display banner message given day of week
  ************************************/
 let weekday = dt.getDay();
-if (weekday === 1) { // TODO: CHANGE TO 5 AFTER ALL STYING IS COMPLETE
+if (weekday === 3) { // TODO: CHANGE TO 5 AFTER ALL STYING IS COMPLETE
 
+   /* another method */
+   /* let myBanner = document.querySelector(".my-banner");
+   myBanner.style.display = "block"; */
+   
    // banner message
    let bannerMsg1 = "Saturday = Preston Pancakes in the Park!";
    let bannerMsg2 = "9:00 a.m. Saturday at the city park pavilion.";
@@ -54,6 +58,7 @@ if (weekday === 1) { // TODO: CHANGE TO 5 AFTER ALL STYING IS COMPLETE
    // insert banner at top of page
    let content = document.getElementById("content");
    content.insertBefore(bannerDiv, content.firstChild);
+   
 }
 
 }

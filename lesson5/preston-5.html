@@ -18,6 +18,7 @@
 </head>
 
 <body id="content" onload="wrapper()">
+   <!-- <div class="my-banner" style="display: none;">Something</div> -->
    <header class="header">
       <img class="logo-img" src="images/iconfinder_5-Mountains_2828156-90x76.png" alt="two mountains with snow">
       <section class="headings">
@@ -58,20 +59,20 @@
       <div class="forecast" id="contentbox2">
          <h3>5 Day Forecast</h3>
          <div class="table">
-            <div class="table-row">
-               <div class="table-head">Wed</div>
-               <div class="table-head">Thu</div>
-               <div class="table-head">Fri</div>
-               <div class="table-head">Sat</div>
-               <div class="table-head">Sun</div>
-            </div>
-            <div class="table-row">
-               <div class="table-cell"><img class="forecast-img" src="images/iconfinder_Weather_Weather_Forecast_Hot_Sun_Day_3859136.png" alt="sunny"> 71 &#8457;</div>
-               <div class="table-cell"><img class="forecast-img" src="images/iconfinder_Weather_Weather_Forecast_Hot_Sun_Day_3859136.png" alt="sunny"> 71 &#8457;</div>
-               <div class="table-cell"><img class="forecast-img" src="images/iconfinder_Weather_Weather_Forecast_Hot_Sun_Day_3859136.png" alt="sunny"> 71 &#8457;</div>
-               <div class="table-cell"><img class="forecast-img" src="images/iconfinder_Weather_Weather_Forecast_Sunny_Rain_Climate_3859146.png" alt="partly cloudy with rain"> 71 &#8457;</div>
-               <div class="table-cell"><img class="forecast-img" src="images/iconfinder_Weather_Weather_Forecast_Rain_Cloud_Climate_3859144.png" alt="cloudy with rain"> 71 &#8457;</div>
-            </div>
+            <ul class="table-row">
+               <li class="table-head">Wed</li>
+               <li class="table-head">Thu</li>
+               <li class="table-head">Fri</li>
+               <li class="table-head">Sat</li>
+               <li class="table-head">Sun</li>
+            </ul>
+            <ul class="table-row">
+               <li class="table-cell"><img class="forecast-img" src="images/iconfinder_Weather_Weather_Forecast_Hot_Sun_Day_3859136.png" alt="sunny"> 71 &#8457;</li>
+               <li class="table-cell"><img class="forecast-img" src="images/iconfinder_Weather_Weather_Forecast_Hot_Sun_Day_3859136.png" alt="sunny"> 71 &#8457;</li>
+               <li class="table-cell"><img class="forecast-img" src="images/iconfinder_Weather_Weather_Forecast_Hot_Sun_Day_3859136.png" alt="sunny"> 71 &#8457;</li>
+               <li class="table-cell"><img class="forecast-img" src="images/iconfinder_Weather_Weather_Forecast_Sunny_Rain_Climate_3859146.png" alt="partly cloudy with rain"> 71 &#8457;</li>
+               <li class="table-cell"><img class="forecast-img" src="images/iconfinder_Weather_Weather_Forecast_Rain_Cloud_Climate_3859144.png" alt="cloudy with rain"> 71 &#8457;</li>
+            </ul>
          </div>
 
       </div>
@@ -97,14 +98,21 @@
       </div>
       <div class="contentbox" id="contentbox4">
          <h3>Contact Information</h3>
-         <p>
-            Address
-            Sherman Weather
-            30 N 1st E
-            Preston, ID 83263
-            Phone: 999-999-9999
-            Email: ask@shermanpeakweather.com
-         </p>
+         <div class="contact">
+            <div class="contact-map">
+               <img src="images/map-150x150.png" alt="map of Sherman Peak Weather office location">
+            </div>
+            <div class="contact-address">
+               <p>
+                  <span>Sherman Peak Weather</span><br>
+                  <img src="images/iconfinder_Social_Media_Socialmedia_network_share_socialnetwork_network-14_227040.png" alt="map point"> 30 N 1st E<br>
+                  Preston, ID 83263<br><br>
+                  &phone; 999-999-9999<br>
+                  &#9993; <a href="mailto:ask@shermanpeakweather.com">ask@shermanpeakweather.com</a>
+               </p>
+            </div>
+         </div>
+
       </div>
    </main>
    <footer class="footer">
