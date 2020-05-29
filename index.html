@@ -9,7 +9,9 @@
       content="Assignment portal for Eric Burns in WDD 230: Web Frontend Development at Brigham Young University - Idaho">
    <title>Assignment Portal | Eric Burns</title>
    <link rel="icon" href="favicon.ico" type="image/x-icon">
-   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Oswald:wght@300;400;700&display=swap" rel="stylesheet"> 
+   <!-- <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Oswald:wght@300;400;700&display=swap"
+      rel="stylesheet"> -->
    <link rel="stylesheet" href="css/normalize.css">
    <link rel="stylesheet" href="css/small.css">
    <link rel="stylesheet" href="css/medium.css">
@@ -17,7 +19,7 @@
 
 <body>
    <div id="content">
-      <header class="header">         
+      <header class="header">
          <img src="img/img-ericburns.jpg" alt="eric burns">
          <h1>Eric Burns</h1>
       </header>
@@ -31,12 +33,17 @@
          </ul>
       </main>
       <footer class="footer">
-         <p>&copy; <span id="currentyear"></span> | Eric Burns | Washington, USA <span id="footer-pipe">| </span><br><a href="https://www.byui.edu/online"
-               target="_blank">BYU-i Online Learning</a></p>
+         <p>&copy; <span id="currentyear"></span> | Eric Burns | Washington, USA <span id="footer-pipe">| </span><br><a
+               href="https://www.byui.edu/online" target="_blank">BYU-i Online Learning</a></p>
          <p class="datetime">Last Updated: <span id="datetime"></span></p>
       </footer>
    </div>
    <script src="js/script.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js">
+   </script>
+   <script>
+      WebFont.load({google: {families: ['Lato, Oswald']}});
+   </script>
 </body>
 
 </html>
