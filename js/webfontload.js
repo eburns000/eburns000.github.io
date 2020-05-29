@@ -1,1 +1,1 @@
-WebFont.load({google: {families: ['Lato, Oswald']}});
+WebFont.load({google: {families: ['Lato:300,400,700', 'Oswald:300,400,700']}})
