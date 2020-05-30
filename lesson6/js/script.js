@@ -34,12 +34,6 @@ hambutton.addEventListener('click', () => {
  ************************************/
 let weekday = dt.getDay();
 if (weekday === 5) {
-
-   /* another method - just a personal note */
-   /* I could have used this easier method, but I wanted to
-      experiement with the create element and create text node methods */
-   /* let myBanner = document.querySelector(".my-banner");
-   myBanner.style.display = "block"; */
    
    // banner message
    let bannerMsg1 = "Saturday = Preston Pancakes in the Park!";
