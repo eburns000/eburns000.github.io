@@ -8,6 +8,9 @@ function wrapper() {
     * listener to each image
     * Use CSS to transition from a blurred placeholder to the 
     * actual image - see CSS
+    * THIS FIRST SECTION IS FOR PERSONAL NOTES ONLY
+    * FOR DEMO OF LAZY LOADING USING INTERSECTION OBSERVER
+    * PLEASE SEE NEXT SECTION
     * ****************************************************/
 
    // Create a node list of all of the image elements that have a data-src attribute
@@ -40,7 +43,7 @@ function wrapper() {
    // Create a node list of all of the image elements that have a data-src attribute
    const images = document.querySelectorAll('img[data-src]');
 
-   // function to get teh data-src attribute, apply it to the src 
+   // function to get the data-src attribute, apply it to the src 
    // attribute, and remove the data-src attribute
    // removing the data-src attribute coincides with the css transition
    // that applies when the img element changes to an element with
@@ -48,50 +51,65 @@ function wrapper() {
    // attribute, and hence from a blur of .2em to 0em - see CSS
    // this function gets called when the observer "observes" that the 
    // observed "entries" are now intersecting - see more about entries below
-   function preloadImage(img) {
-      const src = img.getAttribute("data-src");
+   function loadImage(img) {
+      const src = img.getAttribute('data-src');
+
+      // double check we have a data-src attribute
       if (!src) {
          return;
       }
 
-      img.src = src;
-      img.removeAttribute('data-src');
-   }
+      // set the src attribute equal to the data-src attribute
+      // and remove the data-src attribute onload so our css transition
+      // can do it's thing      
+      img.setAttribute('src', src);
+      img.onload = () => {img.removeAttribute('data-src');};
+   };
 
-   // optional options paramater for observer
+   // optional paramaters for observer
    // example, set a visual placeholder for each image before it loads
    // also set a value to load the images just before they come into view
+   // note the rootMargin rule defines distance off screen where intersection is
    // const imgOptions = {
    // threshold: 0,
-   // rootMargin: "0px 0px 300px 0px"
-   //   the rootMargin rule defines any images just off the screen by 300px 
-   //   to the bottom
-   // }
-   // note: what is "entries"? It is a list/array/collection that is created
-   // by calling the observe method on the imgObserver object
-   // by creating an imgObserver object, we now can "attach" any elements/nodes
-   // to, presumably, an array/list within the observer object, calling it what
-   // we want, in this case "entries", which we can then iterate through
-   // and for each "entry", which is an element we've set to observe, that is
-   // intersecting, presumably within the viewport, then we call the 
-   // preload function, which sets the src attribute
+   // rootMargin: "0px 0px 300px 0px" 
+   // };
+   // for this example, I am not using options because I want to see the
+   // transition for demonstration purposes
    const imgOptions = {};
 
-   const imgObserver = new IntersectionObserver((entries, imgObserver) => {
-      entries.forEach(entry => {
-         if (!entry.isIntersecting) {
-            return;
-         } else {
-            preloadImage(entry.target);
-            imgObserver.unobserve(entry.target);
-         }
-      })
-   }, imgOptions);
+   // note: what is "entries"?
+   // By creating an imgObserver object, we now can "attach" any elements/nodes
+   // to, presumably, an array/list within the observer object, calling it what
+   // we want, in this case "entries", which we can then iterate through
+   // For each "entry", which is an element we've set to observe, that is
+   // intersecting, presumably within the viewport, then we call the 
+   // loadImage function, which sets the src attribute
+   // But first, we only want to use the Intersection Observer if
+   // is supported; otherwise, just load all of the images
+   if ('IntersectionObserver' in window) {
+      
+      const imgObserver = new IntersectionObserver((entries, imgObserver) => {
+         entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+               return;
+            } else {
+               loadImage(entry.target);
+               imgObserver.unobserve(entry.target);
+            }
+         })
+      }, imgOptions);
 
-   // attach an observer to each img element in the node list
-   images.forEach(image => {
-      imgObserver.observe(image);
-   });
+      // attach an observer to each img element in the node list
+      images.forEach(image => {
+         imgObserver.observe(image);
+      });
+
+   } else { // if IntersectionObserver is not supported, just load the images
+      images.forEach((img) => {
+         loadImage(img);
+      });
+   }
 
    /***********************************************************
     * DATE TIME FOR FOOTER
