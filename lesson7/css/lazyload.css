@@ -29,12 +29,37 @@ h6 {
 
 .header, .footer {
    color: #FFFAFA;
-   background-color: rgb(9, 29, 66);
+   background-color: #091d42;
 }
 
 .main {
    min-height: 600px;
 }
+
+.main picture img {
+   display: block;
+   margin: 30px auto;
+}
+
+/* note that this will not apply when data-src attribute has been removed 
+ * by loadImages() function */
+.main picture img[data-src] {
+   filter: blur(0.2em);
+ }
+ 
+ /* transition says, when the specfied property changes, don't change it 
+  * until after the dela you specifiy occurs - since the img[data-src] 
+  * declaration is more specific, it will apply and not be overwrriten
+  * by the more general img declaration here - when the data-src declaration
+  * no longer applies, because we remove the attribute using JavaScript, the 
+  * more general one applies, but the transition property allows that change
+  * to be delayed for the time specified.
+  * Last thing to keep in mind - in JavaScript, we are immediately changing 
+  * the image src upon image load, but the blur is what we are transitioning */
+.main picture img {
+   filter: blur(0em);
+   transition: filter 3.0s;
+ }
 
 .main,
 .footer {
@@ -77,5 +102,5 @@ h6 {
 }
 
 .datetime {
-   color: rgb(245, 245, 94);
+   color: #f5f55e;
 }
