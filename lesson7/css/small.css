@@ -315,6 +315,31 @@ h6 {
    margin-left: .6rem;
 }
 
+/* gallery section */
+
+.gallery-grid {
+   display:grid;
+   grid-template-columns: 1fr;
+   justify-items: center;
+   gap: 20px;
+}
+
+.gallery-grid > figure {
+   margin: .25rem;
+   max-width: 280px;
+   background-color: #eee;
+   border: 1px solid #bbb;
+   box-shadow: 0 0 30px #777;   
+}
+
+.gallery-grid img {
+   width: 100%;
+}
+
+.gallery-grid > figure > figcaption {
+   padding: 5px 10px;
+}
+
 /* footer */
 
 .footer {
