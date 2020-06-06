@@ -57,6 +57,8 @@ function wrapper() {
 
    }
 
+}
+   
    /******************************************************
     * LAZY LOAD IMAGES
     ******************************************************/
@@ -81,9 +83,14 @@ function wrapper() {
    };
 
    // optional paramaters for observer
-   const imgOptions = {};
+   const imgOptions = {
+      threshold: 0,
+      rootMargin: "0px 0px 50px 0px"
+   };
 
    if ('IntersectionObserver' in window) {
+
+      console.log("instersection yes");
 
       const imgObserver = new IntersectionObserver((entries, imgObserver) => {
          entries.forEach((entry) => {
@@ -92,6 +99,7 @@ function wrapper() {
             } else {
                loadImage(entry.target);
                imgObserver.unobserve(entry.target);
+               console.log("load image");
             }
          })
       }, imgOptions);
@@ -100,12 +108,9 @@ function wrapper() {
       images.forEach(image => {
          imgObserver.observe(image);
       });
-
-   } else { // if IntersectionObserver is not supported, just load the images
-      images.forEach((img) => {
-         loadImage(img);
-      });
    }
-
-
-}
+   // else { // if IntersectionObserver is not supported, just load the images
+   //    images.forEach((img) => {
+   //       loadImage(img);
+   //    });
+   // }

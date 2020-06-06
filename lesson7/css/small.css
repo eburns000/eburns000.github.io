@@ -335,10 +335,15 @@ h6 {
    padding: 5px 10px;
 }
 
+.gallery-img[data-src] {
+   filter: blur(0.5em);
+}
+
 .gallery-img {
    width: 100%;
    box-shadow: none;
-   transition: box-shadow .5s;
+   filter: blur(0em);
+   transition: box-shadow .5s, filter 4s;
 }
 
 .gallery-img:hover {
