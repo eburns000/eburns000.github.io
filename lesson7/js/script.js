@@ -57,8 +57,6 @@ function wrapper() {
 
    }
 
-}
-   
    /******************************************************
     * LAZY LOAD IMAGES
     ******************************************************/
@@ -78,16 +76,17 @@ function wrapper() {
       // and remove the data-src attribute  
       img.setAttribute('src', src);
       img.onload = () => {
-      img.removeAttribute('data-src');
+         img.removeAttribute('data-src');
       };
    };
 
    // optional paramaters for observer
    const imgOptions = {
       threshold: 0,
-      rootMargin: "0px 0px 50px 0px"
+      rootMargin: "0px 0px -200px 0px"
    };
 
+   // if browser supports observer, then load images per options
    if ('IntersectionObserver' in window) {
 
       console.log("instersection yes");
@@ -108,9 +107,11 @@ function wrapper() {
       images.forEach(image => {
          imgObserver.observe(image);
       });
+      
+   } else { // if IntersectionObserver is not supported, just load the images
+      images.forEach((img) => {
+         loadImage(img);
+      });
    }
-   // else { // if IntersectionObserver is not supported, just load the images
-   //    images.forEach((img) => {
-   //       loadImage(img);
-   //    });
-   // }
+
+}
