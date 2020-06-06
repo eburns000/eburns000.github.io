@@ -324,20 +324,26 @@ h6 {
    gap: 20px;
 }
 
-.gallery-grid > figure {
+.gallery-fig {
    margin: .25rem;
    max-width: 280px;
    background-color: #eee;
-   border: 1px solid #bbb;
-   box-shadow: 0 0 30px #777;   
+   border: 1px solid #bbb;   
 }
 
-.gallery-grid img {
-   width: 100%;
-}
-
-.gallery-grid > figure > figcaption {
+.gallery-fig figcaption {
    padding: 5px 10px;
+}
+
+.gallery-img {
+   width: 100%;
+   box-shadow: none;
+   transition: box-shadow .5s;
+}
+
+.gallery-img:hover {
+   box-shadow: 2px 2px 20px 0px rgba(0,0,0,0.75);
+   transition: box-shadow .5s;
 }
 
 /* footer */

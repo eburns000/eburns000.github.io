@@ -29,7 +29,21 @@
    /* Gallery Page CSS */
    .gallery-grid {
       grid-template-columns: 1fr 1fr 1fr;
-      /* gap: 20px; */
+   }
+
+   .gallery-img:hover {
+      box-shadow: none;
    }
   
+   .gallery-fig {
+      border: none;
+      box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.25);
+      transition: box-shadow 1s;
+   }
+   
+   .gallery-fig:hover {
+      box-shadow: 8px 8px 50px -5px rgba(0,0,0,0.75);
+      transition: box-shadow 1s;
+   }
+
 }
