@@ -31,18 +31,13 @@
       grid-template-columns: 1fr 1fr 1fr;
    }
 
-   .gallery-img:hover {
-      box-shadow: none;
-   }
-  
    .gallery-fig {
-      border: none;
-      box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.25);
+      box-shadow: none;
       transition: box-shadow 1s;
    }
-   
+
    .gallery-fig:hover {
-      box-shadow: 8px 8px 50px -5px rgba(0,0,0,0.75);
+      box-shadow: 8px 8px 50px -5px rgba(0, 0, 0, 0.75);
       transition: box-shadow 1s;
    }
 

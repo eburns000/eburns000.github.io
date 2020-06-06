@@ -59,7 +59,7 @@
       margin: 12px 10px 10px 30px;
    }
 
-   .article + div  {
+   .article+div {
       clear: both;
    }
 
