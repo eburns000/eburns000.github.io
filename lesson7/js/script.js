@@ -89,8 +89,6 @@ function wrapper() {
    // if browser supports observer, then load images per options
    if ('IntersectionObserver' in window) {
 
-      console.log("instersection yes");
-
       const imgObserver = new IntersectionObserver((entries, imgObserver) => {
          entries.forEach((entry) => {
             if (!entry.isIntersecting) {
@@ -98,7 +96,6 @@ function wrapper() {
             } else {
                loadImage(entry.target);
                imgObserver.unobserve(entry.target);
-               console.log("load image");
             }
          })
       }, imgOptions);
@@ -107,7 +104,7 @@ function wrapper() {
       images.forEach(image => {
          imgObserver.observe(image);
       });
-      
+
    } else { // if IntersectionObserver is not supported, just load the images
       images.forEach((img) => {
          loadImage(img);

@@ -336,14 +336,14 @@ h6 {
 }
 
 .gallery-img[data-src] {
-   filter: blur(0.5em);
+   filter: blur(0.2em);
 }
 
 .gallery-img {
    width: 100%;
    box-shadow: none;
    filter: blur(0em);
-   transition: box-shadow .5s, filter 4s;
+   transition: box-shadow .5s, filter 1s;
 }
 
 .gallery-img:hover {
