@@ -1,1 +1,1 @@
-WebFont.load({google: {families: ['Anton', 'Signika:300']}});
+WebFont.load({google: {families: ['Lato', 'Raleway', 'Ubuntu']}});

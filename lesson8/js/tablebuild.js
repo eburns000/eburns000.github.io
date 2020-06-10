@@ -1,4 +1,4 @@
-function wrapper {
+function wrapper() {
 
    /***********************************************************
     * DATE TIME FOR FOOTER

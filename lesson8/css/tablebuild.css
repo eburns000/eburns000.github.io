@@ -27,7 +27,8 @@ h6 {
    box-shadow: 0 4px 4px gray;
 }
 
-.header, .footer {
+.header,
+.footer {
    color: #FFFAFA;
    background-color: #091d42;
 }
@@ -44,13 +45,15 @@ table {
    font-family: 'Ubuntu', sans-serif;
    color: black;
    text-align: center;
-   box-shadow: 10px 10px 12px 0px rgba(98,140,166,0.9);
+   box-shadow: 10px 10px 10px 0px #628ca6;
 }
 
-table, td, th {
+table,
+td,
+th {
    border: 2px solid #b6bbbc;
    border-collapse: collapse;
-   padding: 5px;   
+   padding: 5px;
 }
 
 thead tr {
@@ -63,7 +66,8 @@ th[colspan] {
    font-size: 30px;
 }
 
-th[colspan], tfoot {
+th[colspan],
+tfoot {
    background-color: #7fb9c2;
 }
 
