@@ -6,40 +6,72 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <meta name="description"
-      content="Lazy load activity, an simple site by Eric Burns, an assignment for WDD 230: Web Frontend Development at Brigham Young University - Idaho">
-   <title>Lazy Load Activity | Eric Burns</title>
-   <link href="https://fonts.googleapis.com/css2?family=Lato&family=Raleway&display=swap" rel="stylesheet">
+      content="Table build activity, an simple site by Eric Burns, an assignment for WDD 230: Web Frontend Development at Brigham Young University - Idaho">
+   <title>Table Build Activity | Eric Burns</title>
+   <link href="https://fonts.googleapis.com/css2?family=Lato&family=Raleway&family=Ubuntu&display=swap"
+      rel="stylesheet">
    <link rel="stylesheet" href="css/normalize.css">
-   <link rel="stylesheet" href="css/lazyload.css">
-   <script src="js/lazyload.js" defer></script>
+   <link rel="stylesheet" href="css/tablebuild.css">
+   <script src="js/tablebuild.js" defer></script>
 </head>
 
 <body onload="wrapper()">
    <header class="header">
-      <h1>Lazy Load Activity | by Eric Burns</h1>
+      <h1>Table Build Activity | by Eric Burns</h1>
    </header>
    <main class="main">
-      <picture>
-         <img src="https://via.placeholder.com/300x400/8F6200/FFFAFA/?text=Building" data-src="https://placeimg.com/300/400/arch"  alt="building">
-      </picture>
-      <picture>
-         <img src="https://via.placeholder.com/300x400/8F6200/FFFAFA/?text=Animal" data-src="https://placeimg.com/300/400/animals" alt="animal">
-      </picture>
-      <picture>
-         <img src="https://via.placeholder.com/300x400/8F6200/FFFAFA/?text=Landscape" data-src="https://placeimg.com/300/400/nature" alt="landscape">
-      </picture>
-      <picture>
-         <img src="https://via.placeholder.com/300x400/8F6200/FFFAFA/?text=Person" data-src="https://placeimg.com/300/400/people" alt="person">
-      </picture>
-      <picture>
-         <img src="https://via.placeholder.com/300x400/8F6200/FFFAFA/?text=Technology" data-src="https://placeimg.com/300/400/tech" alt="piece of technology">
-      </picture>
-      <picture>
-         <img src="https://via.placeholder.com/300x400/8F6200/FFFAFA/?text=Building2" data-src="https://placeimg.com/300/400/arch" alt="another building">
-      </picture>      
+      <table>
+         <thead>
+            <tr>
+               <th colspan="3">ACME Wildwest</th>
+            </tr>
+            <tr>
+               <th class="special-cell">Period</th>
+               <th class="special-cell">Sales</th>
+               <th class="special-cell">Sales Goal</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td>August</td>
+               <td>$3,590</td>
+               <td>$4,000</td>
+            </tr>
+            <tr>
+               <td>September</td>
+               <td>$4,420</td>
+               <td>$5,000</td>
+            </tr>
+            <tr>
+               <td>October</td>
+               <td>$4,870</td>
+               <td>$5,000</td>
+            </tr>
+            <tr>
+               <td>November</td>
+               <td>$8,610</td>
+               <td class="special-cell">$7,500</td>
+            </tr>
+            <tr>
+               <td><span>Black Friday</span></td>
+               <td colspan="2">$3,200</td>
+            </tr>
+            <tr>
+               <td>December</td>
+               <td>$6,820</td>
+               <td>$7,500</td>
+            </tr>
+         </tbody>
+         <tfoot>
+            <tr>
+               <td colspan="3">Compiled 12.20.2020 by bRauls</td>
+            </tr>
+         </tfoot>
+      </table>
    </main>
    <footer class="footer">
-      <p>&copy; <span id="currentyear"></span> Lazy Load Activity | <a href="#">Attributions</a><span id="footer-pipe">
+      <p>&copy; <span id="currentyear"></span> Table Build Activity | <a href="#">Attributions</a><span
+            id="footer-pipe">
             | </span><br>Eric Burns</p>
       <p class="datetime"><span id="datetime"></span></p>
    </footer>
