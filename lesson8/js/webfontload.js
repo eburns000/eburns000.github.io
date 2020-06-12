@@ -1,1 +1,1 @@
-WebFont.load({google: {families: ['Lato', 'Raleway', 'Ubuntu']}});
+WebFont.load({google: {families: ['Lato', 'Raleway']}});
