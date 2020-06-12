@@ -37,68 +37,21 @@ h6 {
    min-height: 600px;
 }
 
-/* Table Styles */
-
-table {
-   margin: 50px auto;
-   width: 300px;
-   font-family: 'Ubuntu', sans-serif;
-   color: black;
-   text-align: center;
-   box-shadow: 10px 10px 10px 0px #628ca6;
-}
-
-table,
-td,
-th {
-   border: 2px solid #b6bbbc;
-   border-collapse: collapse;
-   padding: 5px;
-}
-
-thead tr {
-   height: 40px;
-   font-size: 20px;
-}
-
-th[colspan] {
-   padding: 8px;
-   font-size: 30px;
-}
-
-th[colspan],
-tfoot {
-   background-color: #7fb9c2;
-}
-
-tbody tr {
-   height: 35px;
-   background-color: #e7f0ed;
-}
-
-tbody span {
-   font-style: italic;
-}
-
-tbody tr:nth-child(even) {
-   background-color: #e7ffed;
-}
-
-.special-cell {
-   background-color: #628ca6;
-   color: white;
-}
-
-tfoot tr {
-   font-size: 13px;
-   height: 30px;
-}
-
 .main,
 .footer {
    max-width: 60rem;
    margin: 0 auto;
 }
+
+/* Form Activity Styles */
+
+
+
+
+
+
+
+
 
 /* footer */
 
