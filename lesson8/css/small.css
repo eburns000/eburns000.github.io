@@ -351,14 +351,14 @@ h6 {
 /* form */
 
 form fieldset {
-   margin: 2rem 0;
-   border: 1px solid #445ba9;
+   margin: 0 0 2rem 0;
+   border: 2px solid #355eab;
    border-radius: 10px;
-   padding: .5rem 2%;
+   padding: .5rem 2% 1.5rem 2%;
 }
 
-for legend {
-   color: #445ba9;
+form legend {
+   color: #355eab;
    margin: 0 1rem;
    padding: 0 .5rem;
 }
@@ -366,8 +366,8 @@ for legend {
 form label.top,
 form div {
    display: block;
-   padding-top: 1rem;
-   color: #9c2c13;
+   padding-top: 1rem;   
+   color: #795548;
    font-size: .8rem;
 }
 
@@ -384,6 +384,8 @@ form label.top textarea {
    width: 100%;
    max-width: 20rem;
    background-color: rgba(0, 0, 0, 0.1);
+   line-height: 1.25rem;
+   margin-top: 0.1rem;
 }
 
 form label.sbs {
@@ -392,15 +394,37 @@ form label.sbs {
    color: #555;
 }
 
+#storm-severity {
+   display: flex;
+}
+
+#rating {
+   flex: 0 0 200px;
+}
+
+#rating-value {
+   padding: 0 1.2rem;
+   font-size: 1.2rem;
+   color: #AB5546;
+   font-weight: 700;
+}
+
 form input.submitBtn {
    border: none;
-   background-color: #9c2c13;
-   color: white;
-   border-radius: 1rem;
+   background-color: #795548;
+   color: #FFFAFA;
+   border-radius: 4px;
    padding: .75rem 1.5rem;
    margin: 0 0 2rem 2%;
    width: 96%;
    max-width: 20rem;
+   font-size: 1.2rem;
+   font-weight: 700;
+   line-height: 1.25rem;
+}
+
+form input.submitBtn:hover {
+   background-color: #AB5546;
 }
 
 form label.top input:required {
