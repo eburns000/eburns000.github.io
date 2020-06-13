@@ -34,57 +34,80 @@
          <li><a href="#">Preston</a></li>
          <li><a href="#">Soda Springs</a></li>
          <li><a href="#">Fish Haven</a></li>
-         <li><a href="#">Storm Center</a></li>
-         <li><a href="#" class="active">Gallery</a></li>
+         <li><a href="#" class="active">Storm Center</a></li>
+         <li><a href="#">Gallery</a></li>
       </ul>
    </nav>
    <main class="main">
       <h2>Storm Center</h2>
-      <div class="main-content gallery-grid">
-         <figure class="gallery-fig">
-            <img class="gallery-img" src="images/placeholder-img.jpg" data-src="images/drops-of-rain-280x210.jpg"
-               alt="drops of rain">
-            <figcaption>Rainy Day</figcaption>
-         </figure>
-         <figure class="gallery-fig">
-            <img class="gallery-img" src="images/placeholder-img.jpg"
-               data-src="images/hazy-day-mountain-walk-280-210.jpg" alt="hazy day mountain">
-            <figcaption>Hazy Days of Sunshine</figcaption>
-         </figure>
-         <figure class="gallery-fig">
-            <img class="gallery-img" src="images/placeholder-img.jpg"
-               data-src="images/snow-storm-walk-to-work-280-210.jpg" alt="snow storm">
-            <figcaption>Snowy Storm in the City</figcaption>
-         </figure>
-         <figure class="gallery-fig">
-            <img class="gallery-img" src="images/placeholder-img.jpg" data-src="images/stars-in-twilight-280-210.jpg"
-               alt="starry night sky">
-            <figcaption>Starry Gaze on a Clear Night</figcaption>
-         </figure>
-         <figure class="gallery-fig">
-            <img class="gallery-img" src="images/placeholder-img.jpg" data-src="images/foggy-commute-280-210.jpg"
-               alt="foggy commute on highway">
-            <figcaption>Foggy Commute on the Parkway</figcaption>
-         </figure>
-         <figure class="gallery-fig">
-            <img class="gallery-img" src="images/placeholder-img.jpg" data-src="images/tornado.jpg" alt="tornado on the horizon">
-            <figcaption>Tornado in Tulsa</figcaption>
-         </figure>
-         <figure class="gallery-fig">
-            <img class="gallery-img" src="images/placeholder-img.jpg" data-src="images/partly-cloudy-280-210.jpg"
-               alt="partly cloudy sky">
-            <figcaption>Partly Sunny Morning Rays</figcaption>
-         </figure>
-         <figure class="gallery-fig">
-            <img class="gallery-img" src="images/placeholder-img.jpg" data-src="images/lightning-storm-280-210.jpg"
-               alt="lightning storm">
-            <figcaption>Electric Skys in the Night</figcaption>
-         </figure>
-         <figure class="gallery-fig">
-            <img class="gallery-img" src="images/placeholder-img.jpg" data-src="images/hurricane-from-space-280-210.jpg"
-               alt="hurricane from space">
-            <figcaption>Hurricanes Above the Atmosphere</figcaption>
-         </figure>
+      <div class="main-content">
+         <form method="get" action="thanks.html">
+            <fieldset>
+               <legend>Personal Information</legend>
+               <label class="top">Full Name*<input type="text" name="name" autofocus required
+                     pattern="^([a-zA-Z]+\s*-*){5,}$"></label>
+               <label class="top">Email<input type="email" name="email" placeholder="name@gmail.com"
+                     pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"></label>
+               <label class="top">Phone*<input type="tel" name="phone" placeholder="###-###-#### or (###) ###-####"
+                     required pattern="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$"></label>
+               <label class="top">Zip Code*<input type="number" name="zip" placeholder="##### or #####-####" required
+                     pattern="^\d{5}$|^\d{5}-\d{4}$"></label>
+            </fieldset>
+            <fieldset>
+               <legend>Storm Details</legend>
+               <label class="top">Storm Date <input type="date" name="stormDate"></label>
+               <label class="top">Storm Type <input list="storm-type" id="storm-type-choice"
+                     name="stormTypeChoice"></label>
+               <datalist id="storm-type">
+                  <option value="Flash Flood">
+                  <option value="Hail">
+                  <option value="Hurricane">
+                  <option value="Thunderstorm">
+                  <option value="Tornado">
+               </datalist>
+
+               <div>Storm Severity</div>
+               <label class="sbs">
+                  <input type="range" id="rating" name="rating" value="1" min="1" max="10" step="1" list="tickmarks">
+                  <span id="rating-value">1</span>
+               </label>
+               <datalist id="tickmarks">
+                  <option value="1"></option>
+                  <option value="2"></option>
+                  <option value="3"></option>
+                  <option value="4"></option>
+                  <option value="5"></option>
+                  <option value="6"></option>
+                  <option value="7"></option>
+                  <option value="8"></option>
+                  <option value="9"></option>
+                  <option value="10"></option>
+               </datalist>
+
+               <label class="top">Storm Region
+                  <select name="stormRegion">
+                     <option value="" selected disabled>Select Region ... &#9662;</option>
+                     <option value="preston">Preston</option>
+                     <option value="sodaSprings">Soda Springs</option>
+                     <option value="fishHaven">Fish Haven</option>
+                  </select>
+               </label>
+
+               <div>User-in-danger Level</div>
+               <label class="sbs"><input type="radio" name="dangerLevel" value="yes"> Yes</label>
+               <label class="sbs"><input type="radio" name="dangerLevel" value="no"> No</label>
+               <label class="sbs"><input type="radio" name="dangerLevel" value="maybe"> Maybe</label>
+            </fieldset>
+
+            <fieldset>
+               <legend>Additional Information or Comments</legend>
+               <label class="top"><textarea id="comments" name="comments" rows="10" cols="36"
+                     placeholder="Enter comments here..."></textarea></label>
+            </fieldset>
+
+            <input class="submitBtn" type="submit" value="Report Storm">
+         </form>
+
       </div>
    </main>
    <footer class="footer">

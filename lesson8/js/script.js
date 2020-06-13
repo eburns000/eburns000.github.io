@@ -111,4 +111,19 @@ function wrapper() {
       });
    }
 
+   /****************************************
+    * FORM FUNCTIONS
+    ***************************************/
+   function adjustRating(rating) {
+      document.getElementById("rating-value").innerHTML = rating;
+   }
+
+   const rating = document.getElementById("rating");
+   rating.addEventListener('input', (event) => {
+      adjustRating(event.target.value);
+   });
+   rating.addEventListener('change', (event) => {
+      adjustRating(event.target.value);
+   });
+
 }

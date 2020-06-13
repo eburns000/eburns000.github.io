@@ -41,4 +41,9 @@
       transition: box-shadow 1s;
    }
 
+   /* form */
+   form label.sbs {
+      padding: .4rem 0;
+   }
+
 }
