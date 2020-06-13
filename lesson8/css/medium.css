@@ -88,4 +88,9 @@
       grid-template-columns: 1fr 1fr;
    }
 
+   /* Form */
+   form label.top textarea {
+      max-width: none;
+   }
+
 }
