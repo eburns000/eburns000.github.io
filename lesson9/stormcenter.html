@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <meta name="description"
+      content="Storm Center Input Form for Sherman Peak Weather, a site by Eric Burns, a project for WDD 230: Web Frontend Development at Brigham Young University - Idaho">
+   <title>Sherman Peak Weather | Storm Center</title>
+   <link rel="icon" href="favicon.ico" type="image/x-icon">
+   <link rel="stylesheet" href="css/normalize.css">
+   <link rel="stylesheet" href="css/small.css">
+   <link rel="stylesheet" href="css/medium.css">
+   <link rel="stylesheet" href="css/large.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" defer>
+   </script>
+   <script src="js/webfontload.js" defer></script>
+   <script src="js/script.js" defer></script>
+</head>
+
+<body id="content" onload="wrapper()">
+   <header class="header">
+      <img class="logo-img" src="images/iconfinder_5-Mountains_2828156-90x76.png" alt="two mountains with snow">
+      <section class="headings">
+         <h1>Sherman Peak Weather<br> and Trail</h1>
+         <div>Your Weather Source for the Ridge</div>
+      </section>
+   </header>
+   <nav class="main-nav">
+      <ul>
+         <li><a href="#" class="ham">&#9776; Menu</a></li>
+         <li><a href="#">Home</a></li>
+         <li><a href="#">Preston</a></li>
+         <li><a href="#">Soda Springs</a></li>
+         <li><a href="#">Fish Haven</a></li>
+         <li><a href="#" class="active">Storm Center</a></li>
+         <li><a href="#">Gallery</a></li>
+      </ul>
+   </nav>
+   <main class="main">
+      <h2>Storm Center: Report a Storm</h2>
+      <div class="main-content">
+         <form method="get" action="thanks.html">
+            <fieldset>
+               <legend>Personal Information</legend>
+               <label class="top">Full Name*<input type="text" name="name" autofocus required
+                     pattern="^([a-zA-Z]+\s*-*){5,}$"></label>
+               <label class="top">Email<input type="email" name="email" placeholder="name@gmail.com"
+                     pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"></label>
+               <label class="top">Phone*<input type="tel" name="phone" placeholder="###-###-#### or (###) ###-####"
+                     required pattern="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$"></label>
+               <label class="top">Zip Code*<input type="number" name="zip" placeholder="#####" required></label>
+            </fieldset>
+            <fieldset>
+               <legend>Storm Details</legend>
+               <label class="top">Storm Date <input type="date" name="stormDate"></label>
+               <label class="top">Storm Type <input list="storm-type" id="storm-type-choice"
+                     name="stormTypeChoice"></label>
+               <datalist id="storm-type">
+                  <option value="Flash Flood">
+                  <option value="Hail">
+                  <option value="Hurricane">
+                  <option value="Thunderstorm">
+                  <option value="Tornado">
+               </datalist>
+
+               <div>Storm Severity (1=low; 10=high)</div>
+               <label class="sbs" id="storm-severity">
+                  <input type="range" id="rating" name="rating" value="1" min="1" max="10" step="1" list="tickmarks">
+                  <span id="rating-value">1</span>
+               </label>
+               <datalist id="tickmarks">
+                  <option value="1"></option>
+                  <option value="2"></option>
+                  <option value="3"></option>
+                  <option value="4"></option>
+                  <option value="5"></option>
+                  <option value="6"></option>
+                  <option value="7"></option>
+                  <option value="8"></option>
+                  <option value="9"></option>
+                  <option value="10"></option>
+               </datalist>
+
+               <label class="top">Storm Region
+                  <select name="stormRegion">
+                     <option value="" selected disabled>Select Region ... &#9662;</option>
+                     <option value="preston">Preston</option>
+                     <option value="sodaSprings">Soda Springs</option>
+                     <option value="fishHaven">Fish Haven</option>
+                  </select>
+               </label>
+
+               <div>User-in-danger Level</div>
+               <label class="sbs"><input type="radio" name="dangerLevel" value="yes"> Yes</label>
+               <label class="sbs"><input type="radio" name="dangerLevel" value="no"> No</label>
+               <label class="sbs"><input type="radio" name="dangerLevel" value="maybe"> Maybe</label>
+            </fieldset>
+
+            <fieldset>
+               <legend>Additional Information</legend>
+               <label class="top">Comments<textarea id="comments" name="comments" rows="10" cols="36"
+                     placeholder="Enter comments here..."></textarea></label>
+            </fieldset>
+
+            <input class="submitBtn" type="submit" value="Report Storm">
+         </form>
+
+      </div>
+   </main>
+   <footer class="footer">
+      <p>&copy; <span id="currentyear"></span> Sherman Peak Weather | <a href="#">Attributions</a><span
+            id="footer-pipe"> | </span><br>Eric Burns</p>
+      <p class="datetime"><span id="datetime"></span></p>
+   </footer>
+</body>
+
+</html>
