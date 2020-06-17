@@ -35,7 +35,7 @@ function wrapper() {
          // create the external image reference and append it to the element
          let image = document.createElement('img');
          image.setAttribute('src', prophets[i].imageurl);
-         image.setAttribute('alt', h2 + " - " + prophets[i].order);
+         image.setAttribute('alt', h2.textContent + " - " + prophets[i].order);
          card.appendChild(image);
 
          // add card to page
