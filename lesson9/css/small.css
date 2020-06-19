@@ -447,6 +447,48 @@ form label.top input[type=number] {
   -moz-appearance: textfield;
 }
 
+/* town card styling */
+.cards {
+   display: grid;
+   grid-template-columns: 1fr;   
+   justify-items: center;
+   gap: 20px;
+}
+
+.cards section {
+   text-align: center;   
+   max-width: 320px;
+   border: 1px solid #bbb;
+   background-color: #eee;   
+   padding: 30px;
+   display: flex;
+   flex-direction: column;
+}
+
+.town-data h3 {
+   font-size: 1.35rem;
+   margin: .25rem 0;
+}
+
+.town-data {
+   font-size: 1.0rem;
+   margin: 1.0rem .25rem;
+}
+
+.town-data p {
+   margin: 0;
+}
+
+.town-data div {
+   font-style: italic;
+   margin-bottom: 1rem;
+}
+
+.town-img img {   
+   width: 100%;
+   box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.75);
+}
+
 /* footer */
 
 .footer {

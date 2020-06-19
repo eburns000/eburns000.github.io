@@ -93,4 +93,24 @@
       max-width: none;
    }
 
+   /* Town Card Styling */
+   .cards section {
+      flex-direction: row;
+      max-width: 650px;
+      width: 96%;
+   }
+
+   .cards section:nth-child(even) {      
+      flex-direction: row-reverse;
+   }
+
+   .town-img {
+      flex: 0 0 200px;
+   }
+
+   .town-data {
+      flex: 1 1 auto;
+      margin: 0;
+   }
+
 }

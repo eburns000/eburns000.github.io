@@ -46,4 +46,18 @@
       padding: .4rem 0;
    }
 
+   /* Town Card Styling */
+   .cards {
+      grid-template-columns: 1fr 1fr 1fr;
+   }
+
+   .cards section:nth-child(even),
+   .cards section:nth-child(odd) {      
+      flex-direction: column;
+   }
+
+   .town-data {
+      margin: 1.0rem .25rem;
+   }
+
 }
