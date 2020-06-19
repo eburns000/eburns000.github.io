@@ -112,18 +112,81 @@ function wrapper() {
    }
 
    /****************************************
-    * FORM FUNCTIONS
+    * FORM FUNCTIONS - PUT IN SEPARATE SCRIPT TO RUN ONLY ON STORMCENTER PAGE - EB TODO
     ***************************************/
-   function adjustRating(rating) {
-      document.getElementById("rating-value").innerHTML = rating;
-   }
+   // function adjustRating(rating) {
+   //    document.getElementById("rating-value").innerHTML = rating;
+   // }
 
-   const rating = document.getElementById("rating");
-   rating.addEventListener('input', (event) => {
-      adjustRating(event.target.value);
-   });
-   rating.addEventListener('change', (event) => {
-      adjustRating(event.target.value);
-   });
+   // const rating = document.getElementById("rating");
+   // rating.addEventListener('input', (event) => {
+   //    adjustRating(event.target.value);
+   // });
+   // rating.addEventListener('change', (event) => {
+   //    adjustRating(event.target.value);
+   // });
+
+   /****************************************
+    * LOAD TOWN INFO INTO CARDS
+    ****************************************/
+   const requestURL = 'https://byui-cit230.github.io/weather/data/towndata.json';
+
+   fetch(requestURL)
+      .then(function (response) {
+         return response.json();
+      })
+      .then(function (jsonObject) {
+         console.table(jsonObject);
+         const towndata = jsonObject['towns'];
+         console.log(towndata);
+
+         towndata.forEach (town => {
+
+            const nameCheck = town.name;
+
+            if (nameCheck === "Preston" || nameCheck === "Soda Springs" || nameCheck === "Fish Haven") {
+
+               // create card element
+               let card = document.createElement('section');
+
+               // create the heading and append it to the card
+               let name = document.createElement('h3');
+               name.textContent = town.name;
+               card.appendChild(name);
+
+               // create the motto div and append it to the element
+               let motto = document.createElement('div');
+               motto.textContent = town.motto;
+               card.appendChild(motto);
+
+               // create the year founded para and append it to the element
+               let yearFounded = document.createElement('p');
+               yearFounded.textContent = "Year Founded: " + town.yearFounded;
+               card.appendChild(yearFounded);
+
+               // create the population para and append it to the element
+               let population = document.createElement('p');
+               population.textContent = "Population: " + town.currentPopulation;
+               card.appendChild(population);
+
+               // create the average rainfall para and append it to the element
+               let averageRainfall = document.createElement('p');
+               averageRainfall.textContent = "Annual Rainfall: " + town.averageRainfall;
+               card.appendChild(averageRainfall);
+
+               // create the external image reference and append it to the element
+               let image = document.createElement('img');
+               image.setAttribute('src', "images/" + town.photo);
+               image.setAttribute('alt', town.name);
+               card.appendChild(image);
+
+               // add card to page - consider doing this before the loop so ou are only accessing the DOM once
+               document.querySelector('div.cards').appendChild(card);
+
+            }
+
+         });
+
+      });
 
 }

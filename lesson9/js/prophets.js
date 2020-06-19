@@ -55,17 +55,4 @@ function wrapper() {
    // "then" is just a method, and the parameter is a response and an object that is returned
    // by the anonymous functions
 
-   
-
-   
-
-
-
-
-
-
-
-
-
-
 }
