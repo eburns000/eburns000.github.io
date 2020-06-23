@@ -6,31 +6,27 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <meta name="description"
-      content="Form activity, an simple site by Eric Burns, an assignment for WDD 230: Web Frontend Development at Brigham Young University - Idaho">
-   <title>Form Activity | Eric Burns</title>
+      content="API test activity, an simple site by Eric Burns, an assignment for WDD 230: Web Frontend Development at Brigham Young University - Idaho">
+   <title>API Test Activity | Eric Burns</title>
    <link rel="stylesheet" href="css/normalize.css">
-   <link rel="stylesheet" href="css/formactivity.css">
+   <link rel="stylesheet" href="css/tablebuild.css">
    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" defer>
    </script>
-   <script src="js/webfontload.js" defer></script>
-   <script src="js/tablebuild.js" defer></script>
+   <script src="js/webfontloadtable.js" defer></script>
+   <script src="js/weatherapi.js" defer></script>
 </head>
 
 <body onload="wrapper()">
    <header class="header">
-      <h1>Form Activity | by Eric Burns</h1>
+      <h1>OpenWeatherMap.org API Test | by Eric Burns</h1>
    </header>
    <main class="main">
-      
-
-
-
+      <p>The current temperature in Preston, Idaho is <span id="current-temp"></span> &#8457;</p>
+      <hr>
+      <p>Image Icon Path: <span id="imagesrc"></span> &nbsp; <img src="" alt="" id="icon"></p>
    </main>
    <footer class="footer">
-      <p>&copy; <span id="currentyear"></span> Table Build Activity | <a href="#">Attributions</a><span
-            id="footer-pipe">
-            | </span><br>Eric Burns</p>
-      <p class="datetime"><span id="datetime"></span></p>
+      <p>Eric Burns | BYU-Idaho | WDD 230</p>
    </footer>
 </body>
 
