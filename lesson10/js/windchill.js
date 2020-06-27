@@ -1,6 +1,7 @@
 /****************************************
  * COMPUTE AND RETURN WIND CHILL
  ****************************************/
+function calcWindChill() {
 
 // get high temp and wind speed
 let t = parseFloat(document.getElementById("summary-high").textContent);
@@ -16,3 +17,6 @@ if ( t <= 50 && s > 3 ) {
 
 // set wind chill value in weather summary
 document.getElementById("summary-windchill").textContent = windChill;
+
+}
+
