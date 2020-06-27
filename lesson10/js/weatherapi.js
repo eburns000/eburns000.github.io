@@ -44,7 +44,7 @@ function updateWeatherSummary() {
          for (let i = 0; i < fiveDayForecast.length; i++) {
             forecastTemp[i].textContent = fiveDayForecast[i].main.temp.toFixed(1);
             forecastDay[i].textContent = getWeekDay(new Date(fiveDayForecast[i].dt_txt));
-            forecastImg[i].setAttribute('src', "https://openweathermap.org/img/wn/" + fiveDayForecast[i].weather[0].icon + "@2x.png");
+            forecastImg[i].setAttribute('src', "https://openweathermap.org/img/w/" + fiveDayForecast[i].weather[0].icon + ".png");
             forecastImg[i].setAttribute('alt', fiveDayForecast[i].weather[0].description);
          }
 
