@@ -10,9 +10,8 @@ function loadTownData() {
          return response.json();
       })
       .then(function (jsonObject) {
-         console.table(jsonObject);
+
          const towndata = jsonObject['towns'];
-         console.log(towndata);
 
          towndata.forEach(town => {
 

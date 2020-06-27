@@ -16,10 +16,12 @@
    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" defer>
    </script>
    <script src="js/webfontload.js" defer></script>
-   <script src="js/footerDateTime.js" defer></script>
-   <script src="js/windchill.js" defer></script>
-   <script src="js/bannerMsg.js" defer></script>
    <script src="js/toggleHamburger.js" defer></script>
+   <script src="js/footerDateTime.js" defer></script>
+   <script src="js/utility.js" defer></script>   
+   <script src="js/windchill.js" defer></script>
+   <script src="js/weatherapi.js" defer></script>   
+   <script src="js/bannerMsg.js" defer></script>      
    <script src="js/wrapperPreston.js" defer></script>
 </head>
 
@@ -50,43 +52,43 @@
          <div class="summary-grid">
             <h3 class="summary-grid-title">Weather Summary</h3>
             <p class="summary-grid-label">Currently:</p>
-            <p class="summary-grid-data">Sunny</p>
+            <p class="summary-grid-data"><span id="summary-current-condition"></span></p>
             <p class="summary-grid-label">High:</p>
-            <p class="summary-grid-data"><span id="summary-high">46</span> &#8457;</p>
+            <p class="summary-grid-data"><span id="summary-high"></span> &#8457;</p>
             <p class="summary-grid-label">Wind Chill:</p>
             <p class="summary-grid-data"><span id="summary-windchill"></span></p>
             <p class="summary-grid-label">Humidity:</p>
-            <p class="summary-grid-data"><span id="summary-humidity">69</span>%</p>
+            <p class="summary-grid-data"><span id="summary-humidity"></span>%</p>
             <p class="summary-grid-label">Wind Speed:</p>
-            <p class="summary-grid-data"><span id="summary-windspeed">5</span> mph</p>
+            <p class="summary-grid-data"><span id="summary-windspeed"></span> mph</p>
          </div>
       </div>
       <div class="forecast">
          <h3>5 Day Forecast</h3>
          <div class="table">
             <ul class="table-row">
-               <li class="table-head">Wed</li>
-               <li class="table-head">Thu</li>
-               <li class="table-head">Fri</li>
-               <li class="table-head">Sat</li>
-               <li class="table-head">Sun</li>
+               <li class="table-head"></li>
+               <li class="table-head"></li>
+               <li class="table-head"></li>
+               <li class="table-head"></li>
+               <li class="table-head"></li>
             </ul>
             <ul class="table-row">
                <li class="table-cell"><img class="forecast-img"
-                     src="images/iconfinder_Weather_Weather_Forecast_Hot_Sun_Day_3859136.png" alt="sunny"> 46 &#8457;
+                     src="" alt=""><span class="forecast-temp"></span> &#8457;
                </li>
                <li class="table-cell"><img class="forecast-img"
-                     src="images/iconfinder_Weather_Weather_Forecast_Hot_Sun_Day_3859136.png" alt="sunny"> 48 &#8457;
+                     src="" alt=""><span class="forecast-temp"></span> &#8457;
                </li>
                <li class="table-cell"><img class="forecast-img"
-                     src="images/iconfinder_Weather_Weather_Forecast_Hot_Sun_Day_3859136.png" alt="sunny"> 49 &#8457;
+                     src="" alt=""><span class="forecast-temp"></span> &#8457;
                </li>
                <li class="table-cell"><img class="forecast-img"
-                     src="images/iconfinder_Weather_Weather_Forecast_Sunny_Rain_Climate_3859146.png"
-                     alt="partly cloudy with rain"> 51 &#8457;</li>
+                     src=""
+                     alt=""><span class="forecast-temp"></span> &#8457;</li>
                <li class="table-cell"><img class="forecast-img"
-                     src="images/iconfinder_Weather_Weather_Forecast_Rain_Cloud_Climate_3859144.png"
-                     alt="cloudy with rain"> 55 &#8457;</li>
+                     src=""
+                     alt=""><span class="forecast-temp"></span> &#8457;</li>
             </ul>
          </div>
       </div>
