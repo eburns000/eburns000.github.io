@@ -1,6 +1,6 @@
 function updateFiveDayForecast() {
 
-   const apiURLWeather = "http://api.openweathermap.org/data/2.5/weather?id=5604473&units=imperial&APPID=bf73773183abe1c64658214f3754e35c";
+   const apiURLWeather = "https://api.openweathermap.org/data/2.5/weather?id=5604473&units=imperial&APPID=bf73773183abe1c64658214f3754e35c";
 
    fetch(apiURLWeather)
       .then((response) => response.json())
@@ -26,7 +26,7 @@ function updateFiveDayForecast() {
 
 function updateWeatherSummary() {
 
-   const apiURLForecast = "http://api.openweathermap.org/data/2.5/forecast?id=5604473&units=imperial&APPID=bf73773183abe1c64658214f3754e35c";
+   const apiURLForecast = "https://api.openweathermap.org/data/2.5/forecast?id=5604473&units=imperial&APPID=bf73773183abe1c64658214f3754e35c";
 
    fetch(apiURLForecast)
       .then((response) => response.json())
@@ -44,7 +44,7 @@ function updateWeatherSummary() {
          for (let i = 0; i < fiveDayForecast.length; i++) {
             forecastTemp[i].textContent = fiveDayForecast[i].main.temp.toFixed(1);
             forecastDay[i].textContent = getWeekDay(new Date(fiveDayForecast[i].dt_txt));
-            forecastImg[i].setAttribute('src', "http://openweathermap.org/img/wn/" + fiveDayForecast[i].weather[0].icon + "@2x.png");
+            forecastImg[i].setAttribute('src', "https://openweathermap.org/img/wn/" + fiveDayForecast[i].weather[0].icon + "@2x.png");
             forecastImg[i].setAttribute('alt', fiveDayForecast[i].weather[0].description);
          }
 
