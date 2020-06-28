@@ -1,0 +1,63 @@
+/* Format for medium screen sizes */
+
+@media screen and (min-width: 60em) {
+
+   .main-nav ul {
+      display: flex;
+   }
+
+   .main-nav ul li {
+      flex: 1 1 100%;
+      border-bottom: none;
+   }
+
+   .main-nav ul li {
+      display: block;
+   }
+
+   .main-nav ul li:first-child {
+      display: none;
+   }
+
+   .main-nav {
+      line-height: .8rem;
+      font-size: 1.04rem;
+      text-align: center;
+      font-weight: 700;
+   }
+
+   /* Gallery Page CSS */
+   .gallery-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+   }
+
+   .gallery-fig {
+      box-shadow: none;
+      transition: box-shadow 1s;
+   }
+
+   .gallery-fig:hover {
+      box-shadow: 8px 8px 50px -5px rgba(0, 0, 0, 0.75);
+      transition: box-shadow 1s;
+   }
+
+   /* form */
+   form label.sbs {
+      padding: .4rem 0;
+   }
+
+   /* Town Card Styling */
+   .cards {
+      grid-template-columns: 1fr 1fr 1fr;
+   }
+
+   .cards section:nth-child(even),
+   .cards section:nth-child(odd) {      
+      flex-direction: column;
+   }
+
+   .town-data {
+      margin: 1.0rem .25rem;
+   }
+
+}
