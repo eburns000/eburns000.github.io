@@ -9,10 +9,13 @@ function wrapper() {
    // set hamburger menu listener - toggleHamburger.js
    toggleHamburger();
 
+   // city ID for Preston, Idaho
+   const cityID = "5604473"
+
    // update weather summary
-   updateWeatherSummary();
+   updateWeatherSummary(cityID);
 
    // update five day foreast
-   updateFiveDayForecast();
+   updateFiveDayForecast(cityID);
 
 }

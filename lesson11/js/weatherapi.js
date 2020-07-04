@@ -1,6 +1,6 @@
-function updateFiveDayForecast() {
+function updateFiveDayForecast(cityID) {
 
-   const apiURLWeather = "https://api.openweathermap.org/data/2.5/weather?id=5604473&units=imperial&APPID=bf73773183abe1c64658214f3754e35c";
+   const apiURLWeather = "https://api.openweathermap.org/data/2.5/weather?id=" + cityID + "&units=imperial&APPID=bf73773183abe1c64658214f3754e35c";
 
    fetch(apiURLWeather)
       .then((response) => response.json())
@@ -24,9 +24,9 @@ function updateFiveDayForecast() {
 
 }
 
-function updateWeatherSummary() {
+function updateWeatherSummary(cityID) {
 
-   const apiURLForecast = "https://api.openweathermap.org/data/2.5/forecast?id=5604473&units=imperial&APPID=bf73773183abe1c64658214f3754e35c";
+   const apiURLForecast = "https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + "&units=imperial&APPID=bf73773183abe1c64658214f3754e35c";
 
    fetch(apiURLForecast)
       .then((response) => response.json())

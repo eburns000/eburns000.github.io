@@ -9,10 +9,13 @@ function wrapper() {
    // set hamburger menu listener - toggleHamburger.js
    toggleHamburger();
 
+   // city ID for Soda Springs, Idaho
+   const cityID = "5607916"
+
    // update weather summary
-   updateWeatherSummary();
+   updateWeatherSummary(cityID);
 
    // update five day foreast
-   updateFiveDayForecast();
+   updateFiveDayForecast(cityID);
 
 }

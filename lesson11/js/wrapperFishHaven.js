@@ -9,10 +9,13 @@ function wrapper() {
    // set hamburger menu listener - toggleHamburger.js
    toggleHamburger();
 
+   // city ID for Garden City, Idaho as a proxy for Fish Haven, Idaho
+   const cityID = "5593814"
+
    // update weather summary
-   updateWeatherSummary();
+   updateWeatherSummary(cityID);
 
    // update five day foreast
-   updateFiveDayForecast();
+   updateFiveDayForecast(cityID);
 
 }
