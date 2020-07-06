@@ -17,5 +17,8 @@ function wrapper() {
 
    // update five day foreast
    updateFiveDayForecast(cityID);
+   
+   // load town event data
+   loadTownEvent("Fish Haven");
 
 }

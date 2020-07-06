@@ -139,7 +139,6 @@ h6 {
 .main h2 {
    font-size: 1.3rem;
    margin-top: 1.5rem;
-   /* added to small - see above */
 }
 
 .main p {
@@ -219,6 +218,44 @@ h6 {
 .summary-grid p {
    margin: 0;
    padding: 0 .2rem;
+}
+
+/* Events Call-out - Medium, Large */
+.events-callout {
+   position: absolute;
+   top: 1.5rem;
+   left: 1.5rem;
+   background-color: rgba(53, 94, 171, .8);
+   display: none;
+   width: 12rem;
+   height: 10rem;
+   box-shadow: 0 0 20px rgba(0, 0, 0, .75);
+   padding: 15px;
+   font-size: .85rem;
+}
+
+.events-callout h3 {
+   color: #FFFAFA;
+   text-align: left;
+   margin: 0;
+   padding: 0;
+   padding-bottom: 5px;
+   border-bottom: 1px solid #FFFAFA;
+}
+
+.events-callout ul {
+   list-style: none;
+   color: #FFFAFA;
+}
+
+/* Events Block - Small Only */
+.events-block ul {
+   list-style: none;
+   padding: 0 0.6rem;
+}
+
+.events-block ul li span {
+   color: #ff0100;
 }
 
 /* 5-day forecast */
