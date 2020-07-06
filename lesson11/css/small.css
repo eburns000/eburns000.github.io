@@ -228,7 +228,8 @@ h6 {
    background-color: rgba(53, 94, 171, .8);
    display: none;
    width: 12rem;
-   height: 10rem;
+   min-height: 10rem;
+   height: auto;
    box-shadow: 0 0 20px rgba(0, 0, 0, .75);
    padding: 15px;
    font-size: .85rem;
@@ -246,6 +247,10 @@ h6 {
 .events-callout ul {
    list-style: none;
    color: #FFFAFA;
+}
+
+.events-callout ul li span {
+   color: yellow;
 }
 
 /* Events Block - Small Only */
