@@ -1,5 +1,5 @@
 WebFont.load({
    google: {
-      families: ['Anton', 'Signika:300']
+      families: ['Rancho', 'Lato']
    }
 });
