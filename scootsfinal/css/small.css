@@ -43,32 +43,29 @@ h6 {
 
 .header {
    display: flex;
-   justify-content: center;
-   align-items: flex-end;
-   margin-top: 0;
-   background-color: #355EAB;
-   color: #FFFAFA;
-   padding-top: 10px;
+   justify-content: space-between;
+   align-items: center;
+   background-color: #fffafa;
+   padding: 2%;
    box-shadow: 0 4px 4px gray;
 }
 
 .logo-img {
-   width: 90px;
+   width: 140px;
    height: auto;
-   margin-right: 1.25rem;
+   margin: 0 .5rem;
 }
 
-.headings,
-.logo-img {
-   margin-bottom: 1.25rem;
-}
-
-.headings h1,
-.headings div {
-   color: #FFFAFA;
-   text-align: center;
-   padding: 0;
+.headings {
    margin: 0;
+   text-align: right;
+}
+
+.headings div {
+   color: #444;
+   text-align: right;
+   padding: 0;
+   margin: .2rem 1rem;
 }
 
 .headings h1 {
@@ -83,11 +80,23 @@ h6 {
    margin-top: 5px;
 }
 
+.headings button {
+   border: none;
+   background-color: #0D8EFC;
+   color: #fffafa;
+   border-radius: 4px;
+   padding: .3rem .4rem;
+   margin: 0 1rem;
+   max-width: 20rem;
+   font-size: 1rem;
+   font-weight: 700;
+   line-height: 1.25rem;
+}
+
 .main-nav {
-   background-color: #795548;
-   text-align: left;
+   background-color: #444444;
+   text-align: right;
    box-shadow: 0 4px 4px gray;
-   font-size: 1.2em;
    font-weight: bold;
 }
 
@@ -110,6 +119,13 @@ h6 {
 
 .main-nav ul li {
    display: none;
+   font-size: 1rem;
+   padding: .75rem;
+}
+
+.main-nav ul li:first-child {
+   font-size: 2.5rem;
+   padding: .2rem .75rem;
 }
 
 .responsive ul li {
@@ -119,16 +135,15 @@ h6 {
 .main-nav ul li a {
    display: block;
    color: #FFFAFA;
-   padding: .75rem;
-   text-decoration: none;
+   text-decoration: none;   
 }
 
-.main-nav a:hover {
-   background-color: #AB5546;
+.main-nav ul li:hover {
+   background-color: rgba(63, 252, 132, .5);
 }
 
 .active {
-   background-color: rgba(0, 0, 0, .3);
+   background-color: rgba(253, 110, 38, .5);
 }
 
 .main {
@@ -534,7 +549,7 @@ form label.top input[type=number] {
 /* footer */
 
 .footer {
-   background-color: #355EAB;
+   background-color: #444444;
    color: #FFFAFA;
    padding: 2px;
    height: 80px;
