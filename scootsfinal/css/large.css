@@ -2,30 +2,6 @@
 
 @media screen and (min-width: 60em) {
 
-   .main-nav ul {
-      display: flex;
-   }
-
-   .main-nav ul li {
-      flex: 1 1 100%;
-      border-bottom: none;
-   }
-
-   .main-nav ul li {
-      display: block;
-   }
-
-   .main-nav ul li:first-child {
-      display: none;
-   }
-
-   .main-nav {
-      line-height: .8rem;
-      font-size: 1.04rem;
-      text-align: center;
-      font-weight: 700;
-   }
-
    /* Weather Summary */
    .summary-grid {
       top: 2rem;

@@ -1,10 +1,38 @@
 /* Format for medium screen sizes */
 
-@media screen and (min-width: 32.5rem) {
+@media screen and (min-width: 40rem) {
 
-   .headings h1 br {
+   /* logo */
+   .logo-img {
+      width: 200px;
+   }
+
+   /* Nav changed to flex */
+   .main-nav ul {
+      display: flex;
+   }
+
+   .main-nav ul li {
+      flex: 0 0 6rem;
+      border-bottom: none;
+   }
+
+   .main-nav ul li {
+      display: block;
+   }
+
+   .main-nav ul li:first-child {
       display: none;
    }
+
+   .main-nav {
+      line-height: .8rem;
+      font-size: 1.04rem;
+      text-align: center;
+      font-weight: 700;
+   }
+   
+   /* headings */
 
    .headings div {
       font-size: 1.2rem;
@@ -21,10 +49,6 @@
 
    .main h2 {
       font-size: 1.5rem;
-   }
-
-   .footer {
-      padding: 8px;
    }
 
    .footer p {
