@@ -56,4 +56,9 @@
       margin: 1.0rem .25rem;
    }
 
+      /* Scoots styling */
+      .scoots-hero-heading {
+         font-size: 8rem;
+      }
+
 }

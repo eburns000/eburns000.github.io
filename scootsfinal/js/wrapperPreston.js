@@ -13,10 +13,10 @@ function wrapper() {
    const cityID = "5604473"
 
    // update weather summary
-   updateWeatherSummary(cityID);
+   // updateWeatherSummary(cityID);
 
    // update five day foreast
-   updateFiveDayForecast(cityID);
+   // updateFiveDayForecast(cityID);
 
    // load town event data
    loadTownEvent("Preston");

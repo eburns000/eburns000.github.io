@@ -6,8 +6,8 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <meta name="description"
-      content="Contact form for Scoots Cozumel, a site by Eric Burns, a project for WDD 230: Web Frontend Development at Brigham Young University - Idaho">
-   <title>Scoots Cozumel | Contact</title>
+      content="Reservations for Scoots Cozumel, a site by Eric Burns, a project for WDD 230: Web Frontend Development at Brigham Young University - Idaho">
+   <title>Scoots Cozumel | Reservations</title>
    <link rel="icon" href="favicon.ico" type="image/x-icon">
    <link rel="stylesheet" href="css/normalize.css">
    <link rel="stylesheet" href="css/small.css">
@@ -28,23 +28,23 @@
       <section class="headings">
          <div>Explore the Island Today</div>
          <div>Call 1-800-4-SCOOTS</div>
-         <button type="button" onclick="document.location='reservations.html'">Reserve Online</button>                  
+         <button type="button" onclick="document.location='reservations.html'">Reserve Online</button>
       </section>
    </header>
    <nav class="main-nav">
       <ul>
          <li><a href="#" class="ham">&#9776;</a></li>
-         <li class="active"><a href="index.html">Home</a></li>
+         <li><a href="index.html">Home</a></li>
          <li><a href="rentals.html">Rentals</a></li>
-         <li><a href="reservations.html">Reservations</a></li>
+         <li class="active"><a href="reservations.html">Reservations</a></li>
          <li><a href="tours.html">Tours</a></li>
          <li><a href="contact.html">Contact</a></li>
       </ul>
    </nav>
    <main class="main">
-      <h2>Storm Center: Report a Storm</h2>
+      <h2>Rental Request Form</h2>
       <div class="main-content">
-         <form method="get" action="thanks.html">
+         <form method="get" action="confirmation.html">
             <fieldset>
                <legend>Personal Information</legend>
                <label class="top">Full Name*<input type="text" name="name" autofocus required
@@ -53,63 +53,59 @@
                      pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"></label>
                <label class="top">Phone*<input type="tel" name="phone" placeholder="###-###-#### or (###) ###-####"
                      required pattern="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$"></label>
-               <label class="top">Zip Code*<input type="number" name="zip" placeholder="#####" required></label>
-            </fieldset>
-            <fieldset>
-               <legend>Storm Details</legend>
-               <label class="top">Storm Date <input type="date" name="stormDate"></label>
-               <label class="top">Storm Type <input list="storm-type" id="storm-type-choice"
-                     name="stormTypeChoice"></label>
-               <datalist id="storm-type">
-                  <option value="Flash Flood">
-                  <option value="Hail">
-                  <option value="Hurricane">
-                  <option value="Thunderstorm">
-                  <option value="Tornado">
-               </datalist>
-
-               <div>Storm Severity (1=low; 10=high)</div>
-               <label class="sbs" id="storm-severity">
-                  <input type="range" id="rating" name="rating" value="1" min="1" max="10" step="1" list="tickmarks">
-                  <span id="rating-value">1</span>
-               </label>
-               <datalist id="tickmarks">
-                  <option value="1"></option>
-                  <option value="2"></option>
-                  <option value="3"></option>
-                  <option value="4"></option>
-                  <option value="5"></option>
-                  <option value="6"></option>
-                  <option value="7"></option>
-                  <option value="8"></option>
-                  <option value="9"></option>
-                  <option value="10"></option>
-               </datalist>
-
-               <label class="top">Storm Region
-                  <select name="stormRegion">
-                     <option value="" selected disabled>Select Region ... &#9662;</option>
-                     <option value="preston">Preston</option>
-                     <option value="sodaSprings">Soda Springs</option>
-                     <option value="fishHaven">Fish Haven</option>
+               <label class="top">Home Country
+                  <select name="homeCountry">
+                     <option value="" selected disabled>Select Home Country ... &#9662;</option>
+                     <option value="canada">Canada</option>
+                     <option value="mexico">Mexico</option>
+                     <option value="unitedstates">United States</option>
+                     <option value="other">Other</option>
                   </select>
                </label>
-
-               <div>User-in-danger Level</div>
-               <label class="sbs"><input type="radio" name="dangerLevel" value="yes"> Yes</label>
-               <label class="sbs"><input type="radio" name="dangerLevel" value="no"> No</label>
-               <label class="sbs"><input type="radio" name="dangerLevel" value="maybe"> Maybe</label>
             </fieldset>
-
+            <fieldset>
+               <legend>Rental Details</legend>
+               <label class="top">Rental Date <input type="date" name="rentalDate"></label>
+               <label class="top">Rental Type
+                  <select name="rentaltype">
+                     <option value="" selected disabled>Select Rental Type ... &#9662;</option>
+                     <option value="metro">Metro Scooter</option>
+                     <option value="dio">Dio Scooter</option>
+                     <option value="pcx150">PCX150 Scooter</option>
+                     <option value="atv">Pioneer ATV</option>
+                     <option value="jeep4">Jeep 4-door</option>
+                     <option value="jeep2">Jeep 2-door</option>
+                  </select>
+               </label>
+               <label class="top">Number<input type="number" name="numberRentals" value="1" required></label>
+               <label class="top">Period
+                  <select name="period">
+                     <option value="" selected disabled>Select Period ... &#9662;</option>
+                     <option value="fullday">Full Day</option>
+                     <option value="halfday">Half Day (3 hours)</option>
+                  </select>
+               </label>
+            </fieldset>
             <fieldset>
                <legend>Additional Information</legend>
-               <label class="top">Comments<textarea id="comments" name="comments" rows="10" cols="36"
+               <label class="top">Cruise Line (if applicable)<input list="cruise-line" id="cruise-line-choice"
+                     name="cruiseLineChoice"></label>
+               <datalist id="cruise-line">
+                  <option value="Carnival"></option>
+                  <option value="Celebrity"></option>
+                  <option value="Disney"></option>
+                  <option value="Holland America"></option>
+                  <option value="Norwegian"></option>
+                  <option value="Oceania"></option>
+                  <option value="Princess"></option>
+                  <option value="Royal Caribbean"></option>
+                  <option value="Silversea"></option>
+               </datalist>
+               <label class="top">Special Accommodations / Comments<textarea id="comments" name="comments" rows="10" cols="36"
                      placeholder="Enter comments here..."></textarea></label>
             </fieldset>
-
-            <input class="submitBtn" type="submit" value="Report Storm">
+            <input class="submitBtn" type="submit" value="Reserve Now">
          </form>
-
       </div>
    </main>
    <footer class="footer">

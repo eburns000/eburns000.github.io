@@ -346,6 +346,7 @@ h6 {
 
 .contact-address {
    margin: 0 auto 20px;
+   text-align: center;
 }
 
 .contact-address img {
@@ -513,11 +514,11 @@ form label.top input[type=number] {
 }
 
 .cards section {
-   text-align: center;   
+   text-align: left;   
    max-width: 320px;
    border: 1px solid #bbb;
    background-color: #eee;   
-   padding: 30px;
+   padding: 10px;
    display: flex;
    flex-direction: column;
 }
@@ -534,6 +535,7 @@ form label.top input[type=number] {
 
 .town-data p {
    margin: 0;
+   padding: 0 .25rem .25rem 0;
 }
 
 .town-data div {
@@ -585,3 +587,89 @@ form label.top input[type=number] {
 .datetime {
    color: rgb(245, 245, 94);
 }
+
+
+/* Scoots specific styles */
+.scoots-hero {
+   width: 100%;
+   max-width: 60rem;
+   position: relative;
+   margin: 0 auto;
+}
+
+.scoots-hero img {
+   width: 100%;
+}
+
+.scoots-hero-heading {
+   margin: 0;
+   position: absolute;
+   top: 10%;
+   left: 5%;
+   font-size: 3rem;
+   color: #FD6E26;
+   font-weight: bold;
+}
+
+/* Table Rental Options */
+
+.rental-options {
+   display: block;
+   margin: 15px auto 25px;
+   width: 800px;
+   color: #444;
+}
+
+.rental-options h3 {
+   text-align: center;
+}
+
+.rental-options-table {
+   margin-top: 15px;
+   margin-bottom: 5px;
+   display: table;
+   width: 100%;
+   border-collapse: collapse;
+   text-align: center;
+}
+
+.rental-options-table-row {
+   display: table-row;
+}
+
+.rental-options-table-cell,
+.rental-options-table-head,
+.rental-options-table-head-2 {
+   display: table-cell;
+}
+
+.rental-options-table-cell,
+.rental-options-table-head {
+   border: 1px solid rgba(0, 0, 0, .2);
+}
+
+.rental-options-table-head,
+.rental-options-table-head-2 {
+   font-weight: bold;
+   background-color: #355EAB;
+   color: #FFFAFA;
+   padding: .5rem;
+}
+
+.rental-options-table-head-2 {
+   column-span: 2;
+}
+
+.rental-options-table-cell {
+   padding: .2rem;
+}
+
+.rental-options-img {
+   width: 40px;
+   height: auto;
+   margin: 5px auto;
+   display: block;
+}
+
+
+
