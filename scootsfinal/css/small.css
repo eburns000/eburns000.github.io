@@ -648,10 +648,22 @@ form label.top input[type=number] {
    border: 1px solid rgba(0, 0, 0, .2);
 }
 
+.rental-options-table-head-2 {
+   border-top: 1px solid rgba(0, 0, 0, .2);   
+}
+
+.rental-options-table-head-2:first-child {
+   border-left: 1px solid rgba(0, 0, 0, .2);   
+}
+
+.rental-options-table-head-2:last-child {
+   border-right: 1px solid rgba(0, 0, 0, .2);   
+}
+
 .rental-options-table-head,
 .rental-options-table-head-2 {
    font-weight: bold;
-   background-color: #355EAB;
+   background-color: #0d8efc;
    color: #FFFAFA;
    padding: .5rem;
 }
@@ -669,6 +681,15 @@ form label.top input[type=number] {
    height: auto;
    margin: 5px auto;
    display: block;
+}
+
+/* Weather */
+
+.scoots-weather {
+   text-align: center;
+   margin: 1rem;
+   font-size: .85rem;
+   color: #0d8efc;
 }
 
 

@@ -7,6 +7,12 @@ function wrapper() {
    toggleHamburger();
 
    // load town data  - loadTownData.js
-   loadTownData();
+   // loadTownData();
+
+   // city ID for Cozumel, Mexico
+   const cityID = "3530103"
+
+   // update weather summary
+   updateWeather(cityID);
 
 }
