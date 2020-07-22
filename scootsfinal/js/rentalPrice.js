@@ -1,22 +1,6 @@
-// function loadJSON(callback) {
-
-//     var xobj = new XMLHttpRequest();
-//     xobj.overrideMimeType("application/json");
-//     xobj.open('GET', 'rentalprices.json', true);
-//     xobj.onreadystatechange = function () {
-//         if (xobj.readyState == 4 && xobj.status == "200") {
-//             callback(xobj.responseText);
-//         }
-//     };
-//     xobj.send(null);
-// }
-
 function loadRentalPrices() {
 
-    // get array of rental price ul elements
-    rentalPriceLists = document.getElementsByClassName("rental-price");
-    console.log(rentalPriceLists);
-
+    // get json data
     const jsonFile = 'https://eburns000.github.io/scootsfinal/data/rentalprices.json';
 
     fetch(jsonFile)
@@ -25,17 +9,27 @@ function loadRentalPrices() {
         })
         .then(function (jsonObject) {
 
+            // get array of rental price objects from json data
             const rentalPriceData = jsonObject['rentalPrices'];
 
             console.log(rentalPriceData);
 
+            // get array of rental price ul elements
+            rentalPriceLists = document.getElementsByClassName("rental-price");
+            console.log(rentalPriceLists);
+
+            for (let i = 0; i < rentalPriceData.length; i++) {
+
+                // set each ul element with data from json object
+                rentalPriceLists[i].children[1].textContent = rentalPriceData[i].equipment;
+                rentalPriceLists[i].children[2].textContent = rentalPriceData[i].fullDayReservation;
+                rentalPriceLists[i].children[3].textContent = rentalPriceData[i].fullDayWalkIn;
+                rentalPriceLists[i].children[4].textContent = rentalPriceData[i].riders;
+                rentalPriceLists[i].children[5].textContent = rentalPriceData[i].threeHourReservation;
+                rentalPriceLists[i].children[6].textContent = rentalPriceData[i].threeHourWalkIn;
+
+            }
+
         });
-
-
-    // loadJSON(function (response) {
-    //     // Parse JSON string into object
-    //     let actual_JSON = JSON.parse(response);
-    //     console.log(actual_JSON);
-    // });
 
 }
