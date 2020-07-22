@@ -56,9 +56,20 @@
       margin: 1.0rem .25rem;
    }
 
-      /* Scoots styling */
-      .scoots-hero-heading {
-         font-size: 8rem;
-      }
+   /* Scoots styling */
+   .scoots-hero-heading {
+      font-size: 8rem;
+   }
+
+   .town-img {
+      flex: 0 0 auto;
+   }
+
+   .article img {
+      max-width: 500px;
+      float: right;
+      box-shadow: 0 0 20px rgba(0, 0, 0, .75);
+      margin: 12px 10px 10px 30px;
+   }
 
 }
