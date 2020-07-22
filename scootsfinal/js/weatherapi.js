@@ -25,9 +25,7 @@ function updateWeather(cityID) {
    
             // get filtered array of forecast objects where the forecast time is 18:00:00
             let fiveDayForecast = jsObject.list.filter(forecast => forecast.dt_txt.includes("12:00:00"));
-
-            console.log(fiveDayForecast);
-   
+  
             // get forecast temp element
             const forecastTemp = document.getElementById("forecast-temp");
    

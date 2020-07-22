@@ -31,7 +31,7 @@
       text-align: center;
       font-weight: 700;
    }
-   
+
    /* headings */
 
    .headings div {
@@ -48,43 +48,18 @@
    }
 
    .main h2 {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
    }
 
    .footer p {
       font-size: inherit;
    }
 
-   .footer br {
-      display: none;
-   }
-
-   #footer-pipe {
-      display: inline;
-   }
-
-   .forecast {
-      display: block;
-   }
-
-   .summary-grid {
-      top: 1.5rem;
-      right: 1.5rem;
-      width: 12rem;
-      height: 10rem;
-      padding: 15px;
-      font-size: .85rem;
-   }
-
-   .article img {
+   .places img {
       max-width: 400px;
       float: right;
       box-shadow: 0 0 20px rgba(0, 0, 0, .75);
       margin: 12px 10px 10px 30px;
-   }
-
-   .article+div {
-      clear: both;
    }
 
    .contact {
@@ -105,21 +80,7 @@
    .contact-address {
       margin-left: auto;
       margin-right: auto;
-   }
-
-   /* Events - Callout */
-   .events-callout {
-      display: block;
-   }
-
-   /* Events - Block */
-   .events-block {
-      display: none;
-   }
-
-   /* Gallery Page CSS */
-   .gallery-grid {
-      grid-template-columns: 1fr 1fr;
+      text-align: center;
    }
 
    /* Form */
@@ -127,22 +88,18 @@
       max-width: none;
    }
 
-   /* Town Card Styling */
+   /* Equipment Card Styling */
    .cards section {
       flex-direction: row-reverse;
       max-width: 650px;
       width: 96%;
    }
 
-   /* .cards section:nth-child(even) {      
-      flex-direction: row-reverse;
-   } */
-
-   .town-img {
+   .equipment-img {
       flex: 0 0 300px;
    }
 
-   .town-data {
+   .equipment-data {
       flex: 1 1 auto;
       margin: 0;
    }
@@ -152,7 +109,10 @@
       font-size: 5rem;
    }
 
+   /* google map */ 
 
-
-
+   iframe {
+      width: 400px;
+      height: 300px;
+   }
 }

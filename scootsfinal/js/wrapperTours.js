@@ -1,4 +1,4 @@
-function wrapper() {   
+function wrapper() {
 
    // get date and time for footer - footerDateTime.js
    footerDateTime();
@@ -6,7 +6,7 @@ function wrapper() {
    // set hamburger menu listener - toggleHamburger.js
    toggleHamburger();
 
-   // city ID for Cozumel, Mexico
+    // city ID for Cozumel, Mexico
    const cityID = "3530103"
 
    // update weather summary

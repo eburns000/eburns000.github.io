@@ -1,14 +1,14 @@
 function footerDateTime() {
 
-   // get current date for currentyear span and datetime span
-   const dt = new Date();
+   // get date last modified
+   const dt = new Date(document.lastModified);
 
    // update currentyear span
    document.getElementById("currentyear").textContent = dt.toLocaleString('en-US', {
       year: 'numeric'
    });
 
-   // display current date in datetime span in "Weekday, Day Month Year" format, as in Monday, 18 May 2020
+   // display last modified date in datetime span in "Weekday, Day Month Year" format, as in Monday, 18 May 2020
    const dateOptions = {
       weekday: 'long',
       year: 'numeric',
