@@ -22,11 +22,11 @@ function loadRentalPrices() {
 
                 // set each ul element with data from json object
                 rentalPriceLists[i].children[1].textContent = rentalPriceData[i].equipment;
-                rentalPriceLists[i].children[2].textContent = rentalPriceData[i].fullDayReservation;
-                rentalPriceLists[i].children[3].textContent = rentalPriceData[i].fullDayWalkIn;
-                rentalPriceLists[i].children[4].textContent = rentalPriceData[i].riders;
-                rentalPriceLists[i].children[5].textContent = rentalPriceData[i].threeHourReservation;
-                rentalPriceLists[i].children[6].textContent = rentalPriceData[i].threeHourWalkIn;
+                rentalPriceLists[i].children[2].textContent = rentalPriceData[i].riders;
+                rentalPriceLists[i].children[3].textContent = rentalPriceData[i].threeHourReservation;
+                rentalPriceLists[i].children[4].textContent = rentalPriceData[i].fullDayReservation;                
+                rentalPriceLists[i].children[5].textContent = rentalPriceData[i].threeHourWalkIn;
+                rentalPriceLists[i].children[6].textContent = rentalPriceData[i].fullDayWalkIn;
 
             }
 
