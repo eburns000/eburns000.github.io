@@ -647,6 +647,7 @@ form label.top input[type=number] {
 .rental-options-table-head,
 .rental-options-table-head-2 {
    display: table-cell;
+   vertical-align: middle;
 }
 
 .rental-options-table-cell,
