@@ -475,7 +475,7 @@ form label.sbs {
 
 form input.submitBtn {
    border: none;
-   background-color: #795548;
+   background-color: #0d8efc;
    color: #FFFAFA;
    border-radius: 4px;
    padding: .75rem 1.5rem;
@@ -488,7 +488,7 @@ form input.submitBtn {
 }
 
 form input.submitBtn:hover {
-   background-color: #AB5546;
+   background-color: #FD6E26;
 }
 
 form label.top input:required {
@@ -673,10 +673,6 @@ form label.top input[type=number] {
    background-color: #0d8efc;
    color: #FFFAFA;
    padding: .5rem;
-}
-
-.rental-options-table-head-2 {
-   column-span: 2;
 }
 
 .rental-options-table-cell {
