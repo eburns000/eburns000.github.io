@@ -2,63 +2,35 @@
 
 @media screen and (min-width: 60em) {
 
-   /* Weather Summary */
-   .summary-grid {
-      top: 2rem;
-      right: 2rem;
-      width: 15rem;
-      height: 12rem;
-      padding: 15px;
-      font-size: 1rem;
-   }
-
-   /* Events - Callout */
-   .events-callout {
-      top: 2rem;
-      left: 2rem;
-      width: 15rem;
-      min-height: 12rem;
-      padding: 15px;
-      font-size: 1rem;
-   }
-
-   /* Gallery Page CSS */
-   .gallery-grid {
-      grid-template-columns: 1fr 1fr 1fr;
-   }
-
-   .gallery-fig {
-      box-shadow: none;
-      transition: box-shadow 1s;
-   }
-
-   .gallery-fig:hover {
-      box-shadow: 8px 8px 50px -5px rgba(0, 0, 0, 0.75);
-      transition: box-shadow 1s;
-   }
-
    /* form */
    form label.sbs {
       padding: .4rem 0;
    }
 
-   /* Town Card Styling */
+   /* Equipment Card Styling */
    .cards {
       grid-template-columns: 1fr 1fr 1fr;
    }
 
-   .cards section:nth-child(even),
-   .cards section:nth-child(odd) {
+   .cards section {
       flex-direction: column;
    }
 
-   .town-data {
+   .equipment-data {
       margin: 1.0rem .25rem;
    }
 
-      /* Scoots styling */
-      .scoots-hero-heading {
-         font-size: 8rem;
-      }
+   /* Scoots styling */
+   .scoots-hero-heading {
+      font-size: 8rem;
+   }
+
+   .equipment-img {
+      flex: 0 0 auto;
+   }
+
+   .places img {
+      max-width: 500px;
+   }
 
 }

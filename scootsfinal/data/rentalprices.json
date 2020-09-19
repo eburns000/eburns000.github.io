@@ -1,0 +1,52 @@
+{
+    "rentalPrices": [
+        {
+            "equipment": "Honda Metro Scooter",
+            "riders": 1,
+            "threeHourReservation": 20,
+            "fullDayReservation": 30,
+            "threeHourWalkIn": 25,
+            "fullDayWalkIn": 35
+        },
+        {
+            "equipment": "Honda Dio Scooter",
+            "riders": 2,
+            "threeHourReservation": 30,
+            "fullDayReservation": 40,
+            "threeHourWalkIn": 35,
+            "fullDayWalkIn": 45
+        },
+        {
+            "equipment": "Honda PCX150 Scooter",
+            "riders": 2,
+            "threeHourReservation": 40,
+            "fullDayReservation": 50,
+            "threeHourWalkIn": 45,
+            "fullDayWalkIn": 55
+        },
+        {
+            "equipment": "Honda Pioneer ATV",
+            "riders": 4,
+            "threeHourReservation": 50,
+            "fullDayReservation": 70,
+            "threeHourWalkIn": 60,
+            "fullDayWalkIn": 80
+        },
+        {
+            "equipment": "Jeep Wrangler 4-door",
+            "riders": 5,
+            "threeHourReservation": 70,
+            "fullDayReservation": 100,
+            "threeHourWalkIn": 85,
+            "fullDayWalkIn": 125
+        },
+        {
+            "equipment": "Jeep Wrangler 2-door",
+            "riders": 4,
+            "threeHourReservation": 60,
+            "fullDayReservation": 85,
+            "threeHourWalkIn": 70,
+            "fullDayWalkIn": 90
+        }
+    ]
+}

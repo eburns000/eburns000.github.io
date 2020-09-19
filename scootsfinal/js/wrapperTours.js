@@ -6,10 +6,10 @@ function wrapper() {
    // set hamburger menu listener - toggleHamburger.js
    toggleHamburger();
 
-   // city ID for Cozumel, Mexico
+    // city ID for Cozumel, Mexico
    const cityID = "3530103"
 
-   // update weather
+   // update weather summary
    updateWeather(cityID);
 
 }

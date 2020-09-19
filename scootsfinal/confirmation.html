@@ -8,7 +8,13 @@
    <meta name="description"
       content="Confirmation page for Scoots Cozumel, a site by Eric Burns, a project for WDD 230: Web Frontend Development at Brigham Young University - Idaho">
    <title>Scoots Cozumel | Confirmation</title>
-   <link rel="icon" href="favicon.ico" type="image/x-icon">
+   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+   <link rel="manifest" href="site.webmanifest">
+   <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+   <meta name="msapplication-TileColor" content="#da532c">
+   <meta name="theme-color" content="#ffffff">
    <link rel="stylesheet" href="css/normalize.css">
    <link rel="stylesheet" href="css/small.css">
    <link rel="stylesheet" href="css/medium.css">
@@ -23,12 +29,12 @@
 
 <body id="content" onload="wrapper()">
    <header class="header">
-      <img class="logo-img" src="images/scootslogo.png" alt="scoots cozumel with scooter">
-      <section class="headings">
+      <a href="index.html"><img class="logo-img" src="images/scootslogo.png" alt="scoots cozumel with scooter"></a>
+      <div class="headings">
          <div>Explore the Island Today</div>
          <div>Call 1-800-4-SCOOTS</div>
          <button type="button" onclick="document.location='reservations.html'">Reserve Online</button>                  
-      </section>
+      </div>
    </header>
    <nav class="main-nav">
       <ul>
@@ -47,7 +53,7 @@
       </div>
    </main>
    <footer class="footer">
-      <p>&copy; <span id="currentyear"></span> Scoots | <a href="terms.html">Terms of Use</a> | Eric Burns</p>
+      <p>&copy; <span id="currentyear"></span> Scoots | <a href="terms.html">Terms | </a> <a href="resources.html">Resources</a> | Eric Burns</p>
       <p class="datetime"><span id="datetime"></span></p>
       <p class="contact-address">
          <a href="#" target="_blank"><img class="social-media"

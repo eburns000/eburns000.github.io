@@ -8,7 +8,13 @@
    <meta name="description"
       content="Contact Form and Information for Scoots Cozumel, a site by Eric Burns, a project for WDD 230: Web Frontend Development at Brigham Young University - Idaho">
    <title>Scoots Cozumel | Contact</title>
-   <link rel="icon" href="favicon.ico" type="image/x-icon">
+   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+   <link rel="manifest" href="site.webmanifest">
+   <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+   <meta name="msapplication-TileColor" content="#da532c">
+   <meta name="theme-color" content="#ffffff">
    <link rel="stylesheet" href="css/normalize.css">
    <link rel="stylesheet" href="css/small.css">
    <link rel="stylesheet" href="css/medium.css">
@@ -18,17 +24,18 @@
    <script src="js/webfontload.js" defer></script>
    <script src="js/footerDateTime.js" defer></script>
    <script src="js/toggleHamburger.js" defer></script>
-   <script src="js/wrapperStormCenter.js" defer></script>
+   <script src="js/weatherapi.js" defer></script>
+   <script src="js/wrapperContact.js" defer></script>
 </head>
 
 <body id="content" onload="wrapper()">
    <header class="header">
-      <img class="logo-img" src="images/scootslogo.png" alt="scoots cozumel with scooter">
-      <section class="headings">
+      <a href="index.html"><img class="logo-img" src="images/scootslogo.png" alt="scoots cozumel with scooter"></a>
+      <div class="headings">
          <div>Explore the Island Today</div>
          <div>Call 1-800-4-SCOOTS</div>
          <button type="button" onclick="document.location='reservations.html'">Reserve Online</button>
-      </section>
+      </div>
    </header>
    <nav class="main-nav">
       <ul>
@@ -40,6 +47,11 @@
          <li class="active"><a href="contact.html">Contact</a></li>
       </ul>
    </nav>
+   <div class="scoots-weather">
+      <p>Currently <span id="current-temp"></span> &#8457; with <span id="current-condition"></span> and <span
+            id="current-humidity"></span>% humidity</p>
+      <p>Forecast calls for a high of <span id="forecast-temp"></span> &#8457;</p>
+   </div>
    <main class="main">
       <h2>Location and Contact Information</h2>
       <p>Scoots Cozumel operates out of two locations, one near the Playa del Carmen-Cozumel Ferry dock in el Centro de
@@ -49,14 +61,14 @@
          <div class="contact">
             <p class="contact-address">
                <img src="images/iconfinder_Social_Media_Socialmedia_network_share_socialnetwork_network-14_227040.png"
-                  alt="map point"> Av. Rafael E. Melgar 225, El Parque<br>
-               77600 San Miguel de Cozumel, Q.R., Mexico<br>
+                  alt="map point"> Av. Rafael E. Melgar 1<br>
+               77675 San Miguel de Cozumel, Q.R., Mexico<br>
                &phone; 800-4-SCOOTS<br>
                <a href="mailto:rentals@scootscozumel.com">&#9993;&nbsp;rentals@scootscozumel.com</a><br>
             </p>
             <iframe
                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3737.0125023887513!2d-86.95901161853156!3d20.505713727837147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4e59db5dfce7d5%3A0x63b1e358005f2432!2sAv.%20Rafael%20E.%20Melgar%201%2C%20Zona%20Hotelera%20Nte.%2C%2077675%20San%20Miguel%20de%20Cozumel%2C%20Q.R.%2C%20Mexico!5e0!3m2!1sen!2sus!4v1595096495853!5m2!1sen!2sus"
-               width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+               frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
                tabindex="0"></iframe>
          </div>
       </div>
@@ -72,15 +84,12 @@
             </p>
             <iframe
                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3737.746057266789!2d-86.97533648466526!3d20.47562068630063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4e574863c3f6ad%3A0x399106ec41c2450f!2sAv.%20Rafael%20E.%20Melgar%201a%2C%2077600%20Q.R.%2C%20Mexico!5e0!3m2!1sen!2sus!4v1595096825206!5m2!1sen!2sus"
-               width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+               frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
                tabindex="0"></iframe>
          </div>
       </div>
-
-
-
       <div class="main-content">
-         <form method="get" action="confirmation.html">
+         <form method="get" action="confirm-contact.html">
             <fieldset>
                <legend>We Welcome Your Comments or Questions</legend>
                <label class="top">Full Name*<input type="text" name="name" autofocus required
@@ -95,7 +104,7 @@
       </div>
    </main>
    <footer class="footer">
-      <p>&copy; <span id="currentyear"></span> Scoots | <a href="terms.html">Terms of Use</a> | Eric Burns</p>
+      <p>&copy; <span id="currentyear"></span> Scoots | <a href="terms.html">Terms | </a> <a href="resources.html">Resources</a> | Eric Burns</p>
       <p class="datetime"><span id="datetime"></span></p>
       <p class="contact-address">
          <a href="#" target="_blank"><img class="social-media"
