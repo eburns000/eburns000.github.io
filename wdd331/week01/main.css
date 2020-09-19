@@ -73,6 +73,7 @@ a:hover {
 
 a:active {
     color: #DEB887;
+    text-decoration: none;
 }
 
 header a:link, header a:visited {
@@ -87,6 +88,7 @@ header a:hover {
 
 header a:active {
     color: #DEB887;
+    text-decoration: none;
 }
 
 article h2 a:link, article h2 a:visited {
@@ -101,6 +103,7 @@ article h2 a:hover {
 
 article h2 a:active {
     color: #DEB887;
+    text-decoration: none;
 }
 
 /* Large Screen */
