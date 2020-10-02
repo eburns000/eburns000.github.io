@@ -1,0 +1,106 @@
+// variables will follow
+
+//colors
+$body-background-color: rgb(39, 41, 167);
+$form-background-color: rgb(211, 200, 200);
+$input-color: white;
+$headlines-color : white;
+$break-small: 20em;
+$break-medium: 31em;
+$break-large: 60em;
+
+// mixins
+@mixin center($width, $max-width: 960px) {
+   width: $width;
+   max-width: $max-width;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+body {
+   background-color: lighten($body-background-color, 20%);
+}
+
+// try lighten(color, by how much %), darken(color, by how much %), and mix(color 1, color 2, mix % of color 1 into color 2)
+
+#contactform {
+   background-color: $form-background-color;
+
+   input,
+   textarea {
+      background-color: $input-color;
+      flex: 2;
+   }
+
+   @media (min-width: $break-medium) {
+      & {
+         @include center(90%, 700px);
+      }
+   }
+
+   @media (min-width: $break-large) {
+      & {
+         @include center(70%, 900px);
+      }
+   }
+}
+
+// did this to test whether it would group all media query items in one media query or compile separate "duplicate" media queries, and it does the latter
+#name {
+   color: green;
+
+   @media (min-width: $break-medium) {
+      color: red;
+   }
+
+   @media (min-width: $break-large) {
+      color: blue;
+   }
+}
+
+// mix-in example
+@mixin breakpoint($break) {
+   @if $break==large {
+      @media (max-width: $break-large) {
+         @content;
+      }
+   }
+
+   @else if $break==medium {
+      @media (max-width: $break-medium) {
+         @content;
+      }
+   }
+
+   @else if $break==small {
+      @media (max-width: $break-small) {
+         @content;
+      }
+   }
+
+   @else {
+      @media ($break) {
+         @content;
+      }
+   }
+}
+
+body {
+   background: white;
+
+   @include breakpoint(large) {
+      background: red;
+   }
+
+   @include breakpoint(medium) {
+      background: cyan;
+   }
+
+   @include breakpoint(small) {
+      background: green;
+   }
+
+   @include breakpoint("max-width: 480px") {
+      background: yellow;
+   }
+}
