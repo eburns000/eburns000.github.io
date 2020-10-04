@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+// variables
+$main-background-color: #FAEBD7;
+$article-background-color: white;
+$header-background-color: #6495ED;
+$header-font-color: #FAEBD7;
+$anchor-lv-color: #6495ED;
+$anchor-a-color: #DEB887;
+$header-anchor-lv-color: #FAEBD7;
+$header-anchor-h-color: white;
+$header-anchor-a-color: #DEB887;
+$article-h2-anchor-lv-color: black;
+$article-h2-anchor-h-color: #6495ED;
+$article-h2-anchor-a-color: #DEB887;
+$post-date-font-color: rgba(0, 0, 0, .4);
+$box-shadow-color: rgba(0, 0, 0, 0.2);
+$break-large: 40rem;
+
+//mixins
+@mixin css-reset() {
+   margin: 0;
+   padding: 0;
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+}
+
+@mixin box-shadow($a, $b, $c, $d, $color) {
+   -webkit-box-shadow: $a $b $c $d $color;
+   box-shadow: $a $b $c $d $color;
+}
+
+* {
+   @include css-reset;
+}
+
+body {
+   font-family: Helvetica, Arial sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-family: "Lora";
+}
+
+main {
+   background-color: $main-background-color;
+   padding: 15px;
+
+   @media (min-width: $break-large) {
+      & {
+         margin-left: 25%;
+         padding: 15px 75px;
+      }
+   }
+}
+
+a {
+
+   &:link,
+   &:visited {
+      color: $anchor-lv-color;
+      text-decoration: none;
+   }
+
+   &:hover {
+      text-decoration: underline;
+   }
+
+   &:active {
+      color: $anchor-a-color;
+      text-decoration: none;
+   }
+}
+
+header {
+   color: $header-font-color;
+   background-color: $header-background-color;
+   text-align: right;
+   padding: 60px 40px;
+
+   h1 {
+      padding-bottom: 20px;
+   }
+
+   a {
+
+      &:link,
+      &:visited {
+         color: $header-anchor-lv-color;
+         text-decoration: none;
+      }
+
+      &:hover {
+         color: $header-anchor-h-color;
+         text-decoration: underline;
+      }
+
+      &:active {
+         color: $header-anchor-a-color;
+         text-decoration: none;
+      }
+   }
+
+   @media (min-width: $break-large) {
+      & {
+         float: left;
+         height: 100%;
+         width: 25%;
+         min-width: 200px;
+         position: fixed;
+         z-index: 1;
+         top: 0;
+         left: 0;
+         overflow-x: hidden;
+         padding: 60px 40px;
+      }
+   }
+}
+
+nav {
+   ul {
+      list-style: none;
+
+      li {
+         padding-top: 20px;
+      }
+   }
+}
+
+// insert box shadow mixin here
+article {
+   padding: 35px;
+   margin: 15px 0 35px;
+   background-color: $article-background-color;
+   @include box-shadow(4px, 4px, 2px, 0px, $box-shadow-color);
+
+   img {
+      margin: 55px auto 25px;
+      display: block;
+      max-width: 70%;
+   }
+
+   h2 {
+      a {
+
+         &:link,
+         &:visited {
+            color: $article-h2-anchor-lv-color;
+            text-decoration: none;
+         }
+
+         &:hover {
+            color: $article-h2-anchor-h-color;
+            text-decoration: underline;
+         }
+
+         &:active {
+            color: $article-h2-anchor-a-color;
+            text-decoration: none;
+         }
+      }
+   }
+
+   @media (min-width: $break-large) {
+      & {
+         padding: 60px;
+         margin: 50px 0;
+         max-width: 600px;
+
+         img {
+            margin: 75px auto 25px;
+            max-width: 50%;
+         }
+      }
+   }
+}
+
+.post-date {
+   padding-bottom: 10px;
+   color: $post-date-font-color;
+   font-weight: 700;
+}
+
+.post-content h2 {
+   font-size: 1.75rem;
+}

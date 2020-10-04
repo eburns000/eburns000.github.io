@@ -5,11 +5,12 @@ body {
 #contactform {
   background-color: #d3c8c8;
 }
-#contactform input, #contactform textarea {
+#contactform input,
+#contactform textarea {
   background-color: white;
   flex: 2;
 }
-@media (min-width: 40rem) {
+@media (min-width: 31em) {
   #contactform {
     width: 90%;
     max-width: 700px;
@@ -17,7 +18,7 @@ body {
     margin-right: auto;
   }
 }
-@media (min-width: 60rem) {
+@media (min-width: 60em) {
   #contactform {
     width: 70%;
     max-width: 900px;
@@ -29,14 +30,38 @@ body {
 #name {
   color: green;
 }
-@media (min-width: 40rem) {
+@media (min-width: 31em) {
   #name {
     color: red;
   }
 }
-@media (min-width: 60rem) {
+@media (min-width: 60em) {
   #name {
     color: blue;
+  }
+}
+
+body {
+  background: white;
+}
+@media (max-width: 60em) {
+  body {
+    background: red;
+  }
+}
+@media (max-width: 31em) {
+  body {
+    background: cyan;
+  }
+}
+@media (max-width: 20em) {
+  body {
+    background: green;
+  }
+}
+@media (max-width: 480px) {
+  body {
+    background: yellow;
   }
 }
 
