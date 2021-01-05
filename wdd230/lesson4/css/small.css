@@ -1,0 +1,208 @@
+/* Format for small screen sizes */
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   background-color: #FFFAFA;
+}
+
+#content {
+   font-family: 'Signika', sans-serif;
+   font-weight: 300;
+   border-radius: .5em;
+   color: #444444;
+}
+
+.main,
+.footer {
+   max-width: 60rem;
+   margin: 0 auto;
+}
+
+.contentbox {
+   display: block;
+   margin: 10px auto;
+   border: 1px dashed #000;
+   padding: 15px;
+   background-color: #eee;
+   color: #444;
+   font-style: italic;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-family: 'Anton', sans-serif;
+   font-weight: 400;
+   color: #355EAB;
+}
+
+.header {
+   display: flex;
+   justify-content: center;
+   align-items: flex-end;
+   margin-top: 0;
+   background-color: #355EAB;
+   color: #FFFAFA;
+   padding-top: 10px;
+   box-shadow: 0 4px 4px gray;
+}
+
+.logo-img {
+   width: 90px;
+   height: auto;
+   margin-right: 1.25rem;
+}
+
+.headings,
+.logo-img {
+   margin-bottom: 1.25rem;
+}
+
+.headings h1,
+.headings div {
+   color: #FFFAFA;
+   text-align: center;
+   padding: 0;
+   margin: 0;
+}
+
+.headings h1 {
+   font-size: 1.3rem;
+   line-height: 1.35;
+   margin-top: 10px;
+}
+
+.headings div {
+   font-size: 0.85rem;
+   font-style: italic;
+   margin-top: 5px;
+}
+
+.main-nav {
+   background-color: #795548;
+   /* Original color #AB8635 Changed to #695221 for WAVE accessibility requirements to create more contrast with nav buttons
+      - changed this color again on 5/15, from #695221 to #795548 to 
+        match the color of the front mountain in the logo, while 
+        maintaining the same contrast ratio for WAVE requirements */
+   text-align: left;
+   box-shadow: 0 4px 4px gray;
+   font-size: 1.2em;
+   font-weight: bold;
+}
+
+.main-nav ul {
+   list-style-type: none;
+   overflow: hidden;
+}
+
+.main-nav ul li {
+   border-bottom: 1px solid rgba(0, 0, 0, .2);
+}
+
+.main-nav ul li:last-child {
+   border-bottom: none;
+}
+
+.main-nav ul li:first-child {
+   display: block;
+}
+
+.main-nav ul li {
+   display: none;
+}
+
+.responsive ul li {
+   display: block;
+}
+
+.main-nav ul li a {
+   display: block;
+   color: #FFFAFA;
+   padding: .75rem;
+   text-decoration: none;
+}
+
+.main-nav a:hover {
+   background-color: #AB5546;
+}
+
+.active {
+   background-color: rgba(0, 0, 0, .3);
+}
+
+.main {
+   min-height: 275px;
+   padding: 10px;
+}
+
+.main h2,
+h3,
+h4 {
+   margin-top: 1.5rem;
+}
+
+.main h2 {
+   font-size: 1.3rem;
+}
+
+.main p {
+   margin-top: .5rem;
+   padding: 0 .6rem;
+   line-height: 1.25rem;
+}
+
+.objectives-ul {
+   margin-top: .5rem;
+   padding: 0 50px;
+   list-style-type: circle;
+}
+
+.main li {
+   margin-top: .5rem;
+}
+
+.footer {
+   background-color: #355EAB;
+   color: #FFFAFA;
+   padding: 10px;
+   height: 80px;
+   text-align: center;
+   box-shadow: 0 -2px 4px gray;
+}
+
+.footer p {
+   font-size: .9em;
+   padding-top: 2px;
+   padding-bottom: 2px;
+}
+
+.footer a {
+   text-decoration: none;
+}
+
+.footer a:link,
+.footer a:visited,
+.footer a:hover,
+.footer a:active {
+   color: #FFFAFA;
+}
+
+.footer br {
+   display: inline;
+}
+
+#footer-pipe {
+   display: none;
+}
+
+.datetime {
+   color: rgb(245, 245, 94);
+}

@@ -1,0 +1,9 @@
+/* Format for medium screen sizes */
+
+@media screen and (min-width: 72.5em) {
+
+   .colors-grid {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+   }
+
+}
