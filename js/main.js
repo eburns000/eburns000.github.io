@@ -10,6 +10,7 @@ function wrapper() {
 
         // create the li element to hold the anchor tag
         let li = document.createElement('li');
+        li.classList.add("main-li");
 
         // create the anchor tag with the url reference and label and append it to the li element
         let a = document.createElement('a');
