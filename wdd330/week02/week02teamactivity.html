@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <meta name="description"
+      content="Assignment portal for Eric Burns in WDD 330: Web Frontend Development, Week 02 team activity">
+   <title>Team Activity | Week 02</title>
+   <link rel="icon" href="favicon.ico" type="image/x-icon">
+   <link rel="stylesheet" href="../../css/normalize.css">
+   <link rel="stylesheet" href="../../css/small.css">
+   <link rel="stylesheet" href="../../css/medium.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body onload="resetValues()">
+   <div id="content">
+      <header class="header">
+         <h1>Team Activity | Week 02</h1>
+      </header>
+      <nav class="nav">
+         <ul>
+            <li class="home"><a href="../../index.html"><span class="fa fa-home"></span> Home</a></li>
+            <li class="home"><a href="../week02/index.html"><span class="fa fa-arrow-right"></span> Week 02</a></li>
+         </ul>
+      </nav>
+      <main class="main">
+         <h2>Team Activity Exercises</h2>
+         <h3>Core 01</h3>
+         <input class="txt-input" id="input01" type="text">
+         <input class="btn" id="btn01" type="button" value="Display Text" onclick="displayInput()">
+         <div id="results01"></div>
+         <script>
+            function displayInput() {
+               let input = document.getElementById('input01').value;
+               document.getElementById('results01').innerHTML = input;
+            }
+         </script>
+         <h3>Core 02</h3>
+         <input class="num-input" id="input02" type="number" min="2"><span class="validity"></span>
+         <input class="btn" id="btn02" type="button" value="Display Sum of Integers"
+            onclick="displaySumOfIntegers(document.getElementById('input02').value)">
+         <div id="results02"></div>
+         <script>
+            function displaySumOfIntegers(num) {
+               let result = "";
+               if (num < 2)
+                  result = "Please Enter a Number > 1";
+               else {
+                  let sum = 0;
+                  for (let i = 1; i <= num; i++) {
+                     sum += i;
+                  }
+                  result = sum;
+               }
+               document.getElementById('results02').innerHTML = result;
+            }
+         </script>
+         <h3>Core 03</h3>
+         <input class="num-input" id="input03" type="number">
+         <input class="num-input" id="input04" type="number">
+         <input class="btn" id="btn03" type="button" value="Plus (+)">
+         <div id="results03"></div>
+         <script>
+            let btn = document.getElementById('btn03');
+
+            function add(num1, num2) {
+               return num1 + num2;
+            }
+
+            function displayResults(id, results) {
+               document.getElementById(id).innerHTML = results;
+            }
+
+            btn.addEventListener('click', function () {
+               let results = add(+document.getElementById('input03').value, +document.getElementById('input04')
+                  .value);
+               displayResults('results03', results);
+            });
+            // interestingly, without the uniary operator "+" in front of the value, "value" is a string
+         </script>
+         <h3>Stretch 01-03 Calculator</h3>
+         <input class="num-input" id="calcInput" type="number">
+         <div class="calculator">
+            <input class="btn-calc" id="calc7" type="button" value="7">
+            <input class="btn-calc" id="calc8" type="button" value="8">
+            <input class="btn-calc" id="calc9" type="button" value="9">
+            <input class="btn-calc" id="calcd" type="button" value="/">
+            <input class="btn-calc" id="calc4" type="button" value="4">
+            <input class="btn-calc" id="calc5" type="button" value="5">
+            <input class="btn-calc" id="calc6" type="button" value="6">
+            <input class="btn-calc" id="calcx" type="button" value="x">
+            <input class="btn-calc" id="calc1" type="button" value="1">
+            <input class="btn-calc" id="calc2" type="button" value="2">
+            <input class="btn-calc" id="calc3" type="button" value="3">
+            <input class="btn-calc" id="calc-" type="button" value="-">
+            <input class="btn-calc" id="calcClear" type="button" value="CE">
+            <input class="btn-calc" id="calc0" type="button" value="0">
+            <input class="btn-calc" id="calcEquals" type="button" value="=">
+            <input class="btn-calc" id="calc+" type="button" value="+">
+         </div>
+         <script>
+            let btnCalc7 = document.getElementById('calc7');
+            let btnCalc8 = document.getElementById('calc8');
+            let btnCalc9 = document.getElementById('calc9');
+            let btnCalcDivide = document.getElementById('calcd');
+            let btnCalc4 = document.getElementById('calc4');
+            let btnCalc5 = document.getElementById('calc5');
+            let btnCalc6 = document.getElementById('calc6');
+            let btnCalc1 = document.getElementById('calc1');
+            let btnCalc2 = document.getElementById('calc2');
+            let btnCalc3 = document.getElementById('calc3');
+            let btnCalc0 = document.getElementById('calc0');
+            let btnCalcTimes = document.getElementById('calcx');
+            let btnCalcMinus = document.getElementById('calc-');
+            let btnCalcPlus = document.getElementById('calc+');
+            let btnCalcClear = document.getElementById('calcClear');
+            let btnCalcEquals = document.getElementById('calcEquals');
+            let calcInput = document.getElementById('calcInput');
+
+            let currentOperator = ""; // use to store most recent operator (plus, minus, divide, multiply)
+            let storedValue = 0; // use to store most recent value for operand function
+
+            function resetValues() {               
+               calcInput.value = "";
+               storedValue = 0;               
+            }
+
+            function setCalcInput(num) {               
+               calcInput.value = num;
+            }
+
+            function appendCalcInput(num) {
+               calcInput.value += num;
+            }
+
+            function clearCalcInput() {
+               calcInput.value = "";
+            }
+
+            function getInputValue() {
+               return +calcInput.value;
+            }
+
+            function updateStoredValue() { // only calling this if you have two operands               
+               if (currentOperator == "plus") {
+                  storedValue += getInputValue(); // probably need to get "current value" using a function                  
+               } else if (currentOperator == "minus") {
+                  storedValue -= getInputValue();
+               } else if (currentOperator == "divide") {
+                  storedValue /= getInputValue();
+               } else if (currentOperator == "multiply") {
+                  storedValue *= getInputValue();
+               } else {
+                  storedValue = getInputValue();
+               }               
+            }
+
+            function displayStoredValue() {
+               calcInput.value = storedValue;
+            }
+
+            function setCurrentOperator(operator) {
+               currentOperator = operator;
+            }
+
+            function clearCurrentOperator() {
+               currentOperator = "";
+            }
+
+            btnCalc1.addEventListener('click', function () {
+               appendCalcInput(1);
+            });
+
+            btnCalc2.addEventListener('click', function () {
+               appendCalcInput(2);
+            });
+
+            btnCalc3.addEventListener('click', function () {
+               appendCalcInput(3);
+            });
+
+            btnCalc4.addEventListener('click', function () {
+               appendCalcInput(4);
+            });
+
+            btnCalc5.addEventListener('click', function () {
+               appendCalcInput(5);
+            });
+
+            btnCalc6.addEventListener('click', function () {
+               appendCalcInput(6);
+            });
+
+            btnCalc7.addEventListener('click', function () {
+               appendCalcInput(7);
+            });
+
+            btnCalc8.addEventListener('click', function () {
+               appendCalcInput(8);
+            });
+
+            btnCalc9.addEventListener('click', function () {
+               appendCalcInput(9);
+            });
+
+            btnCalc0.addEventListener('click', function () {
+               appendCalcInput(0);
+            });
+
+            btnCalcDivide.addEventListener('click', function () {
+               updateStoredValue();               
+               setCurrentOperator("divide");
+               clearCalcInput();              
+            });
+
+            btnCalcTimes.addEventListener('click', function () {
+               updateStoredValue();               
+               setCurrentOperator("multiply");
+               clearCalcInput();               
+            });
+
+            btnCalcMinus.addEventListener('click', function () {
+               updateStoredValue();
+               setCurrentOperator("minus");
+               clearCalcInput();              
+            });
+
+            btnCalcPlus.addEventListener('click', function () {
+               updateStoredValue();
+               setCurrentOperator("plus");
+               clearCalcInput();              
+            });
+
+            btnCalcEquals.addEventListener('click', function () {               
+               updateStoredValue();
+               displayStoredValue();
+               clearCurrentOperator();        
+            });
+
+            btnCalcClear.addEventListener('click', function () {
+               resetValues();
+            });
+         </script>
+
+
+      </main>
+      <footer class="footer">
+         <p>&copy; <span id="currentyear"></span> | Eric Burns | Washington, USA <span id="footer-pipe">| </span><br><a
+               href="https://www.byui.edu/online" target="_blank">BYU-i Online Learning</a></p>
+         <p class="datetime">Last Updated: <span id="datetime"></span></p>
+      </footer>
+   </div>
+   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js">
+   </script>
+   <script src="../../js/webfontload.js"></script>
+   <script src="../../js/script.js"></script>
+</body>
+
+</html>

@@ -165,5 +165,31 @@ blockquote {
   background-color: #ffffd0;
 }
 
+input.num-input:invalid + span:after {
+  content: '✖';
+  padding-left: 5px;
+  color: red;
+}
 
+input.num-input:valid + span:after {
+  content: '✓';
+  padding-left: 5px;
+  color: green;
+}
 
+.calculator {
+  display: flex;
+  flex-wrap: wrap;
+  width: 30%;
+}
+
+.btn-calc {
+  margin: .5%;
+  width: 20px;
+  height: 40px;
+  flex: 1 0 24%;
+}
+
+/* .btn-calc:nth-child(4n) {
+  flex-basis: 100%;
+} */
