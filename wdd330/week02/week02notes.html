@@ -29,67 +29,240 @@
       <main class="main">
          <h2>Notes - JavaScript Novice to Ninja</h2>
          <h3>Chapter 2 - Programming Basics</h3>
-         <p>The following notes are of particular areas that I was less familiar with, didn't fully realize, or would like to have as a quick reminder.</p>
+         <p>The following notes are of particular areas that I was less familiar with, didn't fully realize, or would
+            like to have as a quick reminder.</p>
          <ul>
-            <li>Global Scope: a variable declared within a block but without declaration key words (e.g. let, const) will be global. A bad habit of mine is to forget to use the key word "let" in my for loop, as in for (let i = 0;...) and instead write it as for (i = 0;...). Something to watch out for.</li>
+            <li>Global Scope: a variable declared within a block but without declaration key words (e.g. let, const)
+               will be global. A bad habit of mine is to forget to use the key word "let" in my for loop, as in for (let
+               i = 0;...) and instead write it as for (i = 0;...). Something to watch out for.</li>
             <li>JavaScript creates wrapper objects for primitive data types. I didn't realize this.</li>
-            <li>Template literals are awesome, and I often forget to use them. "It is not uncommon to see backticks used to create <em>all</em> strings in ES6 code.</li>
+            <li>Template literals are awesome, and I often forget to use them. "It is not uncommon to see backticks used
+               to create <em>all</em> strings in ES6 code.</li>
             <li>Symbols. This is new to me. See my question below.</li>
             <li>The isInteger() method for numbers is something to remember.</li>
-            <li>toFixed() vs toPrecision() methods. Something the text doesn't make clear is that it appears toPrecision() always returns exponential notiation. See question below.</li>
-            <li>Infinity. Not sure I will ever need this, but good to know if the number is larger than 1.7873e+308 it will return Infinity. Same for negative extreme value as well. That said, it might be more likely I would receive the value by dividing a number by 0. That is 1/0 yields "Infinity."</li>
-            <li>NaN --> 'hello' * 5 yields NaN. I would have thought 'hello' would have been coerced to the value 1 (one) and the answer would be 5. This is good to know. It is also interesting to remember that NaN is a "number" not "NaN."</li>
-            <li>isFinite() method can be used to check if a value is a number. I was using parseInt() and evaluating if it returned true. That works too, but good to know about the other. I also was using isNaN(), and turns out that that is not a good idea. ES6 introduced the isNaN() "Number" method as opposed to using the global isNaN() method.</li>
-            <li>The book lists several examples of strange results when using soft equality. I was not aware of these. I typically do anyway, but just a reminder to use hard equality unless you have a specific reason to use soft equality. Remember that hard equality has this one quirk, that NaN === NaN yields false; hence the use of Number.isNaN().</li>
+            <li>toFixed() vs toPrecision() methods. Something the text doesn't make clear is that it appears
+               toPrecision() always returns exponential notiation. See question below.</li>
+            <li>Infinity. Not sure I will ever need this, but good to know if the number is larger than 1.7873e+308 it
+               will return Infinity. Same for negative extreme value as well. That said, it might be more likely I would
+               receive the value by dividing a number by 0. That is 1/0 yields "Infinity."</li>
+            <li>NaN --> 'hello' * 5 yields NaN. I would have thought 'hello' would have been coerced to the value 1
+               (one) and the answer would be 5. This is good to know. It is also interesting to remember that NaN is a
+               "number" not "NaN."</li>
+            <li>isFinite() method can be used to check if a value is a number. I was using parseInt() and evaluating if
+               it returned true. That works too, but good to know about the other. I also was using isNaN(), and turns
+               out that that is not a good idea. ES6 introduced the isNaN() "Number" method as opposed to using the
+               global isNaN() method.</li>
+            <li>The book lists several examples of strange results when using soft equality. I was not aware of these. I
+               typically do anyway, but just a reminder to use hard equality unless you have a specific reason to use
+               soft equality. Remember that hard equality has this one quirk, that NaN === NaN yields false; hence the
+               use of Number.isNaN().</li>
             <li>JS allows "lazy evaluation" which can be useful when operands are used for assignment.</li>
-            <li>Remember the nine "falsy" values: "", '', ``, 0, -0, NaN, false, null, and undefined. 0 and -0 in JS is different. Also remember that ' ' is a truthy, but '' is a falsy. Along with this, if you want to check, you can use double negation (!!). For example: !!'' yields false. </li>
+            <li>Remember the nine "falsy" values: "", '', ``, 0, -0, NaN, false, null, and undefined. 0 and -0 in JS is
+               different. Also remember that ' ' is a truthy, but '' is a falsy. Along with this, if you want to check,
+               you can use double negation (!!). For example: !!'' yields false. </li>
             <li>All of the bitwise operators are available.</li>
-            <li>Null and Undefined are of course different. But the examples here are important to remember: 10 + null yields 10. 10 + undefined yields NaN. That's because null is coerced to be 0, whereas undefined is coerced to NaN.</li>
-            <li>Hard inqualities are possible (e.g. !== vs !=). However, there are no "hard" greater-than-or-equal-to or less-than-or-equal-to operators. How do you handle this? Do this: 8 > 8 || 8 === 8 vs 8 >= 8.</li>
-            <li>I think a very useful use case for inequalties is to compare "sorting" of strings, as in 'apples'&lt;'bananas', but watch out for 'apples'&lt;'Bananas' --&gt; could use toLower() or toUpper() to do this comparison.</li>            
+            <li>Null and Undefined are of course different. But the examples here are important to remember: 10 + null
+               yields 10. 10 + undefined yields NaN. That's because null is coerced to be 0, whereas undefined is
+               coerced to NaN.</li>
+            <li>Hard inqualities are possible (e.g. !== vs !=). However, there are no "hard" greater-than-or-equal-to or
+               less-than-or-equal-to operators. How do you handle this? Do this: 8 > 8 || 8 === 8 vs 8 >= 8.</li>
+            <li>I think a very useful use case for inequalties is to compare "sorting" of strings, as in
+               'apples'&lt;'bananas', but watch out for 'apples'&lt;'Bananas' --&gt; could use toLower() or toUpper() to
+               do this comparison.</li>
          </ul>
 
-         <p class="question">I don't understand the use cases of Symbols. The text says "The main use-case for symbols is as object property keys, which will be covered in Chapter 5. The uniqueness of symbols, mean that it’s impossible for the names of any properties to clash with each other if they are symbols." This is an area to pay attention to when I get to Chapter 5.</p>
+         <p class="question">I don't understand the use cases of Symbols. The text says "The main use-case for symbols
+            is as object property keys, which will be covered in Chapter 5. The uniqueness of symbols, mean that it’s
+            impossible for the names of any properties to clash with each other if they are symbols." This is an area to
+            pay attention to when I get to Chapter 5.</p>
 
          <h3>Chapter 3 - Arrays, Logic, and Loops</h3>
-         <p>The following notes are of particular areas that I was less familiar with, didn't fully realize, or would like to have as a quick reminder.</p>
+         <p>The following notes are of particular areas that I was less familiar with, didn't fully realize, or would
+            like to have as a quick reminder.</p>
          <ul>
-            <li>"Delete" operator in arrays - watch out. The element will be "deleted" but the not removed - it will be undefined in the array, so the number of elements will still be there.</li>
-            <li>Destructuring arrays. Const [x, y] = [1, 2]. Also, swap values as in [x, y] = [y, x]. Did not know this.</li>
-            <li>Remember length property and pop, push, shift, and unshift methods. Shift() is like pop(), and unshift() is like push() except working at the begnning of the array.</li>
-            <li>Remember avengers.concat() vs avengers = avengers.concat(). The latter will update the array and the former creates a new array.</li>
-            <li>The join() method is awesome. Used to turn the array into a string separated by commas. I could see this being used to convert an array of arrays into a CSV file. You can also specifiy the delimeter.</li>
+            <li>"Delete" operator in arrays - watch out. The element will be "deleted" but the not removed - it will be
+               undefined in the array, so the number of elements will still be there.</li>
+            <li>Destructuring arrays. Const [x, y] = [1, 2]. Also, swap values as in [x, y] = [y, x]. Did not know this.
+            </li>
+            <li>Remember length property and pop, push, shift, and unshift methods. Shift() is like pop(), and unshift()
+               is like push() except working at the begnning of the array.</li>
+            <li>Remember avengers.concat() vs avengers = avengers.concat(). The latter will update the array and the
+               former creates a new array.</li>
+            <li>The join() method is awesome. Used to turn the array into a string separated by commas. I could see this
+               being used to convert an array of arrays into a CSV file. You can also specifiy the delimeter.</li>
             <li>Slice() creates a subarray.</li>
-            <li>Splice() removes and replaces elements in the array, and then returns the items removed from the array as a subarray. You can also use "0" as the indicator to just insert values into the array without removing any elements. Remember the "Delete" operator? Use Splice() instead, since it is destructive and doesn't leave behind the undefind element.</li>
+            <li>Splice() removes and replaces elements in the array, and then returns the items removed from the array
+               as a subarray. You can also use "0" as the indicator to just insert values into the array without
+               removing any elements. Remember the "Delete" operator? Use Splice() instead, since it is destructive and
+               doesn't leave behind the undefind element.</li>
             <li>Reverse() reverses the order of the array.</li>
-            <li>Sort() of course sorts the elemenets. It also changes the order of the array permanently. The text doesn't mention this but 'A' comes before 'a' - just keep that in mind ('A' is 65, and 'a' is 97). Remember that numbers are sorted alphabetically, not numerically, so 10 comes before 5.</li>
-            <li>Remember indexOf() and includes(). Also remember that we can specify the start of the search in includes() as teh second parameter, as in includes('Black Widow', 1). Remember indexOf() returns the FIRST occurance. If not in there, it returns -1. See question. </li>
-            <li>Multidimensional arrays. As expected. However, use of the spread operator can flatten a Multidimensional array. That is helpful. For example, const flat = [...summer, ..winter];</li>
-            <li>Sets are awesome, but remember no operations such as union, intersection and product. In C++ we could overload operators to set union operators, for example. Not sure if we can do something similar in JavaScript. I think you get what you get. With sets, remember, unique values only allowed, operation to check if a value is in the set is faster than similar operations for an array, and no referencing of "elements" in the set like we do with arrays, that is, sets do not have index notation. That said, remember an object is unique, so you can kind of get around duplicating values in a set, if the set contains arrays. add() method is used to add values to a set. Sets are created using the new operator and Set() constructor. Other Set() methods inlcude: size(), has(), delete(), and clear(). Convert a Set to an Array using the spread operator, as in: <br><code>const shoppingArray = [...shoppingSet]</code><br>and<br><code>const shoppingArray = Array.from(shoppingSet)</code></li>
-            <li>Weak Sets prevent memory leaks by garbage collecting any references in the set to "dead" objects that had their original references removed (e.g. by setting the reference to null).</li>
-            <li>Maps introduced in ES6. Awesome. Some key differences between Maps and Objects. Maps can use any data type as a key. Maps have a size property to find the number of key-value pairs. Objects have methods that can be called and prototypes that can be used to create a chain of inheritance, whereas maps are soley focused on the storage and retrieval of key-value pairs. The value of an object's propoerties can be accessed directly, whereas maps restrict you to using the get() method to retreive any values.</li>
+            <li>Sort() of course sorts the elemenets. It also changes the order of the array permanently. The text
+               doesn't mention this but 'A' comes before 'a' - just keep that in mind ('A' is 65, and 'a' is 97).
+               Remember that numbers are sorted alphabetically, not numerically, so 10 comes before 5.</li>
+            <li>Remember indexOf() and includes(). Also remember that we can specify the start of the search in
+               includes() as teh second parameter, as in includes('Black Widow', 1). Remember indexOf() returns the
+               FIRST occurance. If not in there, it returns -1. See question. </li>
+            <li>Multidimensional arrays. As expected. However, use of the spread operator can flatten a Multidimensional
+               array. That is helpful. For example, const flat = [...summer, ..winter];</li>
+            <li>Sets are awesome, but remember no operations such as union, intersection and product. In C++ we could
+               overload operators to set union operators, for example. Not sure if we can do something similar in
+               JavaScript. I think you get what you get. With sets, remember, unique values only allowed, operation to
+               check if a value is in the set is faster than similar operations for an array, and no referencing of
+               "elements" in the set like we do with arrays, that is, sets do not have index notation. That said,
+               remember an object is unique, so you can kind of get around duplicating values in a set, if the set
+               contains arrays. add() method is used to add values to a set. Sets are created using the new operator and
+               Set() constructor. Other Set() methods inlcude: size(), has(), delete(), and clear(). Convert a Set to an
+               Array using the spread operator, as in: <br><code>const shoppingArray =
+                  [...shoppingSet]</code><br>and<br><code>const shoppingArray = Array.from(shoppingSet)</code></li>
+            <li>Weak Sets prevent memory leaks by garbage collecting any references in the set to "dead" objects that
+               had their original references removed (e.g. by setting the reference to null).</li>
+            <li>Maps introduced in ES6. Awesome. Some key differences between Maps and Objects. Maps can use any data
+               type as a key. Maps have a size property to find the number of key-value pairs. Objects have methods that
+               can be called and prototypes that can be used to create a chain of inheritance, whereas maps are soley
+               focused on the storage and retrieval of key-value pairs. The value of an object's propoerties can be
+               accessed directly, whereas maps restrict you to using the get() method to retreive any values.</li>
             <li>Map objects created using the <code>new</code> operator and <code>Map()</code> constructor.</li>
-            <li>Map methods include: set(), get(), has(), delete(), and clear(). Maps can be created with multiple values using nested arrays as a parameter, as in:<br><code>const heros = new Map([ [1,"One"], [2,"Two"] ]);</code></li>
-            <li>The delete() method returns true if the key-value pair was removed and false if it wasn't in the map. The clear() method removes all key-value pairs. The spread operator can be used to convert a map into a nested array as in [...romanNumerals]. You can also use Array.from(romanNumerals).</li>
-            <li>Weak Maps work the same way as Weak Sets. Weak maps are the same as maps, except their keys cannot be primitives and the garbage collector will automatically remove any dead entries when the reference to the original object is deleted. Create a weak map with <code>new WeakMap()</code></li>
+            <li>Map methods include: set(), get(), has(), delete(), and clear(). Maps can be created with multiple
+               values using nested arrays as a parameter, as in:<br><code>const heros = new Map([ [1,"One"], [2,"Two"]
+                  ]);</code></li>
+            <li>The delete() method returns true if the key-value pair was removed and false if it wasn't in the map.
+               The clear() method removes all key-value pairs. The spread operator can be used to convert a map into a
+               nested array as in [...romanNumerals]. You can also use Array.from(romanNumerals).</li>
+            <li>Weak Maps work the same way as Weak Sets. Weak maps are the same as maps, except their keys cannot be
+               primitives and the garbage collector will automatically remove any dead entries when the reference to the
+               original object is deleted. Create a weak map with <code>new WeakMap()</code></li>
             <li>Conditional logic works as expected, including ternary operators.</li>
-            <li>Switch statements can use Strings in the expression. I did not see this in the chapter. Just keep in mind the difference between String literals and String objects when evaluating a string in a Switch statement. <a href="https://stackoverflow.com/questions/14910760/switch-case-as-string" target="_blank">See this stackoverflow reference for an example</a>.</li>
-            <li>The chapter says to finish each case block with a break keyword. In C++, sometimes you wanted to let it continue if you were looking through numerical sequences. The author suggests this is a hack and can be confusing. Do that with caution.</li>
-            <li>Loops are as expected, with the addition of a for..of loop, for arrays, as in: <br><code>for(const value of avengers){console.log(value);}</code></li>
-            <li>Note: the text doesn't mention for..in loops, probably because they are used to loop through the property names of an object and this chapter is on arrays. <a href="https://stackoverflow.com/questions/29285897/what-is-the-difference-between-for-in-and-for-of-statements-in-jav" target="_blank">Here's a stackoverflow reference on the difference between for..of and for..in loops</a>.</li>
+            <li>Switch statements can use Strings in the expression. I did not see this in the chapter. Just keep in
+               mind the difference between String literals and String objects when evaluating a string in a Switch
+               statement. <a href="https://stackoverflow.com/questions/14910760/switch-case-as-string"
+                  target="_blank">See this stackoverflow reference for an example</a>.</li>
+            <li>The chapter says to finish each case block with a break keyword. In C++, sometimes you wanted to let it
+               continue if you were looking through numerical sequences. The author suggests this is a hack and can be
+               confusing. Do that with caution.</li>
+            <li>Loops are as expected, with the addition of a for..of loop, for arrays, as in: <br><code>for(const value
+                  of avengers){console.log(value);}</code></li>
+            <li>Note: the text doesn't mention for..in loops, probably because they are used to loop through the
+               property names of an object and this chapter is on arrays. <a
+                  href="https://stackoverflow.com/questions/29285897/what-is-the-difference-between-for-in-and-for-of-statements-in-jav"
+                  target="_blank">Here's a stackoverflow reference on the difference between for..of and for..in
+                  loops</a>.</li>
             <li>Want to loop through a set? Use a for..of loop.</li>
-            <li>Want to loop through a map? use a for..of loop as well, but here is an example of how you would do that:<br><code>for(const key of romanNumerals.keys()) {console.log(key);}</code><br>Notice the keys() method which returns an array of the keys of the map. You can also do this for the values of the map, using the values() method, which returns an array of the values of the Map.</li>
+            <li>Want to loop through a map? use a for..of loop as well, but here is an example of how you would do
+               that:<br><code>for(const key of romanNumerals.keys()) {console.log(key);}</code><br>Notice the keys()
+               method which returns an array of the keys of the map. You can also do this for the values of the map,
+               using the values() method, which returns an array of the values of the Map.</li>
          </ul>
 
-         <p class="question">The indexOf() method: Can you find the second occurance? Is there a start of the search parameter like there is in includes()? YES! Answered my own question. You can put in the second parameter the starting point. How can you find, other than looping through the array, all of the indecies of the element you're looking for?</p>
+         <p class="question">The indexOf() method: Can you find the second occurance? Is there a start of the search
+            parameter like there is in includes()? YES! Answered my own question. You can put in the second parameter
+            the starting point. How can you find, other than looping through the array, all of the indecies of the
+            element you're looking for?</p>
 
-         <p class="question">What method can you use to convert a comma delimited text into an Array? The split() method. For example, <br><code>const names = 'Harry,John,Clark,Peter,";<br>const nameArray = names.split(',');</code><br>To be fair, split() is not an array method but a string method, so that might be why it's not mentioned in this chapter.</p>
+         <p class="question">What method can you use to convert a comma delimited text into an Array? The split()
+            method. For example, <br><code>const names = 'Harry,John,Clark,Peter,";<br>const nameArray =
+               names.split(',');</code><br>To be fair, split() is not an array method but a string method, so that might
+            be why it's not mentioned in this chapter.</p>
 
          <h3>Chapter 4 - Functions</h3>
-         <p>The following notes are of particular areas that I was less familiar with, didn't fully realize, or would like to have as a quick reminder.</p>
+         <p>The following notes are of particular areas that I was less familiar with, didn't fully realize, or would
+            like to have as a quick reminder.</p>
          <ul>
-            <li></li>
+            <li>Declaring a function and then afterwards assigning that function to a variable, I believe, is absolutely
+               no different than creating a named function expression. On a personal note, I don't think I would create
+               a named function expression. Either I want to be able to reuse the function, in which I will declare it,
+               or I will leave it as anonmyous if I create a function expression.</li>
+            <li>I don't ever see creating a function wtih a function constuctor, but it's good to know that you can or
+               if I see it I know what is going on.</li>
+            <li>The other way to define a function is with arrow functions. While I am still getting more comfortable
+               with the syntax, I am loving these more and more. They are very sleak. One use case for arrow functions
+               is in setting event listeners on buttons or other objects, where you want the object to do something
+               (e.g. after a 'click') that you might not want to define elsewhere. Even if you want the listener to call
+               a function you've declared, you can use an arrow function on the listener to call the other function.
+               Using arrow functions in this way keeps the listners clean in your code and you can utilize listeners
+               instead of coupling the JS to your View layer by using "onclicks" in your html.</li>
+            <li>Keep your code <strong>DRY</strong> (Don't Repeat Yourself). I know this but just good to keep
+               reminding. </li>
+            <li>I think the other related principle to add here is the single responsibility principle (SRP).</li>
+            <li>Every function has a special value called <strong>arguments</strong>. I did not know this. In other
+               words, if you return "arguments" from any function, it will return an "array-like" object with the
+               arguments. This is not an array though. So it's better to use the <strong>rest</strong> operator. To use
+               the rest operator, simply place 3 dots (like the spread operator, example ...args) in front of the
+               <em>last</em> parameter in the function. That is why we often see "args" as the last parameter in these
+               situations. The "args" parameter in this example will be <strong>an actual array</strong>, allowing us to
+               use a for..of loop or array methods such as slice(), join(), and forEach(). Consider the improved mean
+               function in the text as an example of where we can accept any number of values and loop through that
+               array of values to find the mean.</li>
+            <li>Default parameters work as you would expect. This was introduced by ES6. Reminder if you're going to
+               have a "required" parameters and default parameters, put the default ones last, in the declaration, so
+               that if fewer arguments are passed, the default ones are used as intended. This is obvious but just a
+               reminder.</li>
+            <li>A few facts about Arrow Functions:
+               <ul>
+                  <li>Much less verbose.</li>
+                  <li>Single parameters don't need parentheses.</li>
+                  <li>No block required if function is only one line.</li>
+                  <li>Return keyword not requierd return statement is the <strong>only</strong> statement.</li>
+                  <li>They don't bind their own value of <code>this</code> to the function.</li>
+               </ul>
+            </li>
+            <li>Function Hoisting: JS moves all function declarations to the top of the current scope, regardless of
+               they are defined (vs in C++ for example).</li>
+            <li>Variable Hoisting: the above is true for variables declared using <code>var</code> as well. This is
+               another reason to use <code>const</code> and <code>let</code> instead, to have more precise control over
+               the code in predictible ways.</li>
+            <li>CallBacks: a function that is passed as an argument to another function is known as a <em>callback</em>.
+            </li>
+            <li>Callback example:<br>
+               <code>function sing(song, callback) {<br>
+                  console.log(`I'm singing along to ${song}.`);<br>
+                  callback();<br>
+                  }</code></li>
+            <li>Callback notes:
+               <ul>
+                  <li>The callback is provided as a parameter, then invoked inside the body of the function.</li>
+                  <li>There is nothing to define a parameter as a callback, but you can check if an argument is a
+                     function using <code>typeof(callback) === 'function'</code></li>
+                  <li>This is obvious, but we're using the word "callback" as the parameter name, but you could use
+                     anything you wanted, but it is probably best practice to do that or to at least signiy the intent
+                     that the parameter should be a function in the declaration.</li>
+                  <li>The callback variable is passed as an argument <em>without</em> parentheses - this is becaues the
+                     argument is <strong>only a reference to the function</strong>.</li>
+                  <li>When the actual callback function is invoked in the body of the function, we use parentheses, as
+                     in <code>callback()</code></li>
+                  <li>Callbacks make functions more flexible, allowing the function to diffrent things, depending upon
+                     the actual function that is passed. In other words, you could have a function that passes a
+                     different action, depending upon which function you want to pass as the callback.</li>
+                  <li>Seems obvious, but we can pass an anonmyous function as an argument to a callback function as
+                     well.</li>
+               </ul>
+            </li>
+            <li>A pratical example of using a Callback is with sorting arrays. We can create a "numerically" function to
+               pass as the callback, that the sort() method will use to sort values. This will now allow us to sort the
+               array numerically, whereas before we could not do that because the sort() method converts numbers into
+               strings. Here's the example:<br>
+               <code>function numerically(a, b) {<br>
+                  return a-b;<br>
+                  }
+               </code>
+            </li>
+            <li>Array forEach() method, as an alternative to looping through each value in the array. What you pass into the forEach() method is a callback. The callback takes 3 parameters: the value in the array, the current index, and the array that the callback is being called on. For example:<br>
+            <code>colors.forEach( (color, index) => <br>
+            console.log(`Color at position ${index} is ${color}`) );</code></li>
+            <li>The map() method is similar to the forEach() method. It also iterates over an array, and takes a callback function as a parameter that is invoked on each item in the array. This is often used to process data returned from databases in array form, such as adding HTML tags to plain text.</li>
+            <li>The reduce() method cumulatively combines each result to return just a single value. The callback function is used to describe how to combine each value of the array with the running total. This is often used to calculate statistics such as averages from data stored in an array. It usually takes two parameters: the first is the accumulaed value and teh second represents the current value in the array. The reduce() method also takes a second parameter after the callback, which is the initial value of the accumulator.</li>
+            <li>The filter() method returns a new array that only contains items from the original array that return true when passed to the callback.</li>
+            <li>Chaining Iterators. Key to remember here is that it goes from left to right, not right to left. So <code>[1, 2, 3].map().reduce();</code> will first invoke map(), return an array, and invoke reduce() on the resulting array.</li>
+
          </ul>
+
+         <p class="question">Why is the "non-binding" nature of arrow functions important, wthat is in which which arrow
+            functions do not bind their own value of <code>this</code>?</p>
+
+         <p class="question">On callbacks, I think this comes into play with inheritance, where we have a function that
+            is different for each child but is invoked by a reference to the parent method. I'm a little rusty with my
+            knowledge of inheritance and need to see how callbacks may be used in this instance.</p>
+
+         <p class="question">When would you pass the third parameter in the forEach() method, which is "the array that the callback is being called on," when you are invoking the forEach() method on the array itself?</p>
 
 
       </main>
