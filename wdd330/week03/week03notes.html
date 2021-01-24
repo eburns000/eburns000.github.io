@@ -27,11 +27,248 @@
          </ul>
       </nav>
       <main class="main">
-        <h2>Notes - Object Method: this</h2> 
-        <h2>Notes - JavaScript Novice to Ninja</h2>         
-        <h3>Chapter 5 - Objects</h3>
-        <h3>Chapter 6 - DOM</h3>
-        <h3>Events</h3>
+         <h2>Notes - JavaScript Novice to Ninja</h2>
+         <h3>Chapter 5 - Objects</h3>
+         <p>The following notes are of particular areas that I was less familiar with, didn't fully realize, or would
+            like to have as a quick reminder.</p>
+         <ul>
+            <li>Accessing properties. You can use an expression as the property key, as in <code>superman["real" + " " +
+                  "name"]</code></li>
+            <li>Computed Properties. ES6 allows JavaScript to be placed inside square brackets and the property key will
+               be the return value of that code.</li>
+            <li>Symbols. I understand this better. The <strong><em>value</em></strong> must be unique, even accross all
+               objects that use that symbol. So you could use a symbol as a username, for example, in an object, and all
+               instances would require a unique value for that symbol.</li>
+            <li>Calling a method of an object as <code>superman.fly()</code> or <code>superman['fly']()</code> is
+               equivalent.</li>
+            <li>Checking if Properties or Methods Exist. Three Ways to do this: in, !== undefined, and hasOwnProperty()
+               method. The latter will only return true if the property belongs to that particular object, whereas in
+               and !== undefined will return true even if theproperty has been ineherited from another object.</li>
+            <li>Finding all properties of an Object: <code>for..in loop</code>, <code>Object.keys()</code>,
+               <code>Object.values()</code>, and <code>Object.entries()</code>.</li>
+            <li>Adding properties - just assign a value to the new property, as in <code>superman.city =
+                  'Metropolis'</code></li>
+            <li>Removing properties: <code>delete</code> operator, as in <code>delete superman.fly</code></li>
+            <li>Nested objects works as expected. Reference with chained dot notation, as in
+               <code>jla.wonderWoman.realName</code></li>
+            <li>Objects are copied by reference; primiives are copied by value.</li>
+            <li>Object literals passed as parameters to functions. Can be passed in any order. Can use default values.
+            </li>
+            <li><code>this</code> refers to the object that it is within.</li>
+            <li>Using objects as namespaces. The "object literal pattern."</li>
+            <li>JSON.parse() accepts string in JSON format and returns a JavaScript object.</li>
+            <li>JSON.stringify() accepts a JavaScript object and returns a string in JSON format.</li>
+            <li>Math has eight properties that are commonly used constants.</li>
+            <li>Math methods include: math.abs(), math.ceil(), math.floor(), math.round(), math.trunc(), math.exp(),
+               math.pow(), math.sqrt(), math.cbrt(), math.hypot(), math.log(), math.log2(), math.log10(), math.sin(),
+               math.cos(), math.tan, math.asin(), math.acos(), math.atan(), math.sinh(), math.cosh(), math.tanh(), amd
+               math.random().</li>
+            <li>Common way to find random numbers is <code>Math.floor(n * Math.random()) + 1;</code> n is the max end of
+               the integer between 1 and n.</li>
+            <li>Date. Date object is created using <code>new Date();</code></li>
+            <li>Date Constructor accepts the following parameters: <code>new
+                  Date(year,month,day,hour,minutes,seconds,milliseconds)</code></li>
+            <li>Epoch is 1st January 1970.</li>
+            <li>Getter Methods include: getTime(), getTimezoneOffset(), getYear(). Methods also inlcude getDay(),
+               getDate(), getMonth(), getFullYear(), getHours(), getMinutes(), getSeconds(), getMilliseconds(). For
+               these last few, there is a UTC equivalent, such as getUTCDay(). Remember that months begin with 0, day of
+               the month begins with 1, day of the week begins with 0, with 0 being Sundsay.</li>
+            <li>Setter Methods comparable to getters, of course passing in the value to set.</li>
+            <li>Regex. literal notation vs RegExp object. Literal notation is preferred. Example: <code>const pattern =
+                  /[a-zA-Z]+ing$/;</code></li>
+            <li>RegExp object example: <code>const pattern = new RegExp('[a-zA-Z]+ing');</code></li>
+            <li>RegExp test() method. Example: <code>pattern.test('joke');</code> - returns true or false</li>
+            <li>RegExp exec() method. Example: <code>pattern.exec('joke');</code> - returns array containing the first
+               match found, null if otherwise.</li>
+            <li>Regex Properties: global, ignoreCase, and multiline - cannot be updated.</li>
+            <li>Special Characters: ., \w, \W, \d, \D, \s, \S</li>
+            <li>Modifiers: ?, *, +, {n}, {,m}, {n,m}, ^, $</li>
+            <li>Greedy vs Lazy patterns. Greedy Example: <code>/a.+a/</code>, Lazy Example: <code>/a.+?a/</code></li>
+         </ul>
+
+         <p class="question">Symbols are still a little fuzzy. What are some practical examples of using symbols? Would
+            we use those as unique account or user IDs in an object? If we did that, how do symbols translate to JSON
+            and into SQL? Do we jsut want to manage it on the server end? What pratical benefit is there to using
+            symbols?</p>
+
+         <h3>Chapter 6 - DOM</h3>
+         <ul>
+            <li>Everything on the page is a node: tags, text, attributes, etc. HTML tag is the root - all other nodes
+               are child notes.</li>
+            <li>Whitespace is stored as text nodes.</li>
+            <li>Body node is an object. All nodes have a numerical code to signify what type of node they are.
+               1:element, 2:attribute, 3:text, 8:comment, 9:body. Can also use nodeName as in body.nodeName.</li>
+            <li>Legacy Methods: Document.body, .images, .links, .anchors, .forms</li>
+            <li>Node lists are array-like, but not arrays. You CAN use index notation and length. You cannot use slice,
+               splice, and join, for example because they are not arrays. However, you can use Array.from(nodelist) to
+               convert a nodelist to an array. Or you can use the spread operator, as in <code>const imageArray =
+                  [...document.images];</code></li>
+            <li>Getting elements: getElementById(), getElementByTagName(), getElementsByClassName(), and query selectors
+               such as querySelector() and querySelectorAll().</li>
+            <li>getElementsByClassName() returns a live node list of all elements that have that class name.</li>
+            <li>querySelector() finds the <em>first</em> element in the document with that selector. If no matches,
+               returns null.</li>
+            <li>querySelectorAll() returns a mode list of <em>all</em> of the elements in the document that match that
+               CSS query selector. If no elements match, returns an empty node list.</li>
+            <li>querySelector() can be used on <em>any</em> element, not just the document. For example, you can get the
+               node of an element, and then find a child or children of that element with another query selector. For
+               example, const ul = document.querySelector('ul#roster');, followed by const batman =
+               ul.querySelector('li#bats');</li>
+            <li>DOM Navigation</li>
+            <ul>
+               <li>childNodes property returns a nodelist of all the nodes that are the children of that element, which
+                  includes text nodes and empty whitepsace nodes.</li>
+               <li>children property only returns any element nodes that are children of that node, ignoring text nodes.
+               </li>
+               <li>firstChild property returns first child of a node.</li>
+               <li>lastChild property returns last child of a node.</li>
+               <li>parentNode property returns parent node of an element.</li>
+               <li>nextSibling property returns next adjacent node of the same parent. Returns null otherwise.</li>
+               <li>previousSibling property returns previous adjacent node. Returns null otherwise.</li>
+            </ul>
+            <li>Finding Value of a Node</li>
+            <ul>
+               <li>textNode.nodeValue</li>
+               <li>textContent</li>
+               <li>innerText</li>
+               <li>innerHTML</li>
+            </ul>
+            <li>Getting and Setting Attributes</li>
+            <ul>
+               <li>getAttribute(): returns value of the attribute provdied as an argument as in
+                  <code>wonderWoman.getAttribute('class');</code>. Returns null otherwise.</li>
+               <li>setAttribute(attribute, value) as in <code>wonderWoman.setAttribute('class', 'villian');</code></li>
+               <li>Can use dot notation to access attributes, as in wonderWoman.id, wonderWoman.className and
+                  wonderWoman.htmlFor</li>
+            </ul>
+            <li>Element Classes</li>
+            <ul>
+               <li>className: will overwrite all other classes - use classList instead</li>
+               <li>classList: list of all classes of an element. Methods include:</li>
+               <ul>
+                  <li>add(), as in WonderWoman.classList.add('warrior'); - will add to the list, and not delete what was
+                     previously there.</li>
+                  <li>remove(), as in WonderWoman.classList.remove('warrior');</li>
+                  <li>toggle(), as in WonderWoman.classList.toggle('hero'); - will add it if it doesn't have it, and
+                     will remove it if it is there. Returns true if the class was added and false if it was removed.
+                  </li>
+                  <li>contains(), as in WonderWoman.classList.contains('hero'); - will see if an element has a given
+                     class, returns true if it exists and false if it does not.</li>
+               </ul>
+            </ul>
+            <li>Creating and Manipulating Markup</li>
+            <ul>
+               <li>Creating an element, as in <code>document.createElement('li');</code></li>
+               <li>Create a Text Node, as in <code>document.createTextNode('Flash');</code></li></i>
+               <li>Append Node, as in <code>appendChild(flashText);</code> - adds element to the end of any existing
+                  child nodes.</li>
+               <li>Create Element Function example:<br><code>function createElement (tag, text) {<br>const el =
+                     document.createElement(tag);<br>el.textContent = text;<br>return el<br>}</code></li>
+               <li>insertBefore() as in <code>heroes.insertBefore(aquaman,wonderWoman);</code></li>
+               <li>Note: appendChild() and insertBefore() methods can be used to move markup that already exists in the
+                  DOM. This is because a reference to a single DOM element can only exist once in the page, so if you
+                  use multiple inserts and appends, only teh last one will have an effect. If an element is requried to
+                  appear in several different places in the document, it would need to be cloned before each insertion.
+               </li>
+               <li>removeChild(), as in <code>heroes.removeChild(aquaman); - returns a reference to the removed
+                     node.</code></li>
+               <li>replaceChild(), as in h1.replaceChild(newText, oldText);</li>
+               <li>innerHTML element property, returns <em>all</em> the child elements of an element as a string of
+                  HTML. If an element contains lots of other elements, all the raw HTML is returned. The power of
+                  innerHTML comes when you want to insert a large amount of HTML into the documet, instead of creating
+                  each element and text node individually. The relevant nodes will be added to the DOM automatically.
+                  Note that for security reasons, any code contained within a script tag is not executed.</li>
+            </ul>
+            <li>Live Collections: getElementsByClassName() and getElementByTagName() methods are <em>live</em>
+               collections that will update to reflect any changes on the page. For example if a new element with the
+               class hero is added, the node list updates automatically. Therefore, its use is discourages unless live
+               is needed. QuerySelectorAll is not a live collection, in comparison.</em></li>
+            <li>Display property can be useful as in <code>superman.style.display = 'none';</code></li>
+            <li>Although you can use the style property to change styles, this changes it inline. Instead, add/remove
+               classes where styling is applied.</li>
+         </ul>
+
+         <p class="question">When using removeChild(), why would you want or need a reference to the removed node?</p>
+         <p class="question">Besides the getComputedStyle() and getPropertyCSSValue() methods, what other methods can be
+            used to get the css style?</p>
+
+         <h3>Chapter 7 - Events</h3>
+         <ul>
+            <li>Event listeners allow multiple functions to be attached independently to different events.</li>
+            <li>You can use anonmyous functions or named functions in listeners.</li>
+            <li>Whenever an evenet handler is triggered by an event, the callback function is called. This function is
+               automatically passed an event object as a parameter that contains information about the event.</li>
+            <li>event.type can be used to determine what type of event was triggered.</li>
+            <li>When declaring a callback function for an event, the parameter can be called anything, but "event" or
+               "e" is common.</li>
+            <li>Event.target property returns a reference to the node that fired the event.</li>
+            <li>Coordinates of an Event</li>
+            <ul>
+               <li>screenX, screenY properties show the number of pixels from left and top of screen of where event took
+                  place.</li>
+               <li>clientX, clientY properties show numbe rof picles of the client that is being used (usually the
+                  browser window).</li>
+               <li>pageX and pageY properties show number of pixels where even ttook place in the <em>document</em>.
+                  This takes into account whether the page has been scrolled.</li>
+            </ul>
+            <li>Mouse Events</li>
+            <ul>
+               <li>click, mousedown and mouseup (last two occure <em>before</em> a click event is fired.</li>
+               <li>dblclick, similar to click. Don't use both on same element, as doubleclick will also fire click.</li>
+               <li>mouseover, mouseout, and mousemove, do as expected.</li>
+            </ul>
+            <li>Keyboard Events</li>
+            <ul>
+               <li>keydown: will continue to occur if the key is held down.</li>
+               <li>keypress: after keydown but before keyup. Only occurs for keys that produce character input,
+                  including the delete key. Good for finding out the character that was pressed.</li>
+               <li>keyup: when key is released.</li>
+               <li>Each of these have a key property that returns the printed representation of the key that was
+                  pressed, if it has one. For example, <code>addEventListener('keypress', (event) => console.log(`You
+                     pressed the ${event.key} character`));</code></li>
+               <li>Modifier Keys (Shift, Ctrl, Alt) will fire keydown and key up but not keypress: event.shiftKey,
+                  event.ctrlKey, event.altKey, event.metaKey return true if held down. For example, this will test if
+                  Ctrl+C was held down at the same time: <code>if (event.key === 'c' && event.ctrlKey)</code></li>
+            </ul>
+            <li>Touch Events</li>
+            <ul>
+               <li>touchstart: fires as soon as user touches the screen. Click event is safer - still fires when screen
+                  is touched, but allows a 300ms delay. The "click" event can be thought of as a "tap" in the context of
+                  a touch event.</li>
+               <li>touchend: when user stops touching the surface.</li>
+               <li>touchmove: when user touches the screen and then moves around without leaving.</li>
+               <li>touchenter: when user has already started touching the surface, but then passes over the element to
+                  whcih the event listener is attached.</li>
+               <li>touchleave: when user is still touching surface, but leaves element</li>
+               <li>touchcancel: when touch event is interrupted, such as a users finger moving outside document window
+                  or too many fingers used at once.</li>
+               <li>No "swipe" events: created with combination of touchstart, touchmove, and touchleave events.</li>
+               <li>touches: when more than one touch point. List of touch points, has a length property, can be accessed
+                  with index notation.</li>
+               <li>touch properties: touch.screenX, touch.screenY, touch.radiusX, touch.radiusY, touch.force (pressure
+                  from 0 and 1). Each touch object has a touch.identifier, a unique ID.</li>
+            </ul>
+            <li>Removing Event Listeners</li>
+            <ul>
+               <li>removeEventListener() method, as in <code>onceParagraph.removeEventListener('click',remove);</code>
+               </li>
+               <li>Do not use anonmyous functions as arguments to addEventListener() if you want to remove it later, as
+                  there needs to be a reference to the same function ame in the arguments of removeEventListener()</li>
+            </ul>
+            <li>preventDefault() method will prevent default behaviors of events, such as the browsers behavior to redirect to the address in the href attribute when a user clicks an element with a "click" event listener, or when a form is submitted when the user clicks the Submit button. Some browsers do not support this. If an event cannot be prevented, the cancellable property will return false.</li>
+            <li>Event Propagation</li>
+            <ul>
+               <li>Bubbling: Default. Element First, then "bubbles up" the DOM</li>
+               <li>Capturing: Optional. addEventListener() third parameter, default is false. If true, will instigate Capturing. Capturing starts by firing an event on the root element, then propagates downwards, firing an event on each child element until it reaches the target element that was clicked on.</li>
+               <li>It is possible to set an event to both capture <em>and</em> bubble. To do so, you must set up a separate event handler for both cases. If the event was the same, you would set two "click" event listeners, one with true, and one with false, as the third parameter.</li>
+               <li>event.stopPropagation() can be used to stop bubbling or capturing. Watch out doing this, as you may prevent other listeners from firing.</li>
+            </ul>
+            <li>Event Delegation: probably the coolest thing I've learned from this chapter. We can attach an event listener to a parent element, such as a ul element, and then use the target property to identify the element that was clicked on. This is useful if you are dding extra list elements to the DOM dynamically. Any new list elements that are a child of the ul element will automatically inherit this event listener, saving you from ahving to add an event listener every time a new list item is added.Example: <br><code>function highlight(event){<br>event.target.classList.toggle('highlight');<br>}<br>ulElement.addEventListener('click',highlight);</code></li>
+         </ul>
+
+         <p class="question">Under what circumstances would I want to use preventDefault()?</p>
+         <p class="question">What are some examples of when I might want to use capturing on an event? Why might I want to have multiple events set on elements either "up" (bubbling) or "down" (capturing) the DOM?</p>
+         <p class="question">Why might you want to use stopPropagation()?</p>
 
       </main>
       <footer class="footer">
