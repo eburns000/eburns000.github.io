@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <meta name="description"
+      content="Assignment portal for Eric Burns in WDD 330: Web Frontend Development, Week 04 Notes">
+   <title>Notes | Week 04</title>
+   <link rel="icon" href="favicon.ico" type="image/x-icon">
+   <link rel="stylesheet" href="../../css/normalize.css">
+   <link rel="stylesheet" href="../../css/small.css">
+   <link rel="stylesheet" href="../../css/medium.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+   <div id="content">
+      <header class="header">
+         <h1>Notes | Week 04</h1>
+      </header>
+      <nav class="nav">
+         <ul>
+            <li class="home"><a href="../../index.html"><span class="fa fa-home"></span> Home</a></li>
+            <li class="home"><a href="../week04/index.html"><span class="fa fa-arrow-right"></span> Week 04</a></li>
+         </ul>
+      </nav>
+      <main class="main">
+         <h2>Notes - JavaScript Novice to Ninja</h2>
+         <h3>Chapter 8 - Forms</h3>
+         <p>The following notes are of particular areas that I was less familiar with, didn't fully realize, or would
+            like to have as a quick reminder.</p>
+            <ul>
+              <li>document.forms returns an HTML collection of all of the forms in the document and be accessed using index notation as in <code>const form = document.forms[0]</code><br>Can also use ByTagName, as in <code>const form = document.getElementByTagname('form')[0]</code><br>Can also use <code>name</code> attribute to identify a form as in <code>const form = document.forms.search</code> or <code>document.forms['search']</code></li>
+              <li>Access elements contained within the form as an HTMl collection, as in <code>form.elements</code></li>
+              <li>Access specific elements or form controls using their name attributes as if it was a property of the object, as in <code>const input = form.searchInput</code> and <code>const input = form['searchInput']</code></li>
+              <li>form.submit(): submit the form automatically but will not trigger the form submit event.</li>
+              <li>Form events</li>
+              <ul>
+                <li>focus</li>
+                <li>blur: moves focus away from</li>
+                <li>change: moves away after changing it. If user clicks or navigates to an input field and makes no changes and then clicks elsewhere, the change event won't fire, but the blur event will.</li>
+                <li>submit: sends content to server. Can use JS to intercept the form before it's sent by adding a submit event listener, as in <code>form.addEventListener('submit', 'search, false);</code> - after the JS fires, the form continues the submit per the action that was specified in the form.</li>
+              </ul>
+              <li>Using the placeholder attribute vs focus and blur to remove and add back a default string in our input field. For example, entering "Search Here" in our input field could be done using placeholder or could be done using JS and the focus (removing it) and blur (adding it back in) events.</li>
+              <li>Form Controls</li>
+              <ul>
+                <li>input</li>
+                <li>button</li>
+                <li>select</li>
+                <li>textarea</li>
+              </ul>
+              <li>Form Attributes</li>
+              <ul>
+                <li>autofocus</li>
+                <li>placeholder</li>
+                <li>maxlength</li>
+              </ul>
+              <li>See <a href="http://www.sitepoint.com/html5-forms-markup" target="_blank">this article</a> for more form elements and attributes</li>
+              <li>event.preventDefault() can be used to prevent the submit to go to a URL. This can be useful in testing.</li>
+              <li>Input Field Types</li>
+              <ul>
+                <li>Text</li>
+                <li>Password</li>
+                <li>Checkbox: remember that the name is used on all checkboxes in a group and can be accessed as an HTML collection as in <code>form.powers;</code>. You can then iterate over the collectdion using a for loop. Each element has a property <code>checked</code> which stores a value of true of false.</li>                
+                <ul>
+                  <li>For example, <code>hero.powers = [...form.powers].filter(box => box.checked).map(box => box.value);</code></li>
+                  <li>The above line of code first converts the collection into an array, then uses the filter method to return an array containing only the elements where the check box is true, and then replaces each check box in the array with its 'value' property. The resulting array is stored in the <code>hero.powers</code> variable.</li>
+                  <li>You can initially set the checked value either by setting the checked property to true or by setting the checked attribute.</li>
+                </ul>
+                <li>Radio</li>
+                <ul>
+                  <li>As with check boxes, group radio buttons using the name attribute</li>
+                  <li>Value of the radio button is stored in the name of the group and its property value.</li>
+                  <li>Each radio button has a checked property that returns true or false.</li>
+                  <li>Can use JS to change the property as in <code>form.type[2].checked = true;</code></li>
+                  <li>Can also be initialized with the checked attribute</li>
+                </ul>
+                <li>Hidden: not displayed, but have a value attribute that can contain information that is submitted with the form. Used to send settings or information user has already provdied. In HTML, so not secure.</li>
+                <li>File: used to upload files. Can select a file from system.</li>
+                <li>Number, with optional min, max, and step attributes</li>
+                <li>Tel</li>
+                <li>Color</li>
+                <li>Email</li>
+                <li>Date</li>                                
+              </ul>
+              <li>Select Drop-down list</li>
+              <ul>
+                <li>Multiple attribute required if more than one option is to be selected</li>
+                <li>Selected attribute sets the initial value </li>
+                <li>Name attribute used to access it in JS</li>
+                <li>Option tags nested in Select tag, each with their own values</li>
+                <li>If only one item is selected, a reference to that selection will be returned. Otherwise a collection will be returned.</li>
+                <li>Use selectedIndex property as in <code>form.city.options[form.city.selectedIndex].text</code> to retrieve the actual text in the selected option.</li>
+              </ul>
+              <li>Text Areas</li>
+              <ul>
+                <li>Value property to see what is entered</li>
+                <li>Initial value set in opening and closing tags</li>
+              </ul>
+              <li>Buttons</li>
+              <ul>
+                <li>Types: submit, reset, button and menu</li>
+                <li>Button type does not need to be in a form.</li>
+              </ul>
+              <li>Form Validation</li>
+              <ul>
+                <li>Examples include: required field, email address valid, number valid, password min # of characters</li>
+                <li>Can be on client and server side - use both.</li>
+                <li>HTML5 attributes are not widely supported. Include attribues such as "required"</li>                
+              </ul>
+              <li>When you add a submit event listener to the form, the function must have an event parameter. You can then call the preventDefault() method on the event.</li>
+              <li>Disable the submit button.</li>
+              <ul>
+                <li>disabled attribute</li>
+                <li>disabled property returns true or false, and can be set with JS.</li>
+                <li>Example:</li>
+                <li><code>function disableSubmit(event) {<br>if(event.target.value === '') {<br>document.getElementById('submit').disabled = true;<br>} else {<br>document.getElementById('submit').disabled = false;<br>}<br>}</code></li>
+                <li>Then apply the above function to the event listener, as in <code>form.heroName.addEventListener('keyup',disableSubmit,false);</code></li>
+                <li>Notice how we are not passing any argument with disableSubmit? That is because the addEventListener expects and supplies the "event" argument automatically. In this example, each type the key is pressed, the target of the event, which is the input field that the event listener is attached to, the value of that target is evaluated to see if there is anything in there, and if there isn't, then the submit button is disabled. When something gets added, it is re-enabled.</li>
+              </ul>              
+            </ul>
+            <p class="question">Not sure I understand how this can be a submit "button": <code>&lt;input type='image' src='button.png'&gt;</code></p>
+            <p class="question">The example in the book for form validation is adding a submit event listener to the form, as opposed to a button. That's interesting. I would have thought to add it to the event listener. Won't both ways work? I found the answer <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/submit_event" target="_blank">here</a>. The answer is that the submit event fires on the form element itself, and not on ay button or input type inside it.</p>
+          
+          <h3>Chapter 12 - OOP in JavaScript</h3>
+          <ul>
+            <li></li>
+          </ul>
+
+      </main>
+      <footer class="footer">
+         <p>&copy; <span id="currentyear"></span> | Eric Burns | Washington, USA <span id="footer-pipe">| </span><br><a
+               href="https://www.byui.edu/online" target="_blank">BYU-i Online Learning</a></p>
+         <p class="datetime">Last Updated: <span id="datetime"></span></p>
+      </footer>
+   </div>
+   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js">
+   </script>
+   <script src="../../js/webfontload.js"></script>
+   <script src="../../js/script.js"></script>
+</body>
+
+</html>
