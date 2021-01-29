@@ -44,7 +44,33 @@
       <div id="results"></div>
 
       <script>
-        const divBoard = document.querySelector('.divBoard');        
+
+        // create a namespace for tictactoe and put all of the game into that namespace
+
+        // start game
+        startGame();
+
+        function startGame() {
+
+
+
+        }
+
+        const ticTacToe = {
+
+          num1: 6,
+          num2: 7
+
+
+
+
+        }
+
+
+
+
+
+        const divBoard = document.querySelector('.divBoard');
         const resetButton = document.getElementById('reset');
         const results = document.getElementById('results');
         const player1 = 'X';
@@ -53,9 +79,9 @@
         const children = Array.from(divBoard.children);
         resetBoardDiv();
 
-        let changePlayer = () => player == player1 ? player2 : player1; 
+        let changePlayer = () => player == player1 ? player2 : player1;
 
-        function isTie() {                   
+        function isTie() {
           if (children.filter(e => e.innerText !== '').length === 9) {
             document.getElementById('results').innerText = "It's a Tie";
           }
@@ -73,8 +99,8 @@
         }
 
 
-        function calcWinner () {
-          
+        function calcWinner() {
+
           let leftDiag = 0;
           let rightDiag = 0;
 
@@ -82,15 +108,15 @@
             let rowTotal = 0;
             let colTotal = 0;
             for (let j = 0; j < 3; j++) {
-              rowTotal += children[i*3+j].piece;              
-              colTotal += children[j*3+i].piece;
+              rowTotal += children[i * 3 + j].piece;
+              colTotal += children[j * 3 + i].piece;
             }
 
-            leftDiag += children[i*3+i].piece;
-            rightDiag += children[i*3+(2-i)].piece;
+            leftDiag += children[i * 3 + i].piece;
+            rightDiag += children[i * 3 + (2 - i)].piece;
 
             if (displayWinner(rowTotal) || displayWinner(colTotal) ||
-                displayWinner(leftDiag) || displayWinner(rightDiag)) {
+              displayWinner(leftDiag) || displayWinner(rightDiag)) {
               divBoard.removeEventListener('click', addPiece);
               return;
             }
@@ -102,7 +128,7 @@
           if (e.target.piece !== 0)
             return;
 
-          e.target.innerHTML = player;          
+          e.target.innerHTML = player;
 
           if (player === 'X')
             e.target.piece = -1;
@@ -113,16 +139,16 @@
           calcWinner();
         }
 
-        function resetBoardDiv() {        
-          children.forEach( (child) => {
+        function resetBoardDiv() {
+          children.forEach((child) => {
             child.innerText = "";
             child.piece = 0;
-        });
+          });
           results.innerText = "";
           divBoard.addEventListener('click', addPiece);
           player = player1;
         }
-        
+
         resetButton.addEventListener('click', resetBoardDiv);
       </script>
 
