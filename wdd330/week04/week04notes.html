@@ -361,6 +361,25 @@
         attached to any object. In contrast, the sayHi() method only pertains to Turtle's. Is this the only difference?
         What else makes something "polymorphic" vs "inherited"?</p>
 
+        <h3>Chapter 15 - Modern JavaScript: Modular JavaScript</h3>
+        <ul>
+          <li>Module: self-containd piece of code that provides functions and methods that can then be used in other files by other modules.</li>
+          <li>Code in modules should have single purpose, and group together functions with distinct functionality.</li>
+          <li>Helps make code more loosely coupled and interchangable</li>
+          <li>Allow public API to be exposed, while keeping implementation hidden away inside the module.</li>
+          <li>ES6 Module file is just a normal JavaScript file, but uses the keyword <code>export</code> to specify any values or functiosn that are to be made available from this module. Note that not everything in the module needs to be used.</li>
+          <li>You can use a build process to package modules together into one file for browsers that do not support ES6 modules.</li>
+          <li>For example, <code>export const PI = 3.1415926;</code> that is saved in a 'pi.js' file. This would then be imported into your main JavaScript file as <code>import { PI } from './pi.js';</code></li>
+          <li>Instead of  using the <code>export</code> keyword when the function is defined, you can, simply add it for any functions you want to export, as in <code>export { variance, mean }</code> and import as <code>import { mean, variance } from './stats.js';</code></li>
+          <li>Functions not "exported" effectively become private functions of the module.</li>
+          <li>You can also designate a namespace and import everything using a wildcard, as in <code>import * as stats from './stats.js';</code></li>
+          <li>You can specify one default export, making the syntax a little easier to read, such as <code>export default stats</code> and then the simpler <code>import stats from './stats.js';</code></li>
+          <li>Node.js Modules</li>
+          <ul>
+            <li>Node.js implemented modfules before introduced in ES6, called Common JS modules. Difficult to merge the two.</li>
+            <li>Common JS module is created in a separate file, and the module.exports method is used to make any functions available to other files.</li>
+          </ul>
+        </ul>
 
     </main>
     <footer class="footer">
