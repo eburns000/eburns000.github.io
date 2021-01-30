@@ -2,144 +2,377 @@
 <html lang="en">
 
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <meta name="description"
-      content="Assignment portal for Eric Burns in WDD 330: Web Frontend Development, Week 04 Notes">
-   <title>Notes | Week 04</title>
-   <link rel="icon" href="favicon.ico" type="image/x-icon">
-   <link rel="stylesheet" href="../../css/normalize.css">
-   <link rel="stylesheet" href="../../css/small.css">
-   <link rel="stylesheet" href="../../css/medium.css">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description"
+    content="Assignment portal for Eric Burns in WDD 330: Web Frontend Development, Week 04 Notes">
+  <title>Notes | Week 04</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/normalize.css">
+  <link rel="stylesheet" href="../../css/small.css">
+  <link rel="stylesheet" href="../../css/medium.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-   <div id="content">
-      <header class="header">
-         <h1>Notes | Week 04</h1>
-      </header>
-      <nav class="nav">
-         <ul>
-            <li class="home"><a href="../../index.html"><span class="fa fa-home"></span> Home</a></li>
-            <li class="home"><a href="../week04/index.html"><span class="fa fa-arrow-right"></span> Week 04</a></li>
-         </ul>
-      </nav>
-      <main class="main">
-         <h2>Notes - JavaScript Novice to Ninja</h2>
-         <h3>Chapter 8 - Forms</h3>
-         <p>The following notes are of particular areas that I was less familiar with, didn't fully realize, or would
-            like to have as a quick reminder.</p>
-            <ul>
-              <li>document.forms returns an HTML collection of all of the forms in the document and be accessed using index notation as in <code>const form = document.forms[0]</code><br>Can also use ByTagName, as in <code>const form = document.getElementByTagname('form')[0]</code><br>Can also use <code>name</code> attribute to identify a form as in <code>const form = document.forms.search</code> or <code>document.forms['search']</code></li>
-              <li>Access elements contained within the form as an HTMl collection, as in <code>form.elements</code></li>
-              <li>Access specific elements or form controls using their name attributes as if it was a property of the object, as in <code>const input = form.searchInput</code> and <code>const input = form['searchInput']</code></li>
-              <li>form.submit(): submit the form automatically but will not trigger the form submit event.</li>
-              <li>Form events</li>
-              <ul>
-                <li>focus</li>
-                <li>blur: moves focus away from</li>
-                <li>change: moves away after changing it. If user clicks or navigates to an input field and makes no changes and then clicks elsewhere, the change event won't fire, but the blur event will.</li>
-                <li>submit: sends content to server. Can use JS to intercept the form before it's sent by adding a submit event listener, as in <code>form.addEventListener('submit', 'search, false);</code> - after the JS fires, the form continues the submit per the action that was specified in the form.</li>
-              </ul>
-              <li>Using the placeholder attribute vs focus and blur to remove and add back a default string in our input field. For example, entering "Search Here" in our input field could be done using placeholder or could be done using JS and the focus (removing it) and blur (adding it back in) events.</li>
-              <li>Form Controls</li>
-              <ul>
-                <li>input</li>
-                <li>button</li>
-                <li>select</li>
-                <li>textarea</li>
-              </ul>
-              <li>Form Attributes</li>
-              <ul>
-                <li>autofocus</li>
-                <li>placeholder</li>
-                <li>maxlength</li>
-              </ul>
-              <li>See <a href="http://www.sitepoint.com/html5-forms-markup" target="_blank">this article</a> for more form elements and attributes</li>
-              <li>event.preventDefault() can be used to prevent the submit to go to a URL. This can be useful in testing.</li>
-              <li>Input Field Types</li>
-              <ul>
-                <li>Text</li>
-                <li>Password</li>
-                <li>Checkbox: remember that the name is used on all checkboxes in a group and can be accessed as an HTML collection as in <code>form.powers;</code>. You can then iterate over the collectdion using a for loop. Each element has a property <code>checked</code> which stores a value of true of false.</li>                
-                <ul>
-                  <li>For example, <code>hero.powers = [...form.powers].filter(box => box.checked).map(box => box.value);</code></li>
-                  <li>The above line of code first converts the collection into an array, then uses the filter method to return an array containing only the elements where the check box is true, and then replaces each check box in the array with its 'value' property. The resulting array is stored in the <code>hero.powers</code> variable.</li>
-                  <li>You can initially set the checked value either by setting the checked property to true or by setting the checked attribute.</li>
-                </ul>
-                <li>Radio</li>
-                <ul>
-                  <li>As with check boxes, group radio buttons using the name attribute</li>
-                  <li>Value of the radio button is stored in the name of the group and its property value.</li>
-                  <li>Each radio button has a checked property that returns true or false.</li>
-                  <li>Can use JS to change the property as in <code>form.type[2].checked = true;</code></li>
-                  <li>Can also be initialized with the checked attribute</li>
-                </ul>
-                <li>Hidden: not displayed, but have a value attribute that can contain information that is submitted with the form. Used to send settings or information user has already provdied. In HTML, so not secure.</li>
-                <li>File: used to upload files. Can select a file from system.</li>
-                <li>Number, with optional min, max, and step attributes</li>
-                <li>Tel</li>
-                <li>Color</li>
-                <li>Email</li>
-                <li>Date</li>                                
-              </ul>
-              <li>Select Drop-down list</li>
-              <ul>
-                <li>Multiple attribute required if more than one option is to be selected</li>
-                <li>Selected attribute sets the initial value </li>
-                <li>Name attribute used to access it in JS</li>
-                <li>Option tags nested in Select tag, each with their own values</li>
-                <li>If only one item is selected, a reference to that selection will be returned. Otherwise a collection will be returned.</li>
-                <li>Use selectedIndex property as in <code>form.city.options[form.city.selectedIndex].text</code> to retrieve the actual text in the selected option.</li>
-              </ul>
-              <li>Text Areas</li>
-              <ul>
-                <li>Value property to see what is entered</li>
-                <li>Initial value set in opening and closing tags</li>
-              </ul>
-              <li>Buttons</li>
-              <ul>
-                <li>Types: submit, reset, button and menu</li>
-                <li>Button type does not need to be in a form.</li>
-              </ul>
-              <li>Form Validation</li>
-              <ul>
-                <li>Examples include: required field, email address valid, number valid, password min # of characters</li>
-                <li>Can be on client and server side - use both.</li>
-                <li>HTML5 attributes are not widely supported. Include attribues such as "required"</li>                
-              </ul>
-              <li>When you add a submit event listener to the form, the function must have an event parameter. You can then call the preventDefault() method on the event.</li>
-              <li>Disable the submit button.</li>
-              <ul>
-                <li>disabled attribute</li>
-                <li>disabled property returns true or false, and can be set with JS.</li>
-                <li>Example:</li>
-                <li><code>function disableSubmit(event) {<br>if(event.target.value === '') {<br>document.getElementById('submit').disabled = true;<br>} else {<br>document.getElementById('submit').disabled = false;<br>}<br>}</code></li>
-                <li>Then apply the above function to the event listener, as in <code>form.heroName.addEventListener('keyup',disableSubmit,false);</code></li>
-                <li>Notice how we are not passing any argument with disableSubmit? That is because the addEventListener expects and supplies the "event" argument automatically. In this example, each type the key is pressed, the target of the event, which is the input field that the event listener is attached to, the value of that target is evaluated to see if there is anything in there, and if there isn't, then the submit button is disabled. When something gets added, it is re-enabled.</li>
-              </ul>              
-            </ul>
-            <p class="question">Not sure I understand how this can be a submit "button": <code>&lt;input type='image' src='button.png'&gt;</code></p>
-            <p class="question">The example in the book for form validation is adding a submit event listener to the form, as opposed to a button. That's interesting. I would have thought to add it to the event listener. Won't both ways work? I found the answer <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/submit_event" target="_blank">here</a>. The answer is that the submit event fires on the form element itself, and not on ay button or input type inside it.</p>
-          
-          <h3>Chapter 12 - OOP in JavaScript</h3>
+  <div id="content">
+    <header class="header">
+      <h1>Notes | Week 04</h1>
+    </header>
+    <nav class="nav">
+      <ul>
+        <li class="home"><a href="../../index.html"><span class="fa fa-home"></span> Home</a></li>
+        <li class="home"><a href="../week04/index.html"><span class="fa fa-arrow-right"></span> Week 04</a></li>
+      </ul>
+    </nav>
+    <main class="main">
+      <h2>Notes - JavaScript Novice to Ninja</h2>
+      <h3>Chapter 8 - Forms</h3>
+      <p>The following notes are of particular areas that I was less familiar with, didn't fully realize, or would
+        like to have as a quick reminder.</p>
+      <ul>
+        <li>document.forms returns an HTML collection of all of the forms in the document and be accessed using index
+          notation as in <code>const form = document.forms[0]</code><br>Can also use ByTagName, as in <code>const form =
+            document.getElementByTagname('form')[0]</code><br>Can also use <code>name</code> attribute to identify a
+          form as in <code>const form = document.forms.search</code> or <code>document.forms['search']</code></li>
+        <li>Access elements contained within the form as an HTMl collection, as in <code>form.elements</code></li>
+        <li>Access specific elements or form controls using their name attributes as if it was a property of the object,
+          as in <code>const input = form.searchInput</code> and <code>const input = form['searchInput']</code></li>
+        <li>form.submit(): submit the form automatically but will not trigger the form submit event.</li>
+        <li>Form events</li>
+        <ul>
+          <li>focus</li>
+          <li>blur: moves focus away from</li>
+          <li>change: moves away after changing it. If user clicks or navigates to an input field and makes no changes
+            and then clicks elsewhere, the change event won't fire, but the blur event will.</li>
+          <li>submit: sends content to server. Can use JS to intercept the form before it's sent by adding a submit
+            event listener, as in <code>form.addEventListener('submit', 'search, false);</code> - after the JS fires,
+            the form continues the submit per the action that was specified in the form.</li>
+        </ul>
+        <li>Using the placeholder attribute vs focus and blur to remove and add back a default string in our input
+          field. For example, entering "Search Here" in our input field could be done using placeholder or could be done
+          using JS and the focus (removing it) and blur (adding it back in) events.</li>
+        <li>Form Controls</li>
+        <ul>
+          <li>input</li>
+          <li>button</li>
+          <li>select</li>
+          <li>textarea</li>
+        </ul>
+        <li>Form Attributes</li>
+        <ul>
+          <li>autofocus</li>
+          <li>placeholder</li>
+          <li>maxlength</li>
+        </ul>
+        <li>See <a href="http://www.sitepoint.com/html5-forms-markup" target="_blank">this article</a> for more form
+          elements and attributes</li>
+        <li>event.preventDefault() can be used to prevent the submit to go to a URL. This can be useful in testing.</li>
+        <li>Input Field Types</li>
+        <ul>
+          <li>Text</li>
+          <li>Password</li>
+          <li>Checkbox: remember that the name is used on all checkboxes in a group and can be accessed as an HTML
+            collection as in <code>form.powers;</code>. You can then iterate over the collectdion using a for loop. Each
+            element has a property <code>checked</code> which stores a value of true of false.</li>
           <ul>
+            <li>For example, <code>hero.powers = [...form.powers].filter(box => box.checked).map(box =>
+                box.value);</code></li>
+            <li>The above line of code first converts the collection into an array, then uses the filter method to
+              return an array containing only the elements where the check box is true, and then replaces each check box
+              in the array with its 'value' property. The resulting array is stored in the <code>hero.powers</code>
+              variable.</li>
+            <li>You can initially set the checked value either by setting the checked property to true or by setting the
+              checked attribute.</li>
+          </ul>
+          <li>Radio</li>
+          <ul>
+            <li>As with check boxes, group radio buttons using the name attribute</li>
+            <li>Value of the radio button is stored in the name of the group and its property value.</li>
+            <li>Each radio button has a checked property that returns true or false.</li>
+            <li>Can use JS to change the property as in <code>form.type[2].checked = true;</code></li>
+            <li>Can also be initialized with the checked attribute</li>
+          </ul>
+          <li>Hidden: not displayed, but have a value attribute that can contain information that is submitted with the
+            form. Used to send settings or information user has already provdied. In HTML, so not secure.</li>
+          <li>File: used to upload files. Can select a file from system.</li>
+          <li>Number, with optional min, max, and step attributes</li>
+          <li>Tel</li>
+          <li>Color</li>
+          <li>Email</li>
+          <li>Date</li>
+        </ul>
+        <li>Select Drop-down list</li>
+        <ul>
+          <li>Multiple attribute required if more than one option is to be selected</li>
+          <li>Selected attribute sets the initial value </li>
+          <li>Name attribute used to access it in JS</li>
+          <li>Option tags nested in Select tag, each with their own values</li>
+          <li>If only one item is selected, a reference to that selection will be returned. Otherwise a collection will
+            be returned.</li>
+          <li>Use selectedIndex property as in <code>form.city.options[form.city.selectedIndex].text</code> to retrieve
+            the actual text in the selected option.</li>
+        </ul>
+        <li>Text Areas</li>
+        <ul>
+          <li>Value property to see what is entered</li>
+          <li>Initial value set in opening and closing tags</li>
+        </ul>
+        <li>Buttons</li>
+        <ul>
+          <li>Types: submit, reset, button and menu</li>
+          <li>Button type does not need to be in a form.</li>
+        </ul>
+        <li>Form Validation</li>
+        <ul>
+          <li>Examples include: required field, email address valid, number valid, password min # of characters</li>
+          <li>Can be on client and server side - use both.</li>
+          <li>HTML5 attributes are not widely supported. Include attribues such as "required"</li>
+        </ul>
+        <li>When you add a submit event listener to the form, the function must have an event parameter. You can then
+          call the preventDefault() method on the event.</li>
+        <li>Disable the submit button.</li>
+        <ul>
+          <li>disabled attribute</li>
+          <li>disabled property returns true or false, and can be set with JS.</li>
+          <li>Example:</li>
+          <li><code>function disableSubmit(event) {<br>if(event.target.value === '')
+              {<br>document.getElementById('submit').disabled = true;<br>} else
+              {<br>document.getElementById('submit').disabled = false;<br>}<br>}</code></li>
+          <li>Then apply the above function to the event listener, as in
+            <code>form.heroName.addEventListener('keyup',disableSubmit,false);</code></li>
+          <li>Notice how we are not passing any argument with disableSubmit? That is because the addEventListener
+            expects and supplies the "event" argument automatically. In this example, each type the key is pressed, the
+            target of the event, which is the input field that the event listener is attached to, the value of that
+            target is evaluated to see if there is anything in there, and if there isn't, then the submit button is
+            disabled. When something gets added, it is re-enabled.</li>
+        </ul>
+      </ul>
+      <p class="question">Not sure I understand how this can be a submit "button": <code>&lt;input type='image'
+          src='button.png'&gt;</code></p>
+      <p class="question">The example in the book for form validation is adding a submit event listener to the form, as
+        opposed to a button. That's interesting. I would have thought to add it to the event listener. Won't both ways
+        work? I found the answer <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/submit_event"
+          target="_blank">here</a>. The answer is that the submit event fires on the form element itself, and not on ay
+        button or input type inside it.</p>
+
+      <h3>Chapter 12 - OOP in JavaScript</h3>
+      <ul>
+        <li>Key concepts: Encapsulation, Polymorphism, Inheritance</li>
+        <li>Constructor Functions vs Class Declarations - use Class Declarations. Why?</li>
+        <ul>
+          <li>Syntax is more succinct, easier to read</li>
+          <li>Imlicitly in strict mode</li>
+          <li>Error is thrown when trying to call a class constructor without using the new operator</li>
+          <li>It is not possible to overwrite the prototype by assigning it to a new object literal if class
+            declarations are used. It <em>is</em> possible to do this if contructor functions are used.</li>
+        </ul>
+        <li>All objects have a constructor property that returns the constructor function that created it. For example,
+          blueDice.constructor reeturns [Function: Dice]. When an object literal is used ot create a new object, the
+          Object constructor function is used. You can also use the constructor function of any instantiated object to
+          create a new object of that class, as in new redDice.constructor(10);</li>
+        <li>Static methods (aka class methods) called by the class directly as in <code>Dice.description()</code> and
+          are defined as in <code>static description() {}</code></li>
+        <li>Prototypal Inheritance</li>
+        <ul>
+          <li>Every class has a prototype property that is shared by every instance of the class. So any properties or
+            methods of a class's proptype can be accessed by every object instantiated by that class.</li>
+          <li>Using the prototype property of the class, you can augment a class that has already been created with
+            additional methods and properties.</li>
+          <li>All instances of the class share the properties and methods of its prototype.</li>
+          <li>You can add new properties by assignment, as in <code>Turtle.prototype.weapon = 'Hands';</code></li>
+          <li><code>this</code> in the prototype always refers to the instance that actually calls the method.</li>
+          <li>Finding the prototype of an object</li>
+          <ul>
+            <li>Prototype property, as in <code>raph.constructor.prototype;</code></li>
+            <li><code>Object.getPrototypeOf()</code></li>
+            <li><code>Object.__proto__</code> - not officially part of the specification - recommended to use
+              getPrototypeOf()</li>
+            <li>Also use <code>setPrototypeOf()</code> and <code>isPrototypeOf()</code></li>
+          </ul>
+          <li>Own Properties and Prototype Properties</li>
+          <ul>
+            <li>Every object has a <code>hasOwnProperty()</code> method.</li>
+            <li>Properties that are inherited are not the object's "own" properties</li>
+            <li>Prototype proerties are shared by <em>every</em> instance of the class, which means that the value will
+              be the same for all instances. It exists in only one place for all instances, as a property of the
+              prototype. This means it exists in memory in one place.</li>
+          </ul>
+          <li>Prototype is Live</li>
+          <ul>
+            <li>If a new property or method is added to the prototype, any instances of its class will inherit the new
+              properties and methods automatically, even if that instance has alrady been created.</li>
+          </ul>
+          <li>Overwriting Prototype Properties</li>
+          <ul>
+            <li>It <em>is</em> possible to overwrite prototype properties or methods inherited from its prototype.</li>
+            <li>For example, <code>Turtle.prototype.weapon = 'Feet';</code> will set the value of the weapon property
+              for <em>all</em> instances; <em>but</em>, you can override this for an individual instance as in
+              <code>leo.weapon = 'Katana Blades';</code> and <code>raph.weapon = 'Sai';</code></li>
+            <li>Once an instance overwrites a prototype property, these properties will now become an 'own property' of
+              the instance object, so setting the prototype.weapon in the example above will not change the
+              weapon.property for leo or raph</li>
+          </ul>
+          <li>Prototypes should generally be used to define any properties that will remain the same for every instance
+            of the class, despite the ability to overwrite them as previously noted.</li>
+          <li>Prototype Summary</li>
+          <ul>
+            <li>Create a class declaration that deals with any initialization, shared properties and methods.</li>
+            <li>Any extra methods and properties that need to be augmented to the class declaration after it’s been
+              defined can be added to the prototype. These will be added toallinstances, even those that have already
+              been created.</li>
+            <li>Add any properties or methods that are individual to a particular instance can be augmented using
+              assignment to that object (a mixin could be used to add multiple properties at once, as we’ll see later).
+            </li>
+            <li>Be careful when overwriting the prototype completely ― the constructor class needs to be reset.</li>
+          </ul>
+        </ul>
+        <li>Public and Private Methods</li>
+        <ul>
+          <li>Set private properties within the scope of the constructor function and use getters and setters to
+            retrieve or modify the values.</li>
+          <li>By doing this, you can now validate any values passed through the setter before allowing those values to
+            modify the private properties</li>
+        </ul>
+        <li>Inheritance</li>
+        <ul>
+          <li>Prototype Chain - each prototype has it's own prototype, which in turn has it's own prototype, creating a
+            chain of Inheritance</li>
+          <li>Using getPrototypeOf(), you can see the chain, as in
+            <code>Object.getPrototypeOf(Object.getPrototypeOf(Object.getProtoTypeOf(raph)))</code></li>
+          <li>All objects ultimately inherit from the prototype of the Object()</li>
+          <li>The <code>propertyIsEnumerable()</code> method of Object.prototype can be used to check if a property is
+            enumerable, that is, will it show up when a <code>for..in</code> loop is used. Good practice is for all
+            built-in methods to be non-enumerable and any user-defined methods to be enumerable.</li>
+          <li>Inheritance using <code>extends</code></li>
+          <ul>
+            <li>Class can inherit from another class using the <code>extends</code> keyword as in <code>class
+                NinjaTurtle extends Turtle {}</code></li>
+            <li>We call these sub-classes or child classes. Used when methods or properties pertain to a sub-category of
+              the parent. For example, weapons probably belongs to a class we could call NinjaTurtle vs Turtle</li>
+            <li>Inside the child class declaration, the keyword <code>super</code> refers to the parent class and can be
+              used to access any properties and call any methods of the parent class.</li>
             <li></li>
           </ul>
+          <li>Here's a <a href="https://javascript.info/class-inheritance" target="_blank">good reference</a> I found on JavaScript Inheritance</li>
+        </ul>
+        <li>Numbers, Strings and Booleans</li>
+        <ul>
+          <li>The primitives have their own cooresponding constructor functions: Number, String, and Boolean.</li>
+          <li>Constructors do not produce primitives, but are objects, as in <code>Number(2) === 2;</code> returns
+            false.</li>
+          <li>Primitives are without their own methods. The primitive wrapper objects Number, String, and Boolean are
+            used in the background to provide primitive values with methods.</li>
+        </ul>
+        <li>Polymorphism</li>
+        <ul>
+          <li>Concept: different objects can have the same method, but implement it in different ways. The toString()
+            method is an example of this. Calling it on an array vs an integer returns different results.</li>
+          <li>It's often useful to override the <code>toString()</code> method using the prototype, so something more
+            meaningful is displayed. For example, within the Turtle class, we could add a toString() as in
+            <code>toString() { return `A turtle called ${this.name}`; }</code></li>
+          <li></li>
+        </ul>
+        <li>Monkey Patching</li>
+        <ul>
+          <li>Monkey Patching - practice of adding methods to built-in objects, such as Number, String, and Array. Example of this is adding an isOdd() or isEven() method to the Number wrapper object's prototype, as in <code>Number.prototype.isEven = function () {<br>return this%2 === 0;<br>}</code></li>
+          <li>Another example is to add a delete() method that actually removes the item from the array, instead of leaving a value of null in it's place.</li>
+          <li>Another example is to add a first() and last() method that returns the first and last elements of the array</li>
+          <li>Another example is to add a trim() method to the String.prototype</li>
+          <li>Monkey Patching is generally frowned upon in the JS community</li>  
+          <li>One way to avoid issues that come with adding methods to the bulit in array is to use <code>extends</code> to subclass a built-in class and crate your own class. Then you can create whatever methods you want and call them on objects instantiated from the subclass.</li>          
+        </ul>
+        <li>Property Descriptors</li>
+        <ul>
+          <li>All object properties have the following attributes: value, writable, enumerable and configurable</li>
+          <li>Use <code>Object.getOwnPropertyDescriptor()</code> to see property attributes</li>
+          <li>Use <code>Object.defineProperty()</code> to add properties to an object in a more "fine-grained control" method</li>
+          <li>An object property descriptor can have get() and set() methods instead of a value attribute - they can have one or the other, but not both. The get and set property descriptors are useful for controlling the getting and setting of properties in a class. For example, this is a way to set min and max values, or validate the assignment. For example, we could make <code>yellowDice.sides = 0</code> return with an error, prompting the user that the number of sides must be positive.</li>  
+        </ul>
+        <li>Creating Objects from Other Objects</li>
+        <ul>
+          <li>Object() constructor function has a method called <code>create</code> that can be used to create a new object that is an exact copy of the object that is provided as an argument. The object that is provided as the argument acts as the prototype for the new object. For example, <code>const lois = Object.create(Human);</code>. Note that in this example, the "Human" object is the prototype, and "prototypes are live."</li>          
+        </ul>
+        <li>Object-Based Inheritance</li>
+        <ul>
+          <li>You can create "sub-prototypes" of prototypes, as in <code>const Superhuman = Object.create(Human);</code> that can then have additional properties and methods added, such as Superhuman.name, Superhuman.realName and Superhuman.change. You can then instantiate objects using the Superhuman prototype, as in <code>const superman = Object.create(Superhuman);</code></li>
+          <li>Adding custom properties and methods, outside of using a constructor function, is "long-winded." An alternative is to creaet an <code>init()</code> method that takes a name and realName arguments. You can then do something like this: <code>const batman = Object.create(Superhuman);<br>batman.init('Batman','Bruce Wayne');</code></li>         
+        </ul>
+        <li>Object Prototype Chain</li>
+        <ul>
+          <li>Creating objects from objects creates a prototype chain.</li>
+          <li>Note that the <code>instanceOf</code> operator will not work when objects have been created from other objects. It only works when using constructor functions to create objects.</li>
+        </ul>
+        <li>Mixins</li>
+        <ul>
+          <li>Add properies and methods of some objects to another object without using Inheritance.</li>
+          <li>Using the Object.assign() method, we can assign all of the properties of one object to another, as in <code>Object.assign(a,b);</code></li>
+          <li>Problem: if any of the properties mixed in ar arrays or nexted objects, only a shallow copy is made.</li>
+          <li>Shallow copy = Objects are copied by Reference.</li>
+          <li>Deep or hard copy = New object is created</li>
+          <li>To avoid a shallow copy, create our own <code>mixin()</code> that will assign all properties of an object to another object as a <em>deep</em> copy.</li>
+          <li>Use mixins to add properties all at once</li>
+          <li>Use mixins to create a <code>copy()</code> function</li>
+          <li>Use mixins to create factory functions, utilizing both the copy function and the mixin function</li>
+          <li>Mixin function lets us encapsulate properties and methods in an object, then add them to other objects without the overhead of an inheritance chain being created.</li>
+          <li>Prototypal Inheritance vs Mixin Inheritance: consider whether an object <em>is</em> something or <em>has</em> something. All superheros are super human, so they inherit common traints from a Superhuman prototype. But each superhero has a diffeent <em>mix</em> of powers, a perfect use case for mixin objects. </li>
+          <li>Mixin example: <code>const flight = {<br>fly() {<br>console.log(`Up, up and away! ${this.name} soars through the air!`);<br>return this;<br>}<br>}</code></li>
+          <li>The mixin example ablve returns a value of <em>this</em> - why? So that we can chain the functions. If we return <code>this</code>, we are returning the object that the method was called on, which allows another method of that object to be chained. For example, <code>superman.fly().move().xray();</code>. If a method lacks a meaningful return value, it might as well return <code>this</code> so that chaining is possible.</li>
+          <li>Now, you can add the relevant superpowers to each object in a modular fashion, using the mixin() function, as in <code>mixin(superman, flight, superSpeed, xRayVision);</code> - remember that the first value in the Mixin() is to assign those mixins to the target object. "Superman" is the target.</li>
+          <li>You can also use the factory function, as in <code>const flash = createSuperhuman({ name: 'Flash', realName: 'Barry Allen' }, superSpeed);</code></li>          
+        </ul>
+        <li>Binding <em>this</em></li>
+        <ul>
+          <li><em>this</em> can lose scope and point to the global object inside a nested function</li>
+          <li>To combat this, there aer a couple of solutions</li>
+          <li>The first is to set <code>that = this</code> before the nested function, and refer to <em>that</em> in the nexted function instead of <em>this</em>. You might see <code>self</code> or <code>_this</code> used in the same way.</li>
+          <li>Another is to use <code>bind(this)</code> while <em>this</em> is still in scope</li>
+          <li>Another is to use <code>for-of</code> instead of <code>forEach()</code></li>
+          <li>Another is to use Arrow functions. Since they do not have their own <code>this</code> context, the <code>this</code> will remain bound to the original object making the function call. For this reason, arrow functions should be used when anonymous functions are required in callbacks.</li>
+        </ul>
+        <li>Borrowing Methods from Prototypes</li>
+        <ul>
+          <li>You can make a reference to a function that you want to borrow, without parenthesis, so the function is not invoked, as in <code>const fly = superman.fly;</code></li>
+          <li>You can now call the method using the "call method", as in <code>fly.call(batman);</code></li>
+          <li>Borrowing array methods. ES5 introduced the ability to borrow methods, such as slice, from the Array prototype and apply them to <em>array-like</em> objects, such as arguments and node lists and then using the call() method. With E6, the Array.from() method or the spread operator as in <code>const argumentsArray = [...arguments];</code> is easier to use, though you may still see the other methods used elsewhere.</li>          
+        </ul>
+        <li>Composition Over Inheritance</li>
+        <ul>
+          <li>A design pattern that advocates creating small objects that describe single tasks or behaviors and using them as the building blocks for more complex objects.</li>
+          <li>Use Mixin functions to combine these together to create more complex objects.</li>
+          <li>Sees objects as building blocks that go together to make other objects rather than classes that are monlithic structures layered on top of each other.</li>
+          <li>When using classes, make them 'skinny,' and keep inheritance chains short. Rule of thumb: only inherit once.</li>
+          <li>If you want to use a particular method from a class, then 'borrow' the method instead. An even better approach would be to move the method into a separate object then add it as a mixin to any objects that rqurie it.</li>
+        </ul>
 
-      </main>
-      <footer class="footer">
-         <p>&copy; <span id="currentyear"></span> | Eric Burns | Washington, USA <span id="footer-pipe">| </span><br><a
-               href="https://www.byui.edu/online" target="_blank">BYU-i Online Learning</a></p>
-         <p class="datetime">Last Updated: <span id="datetime"></span></p>
-      </footer>
-   </div>
-   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js">
-   </script>
-   <script src="../../js/webfontload.js"></script>
-   <script src="../../js/script.js"></script>
+      </ul>
+
+      <p class="question">I understand the concepts of Polymorphism and Inheritance, but there is something that still
+        is a little confusing. The toString() method is a good example of Polymorphism and the sayHi() meethod in the
+        Turtle class is an example of Inheritance, in which the NinjaTurtle child class inherits from the Turtle class.
+        What is a little confusing to me is the following. The NinjaTurtle can override the sayHi() method to do what
+        ever it wants that is different than what is defined in the Turtle Class. Comparing this to the toString()
+        method, how is this any different? Isn't the toString() method added to the Object prototype? If so, isn't every
+        object inheriting it from the Object prototype? And the fact that you can override the toString() method in any
+        object isn't any different than the way we overrode the sayHi() method in the NinjaTurtle class. So what makes
+        the toString() method an example of Polymorphism? Is it simply because of the purpose? In other words,
+        toString() is a generic function that is not "linked" to any type or category - it's something that can be
+        attached to any object. In contrast, the sayHi() method only pertains to Turtle's. Is this the only difference?
+        What else makes something "polymorphic" vs "inherited"?</p>
+
+
+    </main>
+    <footer class="footer">
+      <p>&copy; <span id="currentyear"></span> | Eric Burns | Washington, USA <span id="footer-pipe">| </span><br><a
+          href="https://www.byui.edu/online" target="_blank">BYU-i Online Learning</a></p>
+      <p class="datetime">Last Updated: <span id="datetime"></span></p>
+    </footer>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js">
+  </script>
+  <script src="../../js/webfontload.js"></script>
+  <script src="../../js/script.js"></script>
 </body>
 
 </html>
