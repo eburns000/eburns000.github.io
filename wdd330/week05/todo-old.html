@@ -71,7 +71,7 @@
 
     class ToDo {
       constructor(task, completed = false) {
-        this.timestamp = Date.now();
+        this.timestamp = new Date();
         this.completed = completed;
         this.task = task;
       }
@@ -106,46 +106,17 @@
 
     function addToDo(description) {
       const toDo = new ToDo(description);
-      console.log(toDo.timestamp);
       toDoList.push(toDo);
+      return toDo; 
     }
 
-    function removeToDo(e, toDo) {
-      // delete the toDo out of the array
-      // how do you identify which element is in the array?
-
-      // re-render
-
-      console.log(e.target.parentElement.id);
-      console.log(toDoList);
-      // get index of array where the timestamp is equal to this id
-      // slice array removing element from array with index
-      
-      // myArray.findIndex(x => x.hello === 'stevie') - alternative
-      // const myIndex = toDoList.
-      // map(x => x.getTimestamp().toString()).indexOf(e.target.parentElement.id);      
-      const index1 = toDoList.map(x => x.getTimestamp().toString()).indexOf(e.target.parentElement.id);
-      console.log("Index using map.indexOf: ", index1);
-
-      const index2 = toDoList.findIndex(x => x.getTimestamp().toString() === e.target.parentElement.id);
-      console.log("Index using findIndex: ", index2);
-      
-      // remove element at index1 from toDoList
-      toDoList.splice(index1, 1);
-      console.log(toDoList);
-
-      // render task list again
-      renderTaskList();
-
-      
-      // console.log(`removeToDo was called on ${e.target.classList}`)
-      // let toDoToBeDeleted = e.target.parentElement;
-      // console.log(toDoToBeDeleted);
-      // let grandParent = toDoToBeDeleted.parentElement;
-      // console.log(grandParent);
-      // grandParent.removeChild(toDoToBeDeleted);
-
-
+    function removeToDo(e) {
+      console.log(`removeToDo was called on ${e.target.classList}`)
+      let toDoToBeDeleted = e.target.parentElement;
+      console.log(toDoToBeDeleted);
+      let grandParent = toDoToBeDeleted.parentElement;
+      console.log(grandParent);
+      grandParent.removeChild(toDoToBeDeleted);
       // let deletedElement = grandParent.removeChild(toDoToBeDeleted); this is not necessary because listeners are deleted if references are deleted at the same time
       // deletedElement.removeEventListener('click', removeToDo);
     }
@@ -153,31 +124,26 @@
     function renderToDo(toDo) {
       let taskDiv = document.createElement('div');
       taskDiv.classList.add('task');
-      console.log(toDo.getTimestamp());
-      taskDiv.id = toDo.getTimestamp();
       taskDiv.innerHTML = `
         <input class="task-check" type="checkbox" name="checkbox" ${toDo.isComplete() ? "checked" : "unchecked"}>
         <label class="task-label" for="checkbox">${toDo.getDescription()}</label>
-        <button class="task-button">X</button>`;      
-      taskDiv.children[2].addEventListener('click', (event) => removeToDo(event));      
+        <button class="task-button">X</button>`;
+      
+      taskDiv.children[2].addEventListener('click', event => removeToDo(event));      
+      
       taskList.appendChild(taskDiv);
+      // add event listener 
+
     }
 
-    function renderTaskList() {
-      // remove any existing nodes
-      // could use a loop to remove children - this is probably better - write a function to remove and loop through children
-      // but for now, just set innerHTML to ""
-      taskList.innerHTML = "";
-
-      // render each of the todos
+    function renderTaskList() {      
       toDoList.forEach(toDo => renderToDo(toDo));
     }
 
     window.addEventListener('load', renderTaskList());
 
     btnAddTask.addEventListener('click', () => {
-      addToDo(inputTask.value);
-      renderTaskList();
+      renderToDo(addToDo(inputTask.value));
     });
 
 

@@ -32,7 +32,7 @@
         <div class="cards">
           <div class="task-list"></div>
           <div class="summary">
-            <div class="summary-remaining"><span class="summary-remaining-value">3</span> tasks remaining</div>
+            <div class="summary-remaining"><span class="summary-remaining-value"></span> tasks remaining</div>
             <div class="summary-filter">
               <input class="summary-radio" type="radio" id="task-all" name="task-filter" value="all">
               <label for="task-all">All</label>
@@ -65,105 +65,157 @@
     const inputTask = document.getElementById('task-add-textbox');
     const btnAddTask = document.getElementById('task-add-button');
     const remainingTasks = document.querySelector('.summary-remaining-value');
-    const taskStatus = document.getElementsByName('task-filter').value;
+    const taskStatus = document.getElementsByName('task-filter');
     const taskList = document.querySelector('.task-list');
-    console.log(taskList);
+    // console.log(taskList);
 
     class ToDo {
       constructor(task, completed = false) {
-        this.timestamp = new Date();
+        this.timestamp = Date.now();
         this.completed = completed;
         this.task = task;
       }
 
-      markComplete() {
-        this.completed = true;
-      }
+      // this was other logic that I implemented to keep track of count, but changed to loop instead
+      // static _activeCount = 0;
+      // static increaseCount() { this._activeCount += 1;   }
+      // static decreaseCount() { this._activeCount -= 1;   }
+      // static getRemaining()  { return this._activeCount; }
 
-      markActive() {
-        this.completed = false;
-      }
-
-      getDescription() {
-        return this.task;
-      }
-
-      setDescription(task) {
-        this.task = task;
-      }
-
-      getTimestamp() {
-        return this.timestamp;
-      }
-
-      isComplete() {
-        return this.completed;
-      }
-
+      markComplete()         { this.completed = true;    }
+      markActive()           { this.completed = false;   }
+      getDescription()       { return this.task;         }
+      setDescription(task)   { this.task = task;         }
+      getTimestamp()         { return this.timestamp;    }
+      isComplete()           { return this.completed;    }
     }
 
     const toDoList = [];
 
     function addToDo(description) {
       const toDo = new ToDo(description);
+      // console.log(toDo.timestamp);
       toDoList.push(toDo);
-      return toDo; 
+      // ToDo.increaseCount(); // this was other logic that I implemented to keep track of count, but changed to loop instead
+      // console.log("Count After Add: ", ToDo.getRemaining());
     }
 
     function removeToDo(e) {
-      console.log(`removeToDo was called on ${e.target.classList}`)
-      let toDoToBeDeleted = e.target.parentElement;
-      console.log(toDoToBeDeleted);
-      let grandParent = toDoToBeDeleted.parentElement;
-      console.log(grandParent);
-      grandParent.removeChild(toDoToBeDeleted);
-      // let deletedElement = grandParent.removeChild(toDoToBeDeleted); this is not necessary because listeners are deleted if references are deleted at the same time
+      // console.log(e.target.parentElement.id);
+      // console.log(toDoList);
+
+      // get index of array where the timestamp is equal to this id   
+      const index1 = toDoList.map(x => x.getTimestamp().toString()).indexOf(e.target.parentElement.id);
+      // console.log("Index using map.indexOf: ", index1);
+
+      const index2 = toDoList.findIndex(x => x.getTimestamp().toString() === e.target.parentElement.id);
+      // console.log("Index using findIndex: ", index2);
+      
+      // remove element at index1 from toDoList
+      toDoList.splice(index1, 1);
+      // console.log(toDoList);
+
+      // ToDo.decreaseCount(); // this was other logic that I implemented to keep track of count, but changed to loop instead
+      // console.log("Count After Subtract: ", ToDo.getRemaining());
+
+      // render task list again
+      renderTaskList();
+
+      // this logic was implemented to remove the item from the DOM, but it did not remove it from the array
+      // console.log(`removeToDo was called on ${e.target.classList}`)
+      // let toDoToBeDeleted = e.target.parentElement;
+      // console.log(toDoToBeDeleted);
+      // let grandParent = toDoToBeDeleted.parentElement;
+      // console.log(grandParent);
+      // grandParent.removeChild(toDoToBeDeleted);
+
+      // this is not necessary because listeners are deleted if references are deleted at the same time
+      // let deletedElement = grandParent.removeChild(toDoToBeDeleted);
       // deletedElement.removeEventListener('click', removeToDo);
+    }
+
+    // mark ToDo complete
+    function toggleToDoActive (e) {
+      // get index
+      const index = toDoList.map(x => x.getTimestamp().toString()).indexOf(e.target.parentElement.id);
+      // console.log("marktToDoComplete Index: ", index);
+
+      // toggle toDo's completed status between complete and not complete (or active)
+      toDoList[index].isComplete() ? toDoList[index].markActive() : toDoList[index].markComplete();
+
+      // render task list again
+      renderTaskList();      
+    }
+
+    // view function
+    function renderRemaining() {
+      // remainingTasks.innerText = ToDo.getRemaining();
+      remainingTasks.innerText = countActive();
+    }
+
+    // model or controller function
+    function countActive() {
+      let count = 0;
+      toDoList.forEach(toDo => { if (!toDo.isComplete()) count++; });
+      return count;
     }
 
     function renderToDo(toDo) {
       let taskDiv = document.createElement('div');
       taskDiv.classList.add('task');
+      // console.log(toDo.getTimestamp());
+      taskDiv.id = toDo.getTimestamp();
       taskDiv.innerHTML = `
         <input class="task-check" type="checkbox" name="checkbox" ${toDo.isComplete() ? "checked" : "unchecked"}>
         <label class="task-label" for="checkbox">${toDo.getDescription()}</label>
-        <button class="task-button">X</button>`;
-      
-      taskDiv.children[2].addEventListener('click', event => removeToDo(event));      
-      
+        <button class="task-button">X</button>`;      
+      taskDiv.children[2].addEventListener('click', event => removeToDo(event));
+      taskDiv.children[0].addEventListener('click', event => toggleToDoActive(event));
       taskList.appendChild(taskDiv);
-      // add event listener 
+    }
 
+    function filterArray(e) {
+      console.log("element: ", e.target.value);
+      console.log("task Status Value: ", taskStatus);
+
+      // filter the array
+      // pass the array onto renderTask List - with parent node and array
 
     }
 
-    function renderTaskList() {      
-      toDoList.forEach(toDo => renderToDo(toDo));
+    function renderTaskList() {
+      // consider making this function less coupled - pass in parentNode and Array
+      // remove any existing nodes
+      // alternatively could use a loop to remove children
+      taskList.innerHTML = "";      
+
+      // check to see which filter is applied and render ToDos based on filter
+      if (document.querySelector('input[name="task-filter"]:checked')) {
+        const filter = document.querySelector('input[name="task-filter"]:checked').value;
+        console.log("filter: ", filter);
+
+        if (filter === "active") 
+          toDoList.filter(todo => todo.isComplete() === false).forEach(toDo => renderToDo(toDo));
+        else if (filter === "completed")
+          toDoList.filter(todo => todo.isComplete() === true).forEach(toDo => renderToDo(toDo));
+        else
+          toDoList.forEach(toDo => renderToDo(toDo));
+      } else {
+        toDoList.forEach(toDo => renderToDo(toDo));
+      }
+      // display remaining number of active tasks
+      renderRemaining();
     }
 
-    window.addEventListener('load', renderTaskList());
+    window.addEventListener('load', renderTaskList);
 
     btnAddTask.addEventListener('click', () => {
-      renderToDo(addToDo(inputTask.value));
+      addToDo(inputTask.value);
+      renderTaskList();
     });
 
-
-    // Next Steps - 2/4
-    // Add local storage - consider a solution that re-renders, instead of just removes/adds from the Dom. 
-    // Your remove function is not removing from the array - so that is not accomplishing that - will need to handle that
-    // in the remove function
-    // need to track remaining - consider a static method in the class to keep track of all instances - or you can 
-    // simply loop through and find those that are still "active" - depends on what "remaining" means - only active or all in?
-    // Need to add filter functionality
-
-    // I like the way I put this together, but in reality, it would be better to simply re-render what is in the 
-    // database, that way you can use the same "render" function when you click on one of the radio buttons that will 
-    // trigger the event listener that will filter the array and re-render
-    // that way you are not using the "DOM" as your database
-
-
-
-
+    // taskStatus.forEach(elem => elem.addEventListener('change', event => filterArray(event)));
+    taskStatus.forEach(elem => elem.addEventListener('change', renderTaskList));    
 
   </script>
 </body>
