@@ -32,8 +32,71 @@
       <p>The following notes are of particular areas that I was less familiar with, didn't fully realize, or would
         like to have as a quick reminder.</p>
       <ul>
-        <li></li>
+        <li>Exception: return value can be used by the program to deal with the error.</li>
+        <li>Stack Trace: works backwards from the point of the error to the original method that started the sequence.</li>
+        <li>Warning: program will continue to run but may not run correctly.</li>
+        <li>Runtime Error: HTML will still appear, but JS code will stop working in the background.</li>
+        <li>Ensure code fails gracefully (e.g. without exceptions thrown) but loudly in Development (using TDD).</li>
+        <li>Strict Mode: produces more exceptions and warnings and prohibits deprecated features. Add <code>'use strict';</code> to first line of JS file.</li>
+        <li>Recommended way to invoke strict mode is to place all of your code into a self-invoking function as in <code>(function(){'use strict';}());</code></li>
+        <li>Modules use strict mode by default, so no need for <code>'use strict'</code> declaration.</li>
+        <li>Linting Tools: JS Lint, JS Hint, ES Lint. Installation options include: editor plugins, onlline tools, installed on computer using npm.</li>
+        <li>Feature Detection: use an <code>if</code> statement to check whether an object or method exists before using it, such as <code>if(window.holoDeck){//code here}</code></li>
+        <li>Browser sniffing is not recommended because user agent string cannot be relied upon to be accurate.</li>
+        <li>Debugging in the Browser</li>
+        <ul>
+          <li>Alert</li>
+          <li>Console.log()</li>
+          <li>Console.trace()</li>
+          <li>Breakpoints in the browser</li>
+          <li>Debugger keyword: will create a breakpoint in your code that will pause the execution of the code and allow you to see where the program is currently up to. Can hover over variables. Can restart by clicking the 'play' button. Remember to remove <code>debugger</code> prior to deployment.</li>          
+        </ul>
+        <li>Error Objects</li>
+        <ul>
+          <li>Can be created in the host environment.</li>
+          <li>Can be created in code using a constructor function as in <code>const error = new Error();</code></li>
+          <li>Other Error Objects</li>
+          <ul>
+            <li>EvalError</li>
+            <li>RangeError</li>
+            <li>ReferenceError</li>
+            <li>SyntaxError</li>
+            <li>TypeError</li>
+            <li>URIError</li>
+            <li>InternalError</li>
+            <li>Can be used as constructors to create custom error objects as in <code>const error = new TypeError('You need to use numbers in this function');</code></li>
+            <li>Error objects have three "safe to use" properties: name, message, and stack.</li>
+          </ul>
+          <li>Throwing Exceptions</li>
+          <ul>
+            <li>You can throw your own exceptions using the <code>throw</code> statement</li>
+            <li>Causes the execution of the program to stop.</li>
+            <li>Best practice to throw an error object, as in <code>throw new Error('Something has gone wrong');</code>, which can then be caught in a <code>catch</code> block.</li>            
+          </ul>
+          <li>Exception Handling</li>
+          <ul>
+            <li>Catching an error is a way to handle errors gracefully so that the user does not see the errors.</li>
+            <li>try...catch...finally</li>
+            <li>Code inside the catch block will only run in an exception is thrown inside the try block. Error object is automatically passed as a parameter to the catch block, which allows you to query the error name, message, and stack properties.</li>
+            <li>Code inside the finally block will always be executed after the try or catch block, regardless of whether an exception occured or not. Useful if you want code to run in both cases.</li>
+          </ul>
+          <li>Tests</li>
+          <ul>
+            <li>A test can simply be a function that tests a piece of code runs as it should. For example, you could create a function as in <code>function itSquareRoots4(){return squareRoot(4)===2;}</code>. In that example, we are comparing the result of squareRoot(4) with the number 2, which returns true if our function works as expected.</li>            
+          </ul>
+          <li>Test Driven Development (TDD)</li>
+          <ul>
+            <li>Write Tests (that initially fail)</li>
+            <li>Write code to pass the tests</li>
+            <li>Refactor the code</li>
+            <li>Test refactored code</li>
+            <li>Write more tests for new features</li>
+          </ul>
+        </ul>        
       </ul>
+
+      <p class="question">What is a recommended workflow using TDD and linting?</p>
+      <p class="question">Are there best practices for when to use error handling and when not to? Is it simply based on the liklihood of an error, whether it is from inserting a wrong range or from using an unsupported browser?</p>
 
     </main>
     <footer class="footer">
