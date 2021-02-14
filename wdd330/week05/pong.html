@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Pong Application, just for fun">
+  <title>Eric Burns | Pong App</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/normalize.css">
+  <link rel="stylesheet" href="../../css/small.css">
+  <link rel="stylesheet" href="../../css/medium.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="pong.css">
+</head>
+
+<body>
+  <div id="content">
+    <header class="header">
+      <h1>Pong</h1>
+    </header>
+    <nav class="nav">
+      <ul>
+        <li class="home"><a href="../../index.html"><span class="fa fa-home"></span> Home</a></li>
+        <li class="home"><a href="../week05/index.html"><span class="fa fa-arrow-right"></span> Week 05</a></li>
+      </ul>
+    </nav>
+    <main class="main">
+
+      <div class="pong-app">
+        <h3 class="pong-header">Pong</h3>
+        <div class="pong move"></div>
+      </div>
+
+      <canvas id="pong" width="600" height="400"></canvas>
+
+    </main>
+    <footer class="footer">
+      <p>&copy; <span id="currentyear"></span> | Eric Burns | Washington, USA <span id="footer-pipe">|
+        </span><br><a href="https://www.byui.edu/online" target="_blank">BYU-i Online Learning</a></p>
+      <p class="datetime">Last Updated: <span id="datetime"></span></p>
+    </footer>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js">
+  </script>
+  <script src="../../js/webfontload.js"></script>
+  <script src="../../js/script.js"></script>
+  <script>
+    let pong = document.querySelector('.pong');
+
+    pong.addEventListener('mousedown', pauseMoving);
+
+    function stopMoving() {
+      pong.classList.toggle('move');
+    }
+
+    // function pauseMoving() {
+    //   if (pong.classList.contains('move')) {
+    //     console.log("contains move");
+    //     const computedStyle = window.getComputedStyle(pong);
+    //     const marginLeft = computedStyle.getPropertyValue('transform');
+    //     pong.setAttribute("style", `transform: ${marginLeft}`);
+    //     pong.classList.remove('move');
+    //   } else {
+    //     pong.classList.add('move');
+    //   }
+
+    function pauseMoving() {
+      if (pong.classList.contains('paused')) {
+        pong.setAttribute("style", "animation-play-state: paused;");
+        pong.classList.remove('paused');
+      } else {
+        pong.setAttribute("style", "animation-play-state: running;");
+        pong.classList.add('paused');
+      }
+    }
+
+    const canvas = document.getElementById('pong');
+    const context = canvas.getContext('2d');
+
+    context.fillStyle = "black";
+    context.fillRect(100, 200, 50, 75);
+    context.fillStyle = "red";
+    context.beginPath();
+    context.arc(300, 350, 100, 0, Math.PI*2, false);
+    context.closePath();
+    context.fill();
+
+
+  </script>
+</body>
+
+</html>

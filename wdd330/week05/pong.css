@@ -1,0 +1,30 @@
+.pong {
+    width: 50px;
+    height: 50px;
+    background: yellow;
+    border-radius: 50%;    
+}
+
+.move {
+    animation: move 10s linear infinite;
+}
+
+@keyframes move {
+    0%, 100% {
+        transform: translate(0,0);
+    }
+    50% {
+        transform: translate(600px, 0);
+    }
+}
+
+.pong-header {
+    font-size: 3em;
+    text-align: center;
+}
+
+.pong-app {
+    display: flex;
+    flex-direction: column;
+}
+
