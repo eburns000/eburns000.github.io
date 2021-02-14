@@ -56,6 +56,7 @@ class ToDoModel {
     try {
       const myData = JSON.stringify(toDoList);
       window.localStorage.setItem('myData', myData);
+      console.log("todolist after save: ", toDoList);
     } catch (error) {
       console.error(error, "Unable to save data to local storage.")
     }
