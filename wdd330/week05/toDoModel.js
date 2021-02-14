@@ -1,8 +1,8 @@
 let toDoList = [];
 
 class ToDo {
-  constructor(task, completed = false) {
-    this.timestamp = Date.now();
+  constructor(task, completed = false, timestamp = Date.now()) {
+    this.timestamp = timestamp;
     this.completed = completed;
     this.task = task;
   }
@@ -40,10 +40,22 @@ class ToDoModel {
     try {
 
       if (window.localStorage.getItem('myData')) {
+
         console.log("load attempted");
         const myData = window.localStorage.getItem('myData');
         console.log("MyData: ", myData);
-        toDoList = JSON.parse(myData);
+        
+        const tempArray = JSON.parse(myData);
+
+        // clear the existing array
+        toDoList.splice(0, toDoList.length);
+
+        // now load the array by creating objects from the JSON data
+        for (let i = 0; i < tempArray.length; i++) {
+          const tempToDo = new ToDo(tempArray[i].task, tempArray[i].completed, tempArray[i].timestamp);
+          toDoList.push(tempToDo);
+        }
+        
         console.log("ToDoList After Parse: ", toDoList);
       }
 
