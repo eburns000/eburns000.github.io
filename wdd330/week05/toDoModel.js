@@ -14,37 +14,17 @@ class ToDo {
   isComplete()           { return this.completed;    }
 }
 
-
-
-
-
-
-
 class ToDoModel {
-
-  addToDo(description) {
-    const toDo = new ToDo(description);
-    toDoList.push(toDo);
+  // create a new ToDo
+  createToDo(description) {
+    return new ToDo(description);
   }
-
-  removeToDo(e) {
-    const index1 = toDoList.map(x => x.getTimestamp().toString()).indexOf(e.target.parentElement.id);
-    toDoList.splice(index1, 1);
-    renderTaskList();
-  }
-
-
 
   // where do we get the data from the local storage - is it a constructor for the toDoModel? or do we do that with getAllToDos()? It would need to be a one time deal - maybe "loadAllToDos" or something similar
   getAllToDos() {
     return toDoList;
   }
-
-  getToDoByTimestamp(timestamp) {
-    return toDoList.find(toDo => toDo.timestamp === timestamp);
-  }
 }
 
 export default ToDoModel;
-// do I need to export the ToDo class as well?
 
