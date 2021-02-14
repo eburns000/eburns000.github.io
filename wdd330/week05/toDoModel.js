@@ -42,8 +42,9 @@ class ToDoModel {
       if (window.localStorage.getItem('myData')) {
         console.log("load attempted");
         const myData = window.localStorage.getItem('myData');
+        console.log("MyData: ", myData);
         toDoList = JSON.parse(myData);
-        console.log(toDoList);
+        console.log("ToDoList After Parse: ", toDoList);
       }
 
     } catch (error) {
