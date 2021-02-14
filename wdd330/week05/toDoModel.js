@@ -40,6 +40,7 @@ class ToDoModel {
     try {
 
       if (window.localStorage.getItem('myData')) {
+        console.log("load attempted");
         const myData = window.localStorage.getItem('myData');
         toDoList = JSON.parse(myData);
       }
