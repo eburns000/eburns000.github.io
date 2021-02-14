@@ -48,6 +48,7 @@ export default class toDoController {
   appInit() {
     this.toDoModel.loadLocalData();
     const toDoList = this.toDoModel.getAllToDos();
+    console.log("appinit todolist: ", toDoList);
     this.showToDoList(toDoList);    
     this.addOneTimeListeners();
   }
