@@ -61,7 +61,7 @@ export default class toDoController {
     });
 
     // listener for filter radio button
-    this.taskStatus.forEach(elem => elem.addEventListener('change', e => {
+    this.taskStatus.forEach(elem => elem.addEventListener('change', () => {
       const toDoList = this.toDoModel.getAllToDos();
       this.toDoView.renderToDoList(this.parentElement, toDoList);
     }));
@@ -72,10 +72,12 @@ export default class toDoController {
     childrenArray.forEach(child => {
       child.children[2].addEventListener('click', e => {
         this.removeToDo(e);
+        console.log(e);
       });
 
       child.children[0].addEventListener('click', e => {        
         this.toggleToDoActive(e);
+        console.log(e);
       });
 
     });
