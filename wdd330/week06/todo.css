@@ -1,0 +1,102 @@
+.task {
+    display: flex;
+    flex-direction: row;
+    margin: -1px 0;    
+    align-items: center;
+    border: solid 1px #444444;
+    padding: 10px;
+    width: 400px;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    margin: 5px auto;
+}
+
+.summary {
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+    align-items: center;
+    border: solid 1px #444444;
+    padding: 12px;
+    width: 400px;
+    font-size: .8em;
+    justify-content: space-between;
+}
+
+.task-add {
+    display: flex;
+    flex-direction: row;
+    margin: 75px auto;
+    width: 400px;
+}
+
+.task-check {
+    width: 30px;
+    height: 30px;
+}
+
+.task-label {
+    margin: 0px 10px;
+    font-size: 1.5em;
+}
+
+.task-button {
+    margin: 0;    
+    border: none;
+    background-color: white;
+    font-size: 1.5em;    
+}
+
+.task-add-button {
+    flex: 0 0 12%;
+    margin-left: 3%;
+    height: 40px;    
+}
+
+.task-add-text {
+    height: 40px;
+    flex: 0 0 85%;
+    font-size: 1em;
+    padding: 3px;
+}
+
+.summary > * {
+    margin: 3px;
+}
+
+.task-check {
+    flex: 0 0 10%;
+}
+
+.task-label {
+    flex: 0 0 75%;
+}
+
+.task-button {
+    flex: 0 0 30px;
+}
+
+.summary-radio {
+    margin-left: 5%;
+}
+
+.summary-remaining {
+    flex: 0 0 30%;
+}
+
+.summary-filter {
+    flex: 0 0 55%;
+}
+
+.todo-header {
+    font-size: 3em;
+    text-align: center;
+}
+
+.todo-app {
+    display: flex;
+    flex-direction: column;
+}

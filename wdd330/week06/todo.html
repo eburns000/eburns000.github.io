@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="To Do Application">
+  <title>Eric Burns | To Do App</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/normalize.css">
+  <link rel="stylesheet" href="../../css/small.css">
+  <link rel="stylesheet" href="../../css/medium.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="todo.css">
+</head>
+
+<body>
+  <div id="content">
+    <header class="header">
+      <h1>To Do App</h1>
+    </header>
+    <nav class="nav">
+      <ul>
+        <li class="home"><a href="../../index.html"><span class="fa fa-home"></span> Home</a></li>
+        <li class="home"><a href="../week05/index.html"><span class="fa fa-arrow-right"></span> Week 05</a></li>
+      </ul>
+    </nav>
+    <main class="main">
+      <div class="todo-app">
+        <h3 class="todo-header">Todos</h3>
+        <div class="cards">
+          <div class="task-list" id="task-list"></div>
+          <div class="summary" id="summary">
+            <div class="summary-remaining"><span id="summary-remaining-value"></span> tasks remaining</div>
+            <div class="summary-filter">
+              <input class="summary-radio" type="radio" id="task-all" name="task-filter" value="all">
+              <label for="task-all">All</label>
+              <input class="summary-radio" type="radio" id="task-active" name="task-filter" value="active">
+              <label for="task-active">Active</label>
+              <input class="summary-radio" type="radio" id="task-completed" name="task-filter" value="completed">
+              <label for="task-completed">Completed</label>
+            </div>
+          </div>
+        </div>
+        <div class="task-add">
+          <input class="task-add-text" type="text" id="task-add-textbox" name="task-add-textbox"
+            placeholder="Enter new task">
+          <input class="task-add-button" type="button" id="task-add-button" name="task-add-button" value="+">
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <p>&copy; <span id="currentyear"></span> | Eric Burns | Washington, USA <span id="footer-pipe">|
+        </span><br><a href="https://www.byui.edu/online" target="_blank">BYU-i Online Learning</a></p>
+      <p class="datetime">Last Updated: <span id="datetime"></span></p>
+    </footer>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js">
+  </script>
+  <script src="../../js/webfontload.js"></script>
+  <script src="../../js/script.js"></script>
+  <script src="./toDoApp.js" type="module"></script>
+</body>
+
+</html>
