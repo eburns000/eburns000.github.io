@@ -13,13 +13,13 @@ class toDoView {
       const filter = document.querySelector('input[name="task-filter"]:checked').value;
 
       if (filter === "active")
-        toDoList.filter(todo => todo.isComplete() === false).forEach(toDo => renderToDo(parentElement, toDo));
+        toDoList.filter(todo => todo.isComplete() === false).forEach(toDo => this.renderToDo(parentElement, toDo));
       else if (filter === "completed")
-        toDoList.filter(todo => todo.isComplete() === true).forEach(toDo => renderToDo(parentElement, toDo));
+        toDoList.filter(todo => todo.isComplete() === true).forEach(toDo => this.renderToDo(parentElement, toDo));
       else
-        toDoList.forEach(toDo => renderToDo(parentElement, toDo));
+        toDoList.forEach(toDo => this.renderToDo(parentElement, toDo));
     } else {
-      toDoList.forEach(toDo => renderToDo(parentElement, toDo));
+      toDoList.forEach(toDo => this.renderToDo(parentElement, toDo));
     }
   }
 
