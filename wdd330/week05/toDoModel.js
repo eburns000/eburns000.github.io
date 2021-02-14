@@ -43,6 +43,7 @@ class ToDoModel {
         console.log("load attempted");
         const myData = window.localStorage.getItem('myData');
         toDoList = JSON.parse(myData);
+        console.log(toDoList);
       }
 
     } catch (error) {
