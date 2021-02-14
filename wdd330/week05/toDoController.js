@@ -16,6 +16,7 @@ export default class toDoController {
     const toDoList = this.toDoModel.getAllToDos();
     const index = toDoList.map(x => x.getTimestamp().toString()).indexOf(e.target.parentElement.id);
     toDoList[index].isComplete() ? toDoList[index].markActive() : toDoList[index].markComplete();
+    this.toDoModel.saveLocalData();
     this.showToDoList(toDoList);
   }
 
@@ -32,23 +33,26 @@ export default class toDoController {
     const toDo = this.toDoModel.createToDo(description);
     const toDoList = this.toDoModel.getAllToDos();
     toDoList.push(toDo);
+    this.toDoModel.saveLocalData();
     this.showToDoList(toDoList);
   }
 
   removeToDo(e) {
     const toDoList = this.toDoModel.getAllToDos();
-    const index1 = toDoList.map(x => x.getTimestamp().toString()).indexOf(e.target.parentElement.id);
+    const index1 = toDoList.map(x => x.getTimestamp().toString()).indexOf(e.target.parentElement.id);    
     toDoList.splice(index1, 1);
+    this.toDoModel.saveLocalData();   
     this.showToDoList(toDoList);
   }
 
   appInit() {
+    this.toDoModel.loadLocalData();
     const toDoList = this.toDoModel.getAllToDos();
     this.showToDoList(toDoList);    
     this.addOneTimeListeners();
   }
 
-  showToDoList(toDoList) {
+  showToDoList(toDoList) {    
     this.toDoView.renderToDoList(this.parentElement, toDoList);
     this.toDoView.renderRemaining(this.countActive());
     this.addToDoListener();
@@ -63,13 +67,15 @@ export default class toDoController {
     // listener for filter radio button
     this.taskStatus.forEach(elem => elem.addEventListener('change', () => {
       const toDoList = this.toDoModel.getAllToDos();
-      this.toDoView.renderToDoList(this.parentElement, toDoList);
+      this.showToDoList(toDoList);
     }));
   }
 
   addToDoListener() {
+
     const childrenArray = Array.from(this.parentElement.children);
     childrenArray.forEach(child => {
+
       child.children[2].addEventListener('click', e => {
         this.removeToDo(e);
         console.log(e);
