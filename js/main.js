@@ -17,7 +17,10 @@ const links = [{
 }, {
   label: "Week 06 Midterm Checkin",
   url: "wdd330/week06/index.html"
-}]
+}, {
+    label: "Week 07 Notes & Exercises",
+    url: "wdd330/week07/index.html"
+  }]
 
 function wrapper() {
     // update links
