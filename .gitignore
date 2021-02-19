@@ -1,0 +1,4 @@
+# Dependency directories
+node_modules/
+jspm_packages/
+wdd330/week07/package-lock.json
