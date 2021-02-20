@@ -124,32 +124,54 @@
 
       <h3>Chapter 13 - Ajax</h3>
       <ul>
-        <li>Ajax allows JavaScript to request resources from a server on behalf of the client, usually via JSON data.</li>
-        <li>Same-Origin Policy: blocks requests from a domain that is different from the page making the request. Cross-origin resource sharing (CORS) allows resources to be requested from another website outsie the original domain. Uses HTTP headers to indicate which domains can receive data.</li>
-        <li>AJAX: asynchronous JavaScript and XML. XML was the first format for data to be sent, but JSON is easier to parse and more widely used.</li>
+        <li>Ajax allows JavaScript to request resources from a server on behalf of the client, usually via JSON data.
+        </li>
+        <li>Same-Origin Policy: blocks requests from a domain that is different from the page making the request.
+          Cross-origin resource sharing (CORS) allows resources to be requested from another website outside the
+          original domain. Uses HTTP headers to indicate which domains can receive data.</li>
+        <li>AJAX: asynchronous JavaScript and XML. XML was the first format for data to be sent, but JSON is easier to
+          parse and more widely used.</li>
         <li>Fetch API: superseded XMLHttpRequest. Uses promises, and is much more streamlined than XMLHttpRequest.</li>
-        <li>Fetch example: <code>fetch('URL').then(//code that handles the response).catch(//code that runs if server returns an error)</code></li>
-        <li>OK method: returns true if status property is between 200 and 299, whereas a promise is only rejected in the case of a network error (meaning it would still allow a '404' error).</li>
-        <li>Example: <code>fetch(url).then((response) => { if(response.ok) { return response; } throw Error(response.statusText);}).then( response => // do something with response ).catch( error => console.log('There was an error'))</code></li>
+        <li>Fetch example: <code>fetch('URL').then(//code that handles the response).catch(//code that runs if server
+            returns an error)</code></li>
+        <li>OK method: returns true if status property is between 200 and 299, whereas a promise is only rejected in the
+          case of a network error (meaning it would still allow a '404' error).</li>
+        <li>Example: <code>fetch(url).then((response) => { if(response.ok) { return response; } throw
+            Error(response.statusText);}).then( response => // do something with response ).catch( error =>
+            console.log('There was an error'))</code></li>
         <li>Other properties of Response object: headers, url, redirected, type.</li>
         <li>Redirect method: redirect to another URL - currently no browser support.</li>
-        <li>Text method: takes a stream of text from the response and returns a promise that resolves to a USVString object that can be treated as a string in JavaScript.</li>
+        <li>Text method: takes a stream of text from the response and returns a promise that resolves to a USVString
+          object that can be treated as a string in JavaScript.</li>
         <li>Blob method: read file of raw data, i.e. images, spreadsheet, etc.</li>
-        <li>JSON method: transforms JSON data into a promise that resolves to a JavaScript object. Example: <code>fetch(url).then( response => response.json()).then( data => console.log(Object.entries(data))).catch( error => console.log(error))</code></li>
-        <li>Making a response object: <code>const response = new Response('Hello!' [this is the data to be returned, could be a file, JSON data, or a text stream], {ok:true, status:200, statusText: 'OK', type: 'cors', url: '/api'} );</code></li>
-        <li>Request() constructor properties: url, method (GET, POST, etc., default is GET), headers, mode, cache, credentials, redirect. Used for more fine-grained control over the request.</li>
+        <li>JSON method: transforms JSON data into a promise that resolves to a JavaScript object. Example:
+          <code>fetch(url).then( response => response.json()).then( data => console.log(Object.entries(data))).catch(
+            error => console.log(error))</code></li>
+        <li>Making a response object: <code>const response = new Response('Hello!' [this is the data to be returned,
+            could be a file, JSON data, or a text stream], {ok:true, status:200, statusText: 'OK', type: 'cors', url:
+            '/api'} );</code></li>
+        <li>Request() constructor properties: url, method (GET, POST, etc., default is GET), headers, mode, cache,
+          credentials, redirect. Used for more fine-grained control over the request.</li>
         <li>HTTP methods: GET, POST, PUT, PATCH, DELETE</li>
-        <li>HTTP Headers: Example - <code>const headers = new Headers();</code> - used to pass on any additional information about a request or response. Typical for file type, cookie information, authentication information, and when last modified.</li>
+        <li>HTTP Headers: Example - <code>const headers = new Headers();</code> - used to pass on any additional
+          information about a request or response. Typical for file type, cookie information, authentication
+          information, and when last modified.</li>
         <li>Ajax Load and preloaders.net good resources for creating a spinner graphic for your site.</li>
         <li>JSONPlaceholder site: dummy site for testing sending and receiving JSON data. </li>
-        <li>Noticed this in an example: getting the value of an element within a form by setting the name property of the input element in the form then accessing it as form.task.value - form would come from <code>const form = document.forms['id of form']</code></li>
-        <li>FormData interface: Example - <code>const data = new FormData();</code> and then <code>const task = new FormData(form);</code></li>
-        <li>Can add data to the FromData() object using append as in <code>data = FormData();</code> and then <code>data.append('height', 75);</code></li>
+        <li>Noticed this in an example: getting the value of an element within a form by setting the name property of
+          the input element in the form then accessing it as form.task.value - form would come from <code>const form =
+            document.forms['id of form']</code></li>
+        <li>FormData interface: Example - <code>const data = new FormData();</code> and then <code>const task = new
+            FormData(form);</code></li>
+        <li>Can add data to the FromData() object using append as in <code>data = FormData();</code> and then
+          <code>data.append('height', 75);</code></li>
         <li>FormData interface shines when a form contains files to upload. Takes care of the heavy lifting.</li>
         <li></li>
       </ul>
 
-      <p class="question">The text mentions the use of jQuery to handle ajax requests as an alternative to using the Fetch API, in an effort to protect against changes to its methods as a "living standard." What is the current popularity of jQuery in the industry now? Is it still used or only seen in legacy applications?</p>
+      <p class="question">The text mentions the use of jQuery to handle ajax requests as an alternative to using the
+        Fetch API, in an effort to protect against changes to its methods as a "living standard." What is the current
+        popularity of jQuery in the industry now? Is it still used or only seen in legacy applications?</p>
     </main>
     <footer class="footer">
       <p>&copy; <span id="currentyear"></span> | Eric Burns | Washington, USA <span id="footer-pipe">| </span><br><a
