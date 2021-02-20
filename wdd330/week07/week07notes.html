@@ -39,7 +39,7 @@
         <li>Memoization, allows us to utilize the benefit of the cache property. <code>square.cache = square.cache ||
             {};</code></li>
         <li>Immediately invoked function expressions (IIFE). <code>(function(){ //do something })();</code>. This is a
-          technique of namspacing, so all variables are wrapped within the scope of the function.</li>
+          technique of namespacing, so all variables are wrapped within the scope of the function.</li>
         <li>Use IIFEs to keep temp variables truly temporary, so they are out of scope globally.</li>
         <li>With ES6, IIFEs may not be as useful, as you can use block scope using const and let to keep those variables
           out of the global namespace.</li>
@@ -49,17 +49,17 @@
           time. This is called <em>Lazy Definition Pattern</em> and is used when some initialization code id required
           the first time it is invoked.</li>
         <li>Init-Time Branching: we can use feature detection to define the function based on whether the browser
-          supports the function. You then return an invokation of the function as in <code>return ride();</code> which
+          supports the function. You then return an invocation of the function as in <code>return ride();</code> which
           is not done again, as the function is redefined.</li>
         <li>Recursion: when a function invokes itself until a certain condition is met.</li>
-        <li>Event-driven asynchronus programming: callbacks invoked when an event happens, such as a click, keypress,
+        <li>Event-driven asynchronous programming: callbacks invoked when an event happens, such as a click, keypress,
           file download, data returned, or the result of a complex calculation.</li>
         <li>setTimeout() function is asynchronous.</li>
-        <li>JavaScript is single threded, so only one task can happen at once.</li>
+        <li>JavaScript is single threaded, so only one task can happen at once.</li>
         <li>Callbacks can be overused.</li>
-        <li>Error-first callback style popularied by Node.js. Callbacks have two arguments, error, and data returned
+        <li>Error-first callback style popularized by Node.js. Callbacks have two arguments, error, and data returned
           that can be used in the body of the callback.</li>
-        <li>Promise: the future result of an asynchronus operation. Promises don't do anything that can't already be
+        <li>Promise: the future result of an asynchronous operation. Promises don't do anything that can't already be
           achieved using callbacks, but they help simplify the process.</li>
         <li>Promise life-cycle: when promise is created, calls asyn operation and is then said to be pending. Remains in
           this state while operation is taking place. Promise is said to be unsettled. Once operation has completed,
@@ -68,7 +68,7 @@
             } else { reject(error); } });</code></li>
         <li>promise.then method: once settled, can deal with the outcome --> two arguments: resolve function and
           rejection function.</li>
-        <li>promise.catch method: alternitive to .then method, to specify what to do if the operation fails instead.
+        <li>promise.catch method: alternative to .then method, to specify what to do if the operation fails instead.
         </li>
         <li>promise.then.catch: can be chained.</li>
         <li>Chaining promises: much cleaner than using multiple callbacks. Example: <code>login(userName).then(user =>
@@ -81,9 +81,9 @@
             callback) {... if(callback) { result = callback(result); } return result; }</code></li>
         <li>Functions that return functions: assign the function to a variable, then you can call that "new" function as
           in <code>const hello = returnHello(); hello()</code></li>
-        <li>Closures: a reference to a variable that was created inside the scope of another function, but is hten kept
+        <li>Closures: a reference to a variable that was created inside the scope of another function, but is then kept
           alive and used in another part of the program. Whenever a function is defined inside another function, the
-          inner function will have access to any variables that are dclared in the out functoin's scope.</li>
+          inner function will have access to any variables that are declared in the out function's scope.</li>
         <li>Returning functions: A closure is formed when the inner function is returned by the outer function,
           maintaining access to any variables declared inside the enclosing function. You then assign a variable to the
           return value of the outer function, as in <code>const closure = outer();</code>. The variable closure now
@@ -124,9 +124,32 @@
 
       <h3>Chapter 13 - Ajax</h3>
       <ul>
+        <li>Ajax allows JavaScript to request resources from a server on behalf of the client, usually via JSON data.</li>
+        <li>Same-Origin Policy: blocks requests from a domain that is different from the page making the request. Cross-origin resource sharing (CORS) allows resources to be requested from another website outsie the original domain. Uses HTTP headers to indicate which domains can receive data.</li>
+        <li>AJAX: asynchronous JavaScript and XML. XML was the first format for data to be sent, but JSON is easier to parse and more widely used.</li>
+        <li>Fetch API: superseded XMLHttpRequest. Uses promises, and is much more streamlined than XMLHttpRequest.</li>
+        <li>Fetch example: <code>fetch('URL').then(//code that handles the response).catch(//code that runs if server returns an error)</code></li>
+        <li>OK method: returns true if status property is between 200 and 299, whereas a promise is only rejected in the case of a network error (meaning it would still allow a '404' error).</li>
+        <li>Example: <code>fetch(url).then((response) => { if(response.ok) { return response; } throw Error(response.statusText);}).then( response => // do something with response ).catch( error => console.log('There was an error'))</code></li>
+        <li>Other properties of Response object: headers, url, redirected, type.</li>
+        <li>Redirect method: redirect to another URL - currently no browser support.</li>
+        <li>Text method: takes a stream of text from the response and returns a promise that resolves to a USVString object that can be treated as a string in JavaScript.</li>
+        <li>Blob method: read file of raw data, i.e. images, spreadsheet, etc.</li>
+        <li>JSON method: transforms JSON data into a promise that resolves to a JavaScript object. Example: <code>fetch(url).then( response => response.json()).then( data => console.log(Object.entries(data))).catch( error => console.log(error))</code></li>
+        <li>Making a response object: <code>const response = new Response('Hello!' [this is the data to be returned, could be a file, JSON data, or a text stream], {ok:true, status:200, statusText: 'OK', type: 'cors', url: '/api'} );</code></li>
+        <li>Request() constructor properties: url, method (GET, POST, etc., default is GET), headers, mode, cache, credentials, redirect. Used for more fine-grained control over the request.</li>
+        <li>HTTP methods: GET, POST, PUT, PATCH, DELETE</li>
+        <li>HTTP Headers: Example - <code>const headers = new Headers();</code> - used to pass on any additional information about a request or response. Typical for file type, cookie information, authentication information, and when last modified.</li>
+        <li>Ajax Load and preloaders.net good resources for creating a spinner graphic for your site.</li>
+        <li>JSONPlaceholder site: dummy site for testing sending and receiving JSON data. </li>
+        <li>Noticed this in an example: getting the value of an element within a form by setting the name property of the input element in the form then accessing it as form.task.value - form would come from <code>const form = document.forms['id of form']</code></li>
+        <li>FormData interface: Example - <code>const data = new FormData();</code> and then <code>const task = new FormData(form);</code></li>
+        <li>Can add data to the FromData() object using append as in <code>data = FormData();</code> and then <code>data.append('height', 75);</code></li>
+        <li>FormData interface shines when a form contains files to upload. Takes care of the heavy lifting.</li>
         <li></li>
       </ul>
 
+      <p class="question">The text mentions the use of jQuery to handle ajax requests as an alternative to using the Fetch API, in an effort to protect against changes to its methods as a "living standard." What is the current popularity of jQuery in the industry now? Is it still used or only seen in legacy applications?</p>
     </main>
     <footer class="footer">
       <p>&copy; <span id="currentyear"></span> | Eric Burns | Washington, USA <span id="footer-pipe">| </span><br><a
