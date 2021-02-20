@@ -31,22 +31,101 @@
       <h3>Chapter 11 - Further Functions</h3>
       <p>The following notes are of particular areas that I was less familiar with, didn't fully realize, or would
         like to have as a quick reminder.</p>
+      <ul>
+        <li>Call() method: allows you to invoke a function and pass an object that would bind <code>this</code> to.
+          First argument is always the argument that takes the value of <code>this</code>.</li>
+        <li>Apply() method: works the same as Call(), except that arguments are provided as an array.</li>
+        <li>Can add custom properties to functions, as in <code>square.description = 'does something';</code></li>
+        <li>Memoization, allows us to utilize the benefit of the cache property. <code>square.cache = square.cache ||
+            {};</code></li>
+        <li>Immediately invoked function expressions (IIFE). <code>(function(){ //do something })();</code>. This is a
+          technique of namspacing, so all variables are wrapped within the scope of the function.</li>
+        <li>Use IIFEs to keep temp variables truly temporary, so they are out of scope globally.</li>
+        <li>With ES6, IIFEs may not be as useful, as you can use block scope using const and let to keep those variables
+          out of the global namespace.</li>
+        <li>Can also contain 'use strict' inside IIFEs</li>
+        <li>Modules may be a better approach to segmenting code than using IIFEs.</li>
+        <li>It is possible to redefine a function within itself to do something different after it is called the first
+          time. This is called <em>Lazy Definition Pattern</em> and is used when some initialization code id required
+          the first time it is invoked.</li>
+        <li>Init-Time Branching: we can use feature detection to define the function based on whether the browser
+          supports the function. You then return an invokation of the function as in <code>return ride();</code> which
+          is not done again, as the function is redefined.</li>
+        <li>Recursion: when a function invokes itself until a certain condition is met.</li>
+        <li>Event-driven asynchronus programming: callbacks invoked when an event happens, such as a click, keypress,
+          file download, data returned, or the result of a complex calculation.</li>
+        <li>setTimeout() function is asynchronous.</li>
+        <li>JavaScript is single threded, so only one task can happen at once.</li>
+        <li>Callbacks can be overused.</li>
+        <li>Error-first callback style popularied by Node.js. Callbacks have two arguments, error, and data returned
+          that can be used in the body of the callback.</li>
+        <li>Promise: the future result of an asynchronus operation. Promises don't do anything that can't already be
+          achieved using callbacks, but they help simplify the process.</li>
+        <li>Promise life-cycle: when promise is created, calls asyn operation and is then said to be pending. Remains in
+          this state while operation is taking place. Promise is said to be unsettled. Once operation has completed,
+          promise is settled. Settled promise is either <em>resolved</em> or <em>rejected.</em></li>
+        <li>Creating a promise: <code>const promise = new Promise( (resolve, reject) => { if (success) { resolve(value);
+            } else { reject(error); } });</code></li>
+        <li>promise.then method: once settled, can deal with the outcome --> two arguments: resolve function and
+          rejection function.</li>
+        <li>promise.catch method: alternitive to .then method, to specify what to do if the operation fails instead.
+        </li>
+        <li>promise.then.catch: can be chained.</li>
+        <li>Chaining promises: much cleaner than using multiple callbacks. Example: <code>login(userName).then(user =>
+            getPlayerInfo(user.id)).then(info => loadGame(info)).catch(throw error)</code></li>
+        <li>Async Functions: allow you to write asynchronous code as if it was synchronous, using the await operator.
+          Wraps the return value of the function in a promise that can then be assigned to a variable. Next line of code
+          not executed until the promise is resolved.</li>
+        <li>Abstraction: wrapping logic cleanly away inside a function.</li>
+        <li>Generalized functions: using a callback to apply in a function. Example: <code>function random(a, b,
+            callback) {... if(callback) { result = callback(result); } return result; }</code></li>
+        <li>Functions that return functions: assign the function to a variable, then you can call that "new" function as
+          in <code>const hello = returnHello(); hello()</code></li>
+        <li>Closures: a reference to a variable that was created inside the scope of another function, but is hten kept
+          alive and used in another part of the program. Whenever a function is defined inside another function, the
+          inner function will have access to any variables that are dclared in the out functoin's scope.</li>
+        <li>Returning functions: A closure is formed when the inner function is returned by the outer function,
+          maintaining access to any variables declared inside the enclosing function. You then assign a variable to the
+          return value of the outer function, as in <code>const closure = outer();</code>. The variable closure now
+          points to the inner() function that is returned by the outer() function.</li>
+        <li>Generators: used to produce iterators that maintain the state of a value. Defined using an asterisk symbol
+          (*) as in <code>function* exampleGenerator() {}</code>. Returns a generator object that can be used to create
+          an iterator that implements a next() method that returns a value every time the nxt() method is called.</li>
+        <li>Functional programming: the ability to pass functions as arguments, return them from other functions, use
+          anonymous functions and closures, are all fundamental elements of functional programming.</li>
+        <li>Functional programming vs OOP vs Procedural programming: JavaScript can be used with all three paradigms.
+        </li>
+        <li>Pure functions: adheres to following rules:</li>
         <ul>
-          <li>Call() method: allows you to invoke a function and pass an object that would bind <code>this</code> to. First argument is always the argument that takes the value of <code>this</code>.</li>
-          <li>Apply() method: works the same as Call(), except that arguments are provided as an array.</li>
-          <li>Can add custom properties to functions, as in <code>square.description = 'does something';</code></li>
-          <li>Memoization, allows us to utilize the benefit of the cache property. <code>square.cache = square.cache || {};</code></li>
-          <li>Immediately invoked function expressions (IIFE). <code>(function(){ //do something })();</code>. This is a technique of namspacing, so all variables are wrapped within the scope of the function.</li>
-          <li>Use IIFEs to keep temp variables truly temporary, so they are out of scope globally.</li>
-          <li>With ES6, IIFEs may not be as useful, as you can use block scope using const and let to keep those variables out of the global namespace.</li>
-          <li>Can also contain 'use strict' inside IIFEs</li>
-          <li>Modules may be a better approach to segmenting code than using IIFEs.</li>
-          <li>It is possible to redefine a function within itself to do something different after it is called the first time. This is called <em>Lazy Definition Pattern</em> and is used when some initialization code id required the first time it is invoked.</li>
-          <li>Init-Time Branching: we can use feature detection to define the function based on whether the browser supports the function. You then return an invokation of the function as in <code>return ride();</code> which is not done again, as the function is redefined.</li>
-          <li></li>
+          <li>Return value should only depend on the values provided as arguments - not on values from somewhere else in
+            the program.</li>
+          <li>No side effects - does not change any values or data elsewhere in the program. Only makes non-destructive
+            data transformations and returns new values, rather than altering any of the underlying data.</li>
+          <li>Referential transparency. Given same arguments, will always return the same result.</li>
+          <li>Therefore must have at least one argument and a return value.</li>
+          <li>Functional programming uses pure functions as the building blocks of a program. The functions perform a
+            series of operations without changing the state of any data. Each function forms an abstraction that should
+            perform a single task, while encapsulating the details of its implementation inside the body of the
+            function. This means that a program becomes a sequence of expressions based on the return values of pure
+            functions. The emphasis is placed on using function composition to combine pure functions together to
+            complete more complex tasks.</li>
+          <li>Pure functions are more flexible, as they can be used as the building blocks for many different
+            situations.</li>
         </ul>
+        <li>Higher order functions: accept another function as an argument or return another function as a result, or
+          both.</li>
+        <li>Currying: allows you to turn a single function into a series of functions instead.</li>
+      </ul>
 
-        <p class="question"></p>
+      <p class="question">To what degree are recursive functions used for elegance and conciseness vs readability? I
+        personally have to spend a lot of time studying a recursive function to understand what is happening. Is it
+        fairly common to see in practice?</p>
+      <p class="question">What are some practical examples of Closures?</p>
+
+      <h3>Chapter 13 - Ajax</h3>
+      <ul>
+        <li></li>
+      </ul>
 
     </main>
     <footer class="footer">
