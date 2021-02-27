@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description"
+    content="Assignment portal for Eric Burns in WDD 330: Web Frontend Development, Week 08 Exercises">
+  <title>Exercises | Week 08</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/normalize.css">
+  <link rel="stylesheet" href="../../css/small.css">
+  <link rel="stylesheet" href="../../css/medium.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    /* Example: Transitions */
+    .box {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      font-weight: 700;
+      color: white;
+      width: 100px;
+      height: 100px;
+      margin: 2%;
+      background: red;
+      transition: transform 1s ease-out 100ms;
+      transform-origin: bottom right;  
+    }
+
+    #box1:hover {
+      transform: translateX(300px) scale(1.5) rotate(180deg) skew(15deg);
+    }
+
+    #box2:hover {
+      transform: rotate(180deg) translateX(300px) scale(1.5) skew(15deg);
+    }
+
+    #box3:hover {
+      transform: skew(15deg) scale(1.5) translateX(300px) rotate(180deg) ;
+    }
+
+    /* Example: Animations */
+    #box4 {
+      transform-origin: center center;      
+    }
+
+    #box4:hover {      
+      /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+      animation: growShrink 1s ease-out 50ms infinite normal none;
+    }
+
+    @keyframes growShrink {
+      0%, 100% {
+        transform: scale(1.0);
+      }
+      25%, 75% {
+        transform: scale(1.5);
+      }
+      50% {
+        transform: scale(2.0);
+      }
+    }
+
+
+
+  </style>
+</head>
+
+<body>
+  <div id="content">
+    <header class="header">
+      <h1>Exercises | Week 08</h1>
+    </header>
+    <nav class="nav">
+      <ul>
+        <li class="home"><a href="../../index.html"><span class="fa fa-home"></span> Home</a></li>
+        <li class="home"><a href="../week08/index.html"><span class="fa fa-arrow-right"></span> Week 08</a></li>
+      </ul>
+    </nav>
+    <main class="main">
+      <h2>Exercises - Chapter 8 - Transforms and Transitions</h2>
+      <p>See internal CSS on page</p>
+      <h3>Example: Transforms and Transitions</h3>
+      <div class="box" id="box1">translate scale rotate skew</div>
+      <div class="box" id="box2">rotate translate scale skew</div>
+      <div class="box" id="box3">skew scale translate rotate</div>
+
+      <h3>Example: Animations</h3>
+      <div class="box" id="box4">animation example</div>
+
+      <h2>Exercises - Chapter 12 - SVG</h2>
+      <p>See internal CSS on page</p>
+      
+
+      
+     
+    </main>
+    <footer class="footer">
+      <p>&copy; <span id="currentyear"></span> | Eric Burns | Washington, USA <span id="footer-pipe">| </span><br><a
+          href="https://www.byui.edu/online" target="_blank">BYU-i Online Learning</a></p>
+      <p class="datetime">Last Updated: <span id="datetime"></span></p>
+    </footer>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js">
+  </script>
+  <script src="../../js/webfontload.js"></script>
+  <script src="../../js/script.js"></script>
+</body>
+
+</html>
