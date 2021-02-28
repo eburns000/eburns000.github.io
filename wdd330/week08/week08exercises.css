@@ -1,9 +1,63 @@
-.myCanvas {
-  border: dotted 2px black;
-  display: block;
-  margin-top: 20px;
-}
+    /* Example: Transitions */
+    .box {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      font-weight: 700;
+      color: white;
+      width: 100px;
+      height: 100px;
+      margin: 2%;
+      background: red;
+      transition: transform 1s ease-out 100ms;
+      transform-origin: bottom right;
+    }
 
-#leafImage {
-  display: none;
-}
+    #box1:hover {
+      transform: translateX(300px) scale(1.5) rotate(180deg) skew(15deg);
+    }
+
+    #box2:hover {
+      transform: rotate(180deg) translateX(300px) scale(1.5) skew(15deg);
+    }
+
+    #box3:hover {
+      transform: skew(15deg) scale(1.5) translateX(300px) rotate(180deg);
+    }
+
+    /* Example: Animations */
+    #box4 {
+      transform-origin: center center;
+    }
+
+    #box4:hover {
+      /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+      animation: growShrink 1s ease-out 50ms infinite normal none;
+    }
+
+    @keyframes growShrink {
+
+      0%,
+      100% {
+        transform: scale(1.0);
+      }
+
+      25%,
+      75% {
+        transform: scale(1.5);
+      }
+
+      50% {
+        transform: scale(2.0);
+      }
+    }
+
+    .myCanvas {
+      border: dotted 2px black;
+      display: block;
+      margin-top: 20px;
+    }
+
+    #leafImage {
+      display: none;
+    }

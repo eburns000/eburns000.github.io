@@ -14,61 +14,6 @@
   <link rel="stylesheet" href="../../css/medium.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="../week08/week08exercises.css">
-  <style>
-    /* Example: Transitions */
-    .box {
-      display: flex;
-      align-items: center;
-      text-align: center;
-      font-weight: 700;
-      color: white;
-      width: 100px;
-      height: 100px;
-      margin: 2%;
-      background: red;
-      transition: transform 1s ease-out 100ms;
-      transform-origin: bottom right;
-    }
-
-    #box1:hover {
-      transform: translateX(300px) scale(1.5) rotate(180deg) skew(15deg);
-    }
-
-    #box2:hover {
-      transform: rotate(180deg) translateX(300px) scale(1.5) skew(15deg);
-    }
-
-    #box3:hover {
-      transform: skew(15deg) scale(1.5) translateX(300px) rotate(180deg);
-    }
-
-    /* Example: Animations */
-    #box4 {
-      transform-origin: center center;
-    }
-
-    #box4:hover {
-      /* animation: name duration timing-function delay iteration-count direction fill-mode; */
-      animation: growShrink 1s ease-out 50ms infinite normal none;
-    }
-
-    @keyframes growShrink {
-
-      0%,
-      100% {
-        transform: scale(1.0);
-      }
-
-      25%,
-      75% {
-        transform: scale(1.5);
-      }
-
-      50% {
-        transform: scale(2.0);
-      }
-    }
-  </style>
 </head>
 
 <body>
@@ -108,12 +53,11 @@
         Canvas</canvas>
       <canvas id="myCanvas6" class="myCanvas" width="200" height="200">Sorry!, Your browser doesn't support
         Canvas</canvas>
+      <canvas id="myCanvas7" class="myCanvas" width="200" height="200">Sorry!, Your browser doesn't support
+        Canvas</canvas>
 
-
+      <!-- Image for draw image to canvas exercise -->
       <img id="leafImage" src="./leaf_rgb.jpg" alt="">
-
-
-
 
     </main>
     <footer class="footer">
@@ -216,6 +160,20 @@
     }
 
     modifyCanvasImage();
+
+    function drawTextToCanvas() {
+      const canvas = document.getElementById("myCanvas7");
+      const context = canvas.getContext("2d");
+      canvas.style.backgroundColor = "transparent";
+      context.strokeStyle = "black";
+      context.fillStyle = "black";
+      context.textAlign = "center";
+      context.font = "12px Tahoma, Geneva, sans-serif";
+      context.fillText("This is a test message ", 100, 80);
+      context.fillText("on the Canvas.", 100, 120);
+    }
+
+    drawTextToCanvas();
 
 
   </script>
