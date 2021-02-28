@@ -128,6 +128,7 @@
 
     drawCircle();
 
+    // copy an image from the page to the Canvas - image element in HTML is hidden
     function drawImageToCanvas() {
       const canvas = document.getElementById("myCanvas5");
       const context = canvas.getContext("2d");
@@ -138,6 +139,7 @@
 
     drawImageToCanvas();
 
+    // modify the image that was drawn to the Canvas
     function modifyCanvasImage() {
       const canvas = document.getElementById("myCanvas6");
       const context = canvas.getContext("2d");
@@ -161,6 +163,7 @@
 
     modifyCanvasImage();
 
+    // draw text to the Canvas
     function drawTextToCanvas() {
       const canvas = document.getElementById("myCanvas7");
       const context = canvas.getContext("2d");
