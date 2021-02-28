@@ -1,0 +1,9 @@
+.myCanvas {
+  border: dotted 2px black;
+  display: block;
+  margin-top: 20px;
+}
+
+#leafImage {
+  display: none;
+}

@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="../../css/small.css">
   <link rel="stylesheet" href="../../css/medium.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../week08/week08exercises.css">
   <style>
     /* Example: Transitions */
     .box {
@@ -26,7 +27,7 @@
       margin: 2%;
       background: red;
       transition: transform 1s ease-out 100ms;
-      transform-origin: bottom right;  
+      transform-origin: bottom right;
     }
 
     #box1:hover {
@@ -38,33 +39,35 @@
     }
 
     #box3:hover {
-      transform: skew(15deg) scale(1.5) translateX(300px) rotate(180deg) ;
+      transform: skew(15deg) scale(1.5) translateX(300px) rotate(180deg);
     }
 
     /* Example: Animations */
     #box4 {
-      transform-origin: center center;      
+      transform-origin: center center;
     }
 
-    #box4:hover {      
+    #box4:hover {
       /* animation: name duration timing-function delay iteration-count direction fill-mode; */
       animation: growShrink 1s ease-out 50ms infinite normal none;
     }
 
     @keyframes growShrink {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: scale(1.0);
       }
-      25%, 75% {
+
+      25%,
+      75% {
         transform: scale(1.5);
       }
+
       50% {
         transform: scale(2.0);
       }
     }
-
-
-
   </style>
 </head>
 
@@ -90,12 +93,28 @@
       <h3>Example: Animations</h3>
       <div class="box" id="box4">animation example</div>
 
-      <h2>Exercises - Chapter 12 - SVG</h2>
+      <h2>Exercises - Chapter 12 - Canvas & SVG</h2>
       <p>See internal CSS on page</p>
-      
+      <h3>Example: Canvas</h3>
+      <canvas id="myCanvas" class="myCanvas" width="200" height="200">Sorry! Your browser doesn't support
+        Canvas</canvas>
+      <canvas id="myCanvas2" class="myCanvas" width="200" height="200">Sorry!, Your browser doesn't support
+        Canvas</canvas>
+      <canvas id="myCanvas3" class="myCanvas" width="200" height="200">Sorry!, Your browser doesn't support
+        Canvas</canvas>
+      <canvas id="myCanvas4" class="myCanvas" width="200" height="200">Sorry!, Your browser doesn't support
+        Canvas</canvas>
+      <canvas id="myCanvas5" class="myCanvas" width="200" height="200">Sorry!, Your browser doesn't support
+        Canvas</canvas>
+      <canvas id="myCanvas6" class="myCanvas" width="200" height="200">Sorry!, Your browser doesn't support
+        Canvas</canvas>
 
-      
-     
+
+      <img id="leafImage" src="./leaf_rgb.jpg" alt="">
+
+
+
+
     </main>
     <footer class="footer">
       <p>&copy; <span id="currentyear"></span> | Eric Burns | Washington, USA <span id="footer-pipe">| </span><br><a
@@ -107,6 +126,99 @@
   </script>
   <script src="../../js/webfontload.js"></script>
   <script src="../../js/script.js"></script>
+  <script>
+    // Script for Canvas Example
+    const canvas = document.getElementById("myCanvas");
+    const context = canvas.getContext("2d");
+    context.strokeStyle = "red";
+    context.fillStyle = "rgba(0, 0, 255, 0.5)";
+    context.fillRect(10, 10, 100, 100);
+    context.strokeRect(10, 10, 100, 100);
+
+    // draw a repeat pattern in the canvas
+    function drawPattern() {
+      const canvas = document.getElementById("myCanvas2");
+      const context = canvas.getContext("2d");
+      context.strokeStyle = "red";
+
+      let img = new Image();
+      img.src = "./leaf_rgb.jpg";
+      img.onload = function () {
+        let pattern = context.createPattern(img, "repeat");
+        context.fillStyle = pattern;
+        context.fillRect(10, 10, 100, 100);
+        context.strokeRect(10, 10, 100, 100);
+      };
+    }
+
+    drawPattern();
+
+    // draw a gradient
+    function drawGradient() {
+      const canvas = document.getElementById("myCanvas3");
+      const context = canvas.getContext("2d");
+      context.strokeStyle = "red";
+      let gradient = context.createLinearGradient(0, 0, 0, 200);
+      gradient.addColorStop(0, "blue");
+      gradient.addColorStop(1, "white");
+      context.fillStyle = gradient;
+      context.fillRect(10, 10, 100, 100);
+      context.strokeRect(10, 10, 100, 100);
+    }
+
+    drawGradient();
+
+    // draw a circle, or any path
+    function drawCircle() {
+      const canvas = document.getElementById("myCanvas4");
+      const context = canvas.getContext("2d");
+      context.beginPath();
+      context.arc(100, 100, 50, 0, Math.PI * 2, true);
+      context.closePath();
+      context.strokeStyle = "red";
+      context.fillStyle = "blue";
+      context.lineWidth = 3;
+      context.fill();
+      context.stroke();
+    }
+
+    drawCircle();
+
+    function drawImageToCanvas() {
+      const canvas = document.getElementById("myCanvas5");
+      const context = canvas.getContext("2d");
+      const image = document.getElementById("leafImage");
+      context.drawImage(image, 80, 70);
+
+    }
+
+    drawImageToCanvas();
+
+    function modifyCanvasImage() {
+      const canvas = document.getElementById("myCanvas6");
+      const context = canvas.getContext("2d");
+      const image = document.getElementById("leafImage");
+      context.drawImage(image, 80, 70);
+      let imageData = context.getImageData(0, 0, 200, 200);
+
+      for (let i = 0; i < imageData.data.length; i += 4) {
+        let red = imageData.data[i];
+        let green = imageData.data[i + 1];
+        let blue = imageData.data[i + 2];
+
+        imageData.data[i] = red * .8;
+        imageData.data[i + 1] = green * .8;
+        imageData.data[i + 2] = blue * .8;
+      }
+
+      context.putImageData(imageData, 0, 0);
+
+    }
+
+    modifyCanvasImage();
+
+
+  </script>
 </body>
 
 </html>
