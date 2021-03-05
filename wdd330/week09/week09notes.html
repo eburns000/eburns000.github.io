@@ -29,11 +29,224 @@
     <main class="main">
       <h2>Notes - JavaScript Novice to Ninja</h2>
       <h3>Chapter 9 - The Window Object</h3>
-      <p>The following notes are of particular areas that I was less familiar with, didn't fully realize, or would
-        like to have as a quick reminder.</p>
       <ul>
-        
+        <li>The Browser Object Model</li>
+        <ul>
+          <li>Every window, tab, popup, frame, and iframe has a window object.</li>
+          <li>Within the global scope, if you don't know the name of the global object (window in browser, global in node.js), you can get it by doing <code>const global = this</code></li>
+          <li>Global variables are actually properties of the window object.</li>
+          <li>Dialogs such as alert(), confirm(), and prompt() are not part of ES6 standard, but are supported by browsers as methods of the window object.</li>            
+        </ul>
+        <li>Browser Information</li>
+        <ul>
+          <li>window.navigator.userAgent will return information about the browser and OS. Do not rely on this information as it can be modified by a user.</li>
+          <li>window.location.href will return the URL of the current page.</li>
+          <li>window.location.protocol will return http, https, pop2, ftp, etc.</li>
+          <li>window.location.host will return the host name, as in www.google.com, along with the port number.</li>
+          <li>window.location.hostname will return just the hostname.</li>
+          <li>window.location.port will return the port name</li>
+          <li>window.location.pathname will return the path that follows the domain</li>
+          <li>window.location.search returns string that starts with a "?" followed by query string parameters.</li>
+          <li>window.location.hash returns fragment identifiers.</li>
+          <li>window.location.origin returns protocol and domain, as in https://www.google.com</li>
+          <li>window.location.reload() will force a reload of the page.</li>
+          <li>window.location.assign() will load another resource from a URL.</li>
+          <li>window.location.replace() - same as assign(), current page not stored in session history.</li>
+          <li>window.location.toString() - returns string containing whole URL</li>
+        </ul>
+        <li>Browser History</li>
+        <ul>
+          <li>window.history - use to access information about previously visited pages.</li>
+          <li>window.history.length - property shows how many pages visited before arriving at current page.</li>
+          <li>window.history.go() used to go to a specific page, where 0 is the current page.</li>
+          <li>window.history.forward() and window.history.back() navigates forward and backwards by one page.</li>          
+        </ul>
+        <li>Controlling Windows</li>
+        <ul>
+          <li>window.open will open a new window, as in window.open('https://www.google.com', 'Google', 'width=400, height=400, resizable=yes'), with URL, window title, and attributes as the three parameters.</li>
+          <li>popup.close() will close a window, if you have a reference to it.</li>
+          <li>window.moveTo(), as in moveTo(0, 0), will move a window to the coordinates.</li>
+          <li>window.resizeTo(), as in resizeTo(600, 400), will resize the width and height of the window.</li>
+        </ul>
+        <li>Screen Information</li>
+        <ul>
+          <li>window.screen.height - height of window</li>
+          <li>window.screen.width - width of window</li>
+          <li>window.screen.availHeight - height of screen</li>
+          <li>window.screen.availWidth - width of screen</li>
+          <li>window.screen.colorDepth - color bit depth of users monitor</li>
+          <li>Screen object can be used on mobile devices to turn off the devices screen, detect a change in its orientation, or lock it in a specific orientation.</li>
+        </ul>
+        <li>The Document Object</li>
+        <ul>
+          <li>document.write() - writes string of text to the page</li>
+          <li>You can include HTML in the string</li>
+          <li>Can also include within script tags within an HTML document, which will not overwrite the rest of the HTML on the page.</li>
+        </ul>
+        <li>Cookies</li>
+        <ul>
+          <li>Can only be read by a web page from the same domain that set them.</li>
+          <li>Limited to 4kb of data.</li>
+          <li>20 cookies allowed per domain.</li>
+          <li>Use to personalize a browsing experience, store user preferences, keep track of user choices (shopping cart), authentication, and tracking users.</li>
+          <li>Use for data storage is being replaced by HTML5 localStorage API.</li>
+          <li>Still useful for retaining state information, such as user login, because they are passed between the client and the server on every HTTP request.</li>
+          <li>Takes the form of a text file, as in "name=Superman; hero=true; city=Metropolis"</li>
+          <li>EU Cookie Directive, requires websites based in EU to ask for permission before setting cookies.</li>
+          <li>document.cookie, to create a cookie, as in document.cookie = 'name=Superman';</li>
+          <li>Assigning additional cookies to the cookie property will append to it, not overwrite it.</li>
+          <li>Can change cookie values by simply using the same name, as in document.cookie = 'name=Batman'</li>
+          <li>document.cookie will return the cookie string</li>
+          <li>Read the cookie string into an array using the split() method, as in document.cookies.split("; ");</li>
+          <li>Split each key/value pair using split() again, as in <code>for (crumb of cookies) { const [key,value] = crumb.split("="); }</code></li>
+          <li>By default cookies are session cookies, and expire once browser is finished. To make them persistent, add <code>"; expires=date"</code>. Date is a date value in UTC String format, as in <code>Day, DD-Mon-YYYY HH:MM:SS GMT</code>. You can set a Date object to UTC format using Date.toUTCString()</li>
+          <li>Don't rely on cookie expiry as browsers can sometimes hold on to information stored in a cookie that should have expired when the "session restore" feature is used after a crash.</li>
+          <li>Path - adding a path to the cookie, as in "name=Batman; path=/" will allow any page in the root directory to read the cookie.</li>
+          <li>Domain - adding a domain, as in "name=Batman; domain=superheros.com" will allow subdomains of the domain to read it.</li>
+          <li>Secure - adding the string "; secure" to the end of a cookie, as in "name=Batman; secure" will ensure it's only transmitted over a secure HTTPS connection.</li>
+          <li>Removing cookies - set it to expire at a time in the past.</li>
+          <li>Check out Cookies.js or jsCookie for libraries in helping with managing cookies.</li>
+        </ul>
+        <li>Timing Functions</li>
+        <ul>
+          <li>window.setTimeout() - two parameters, a callback function and number of milliseconds.</li>
+          <li>window.setTimeout() returns in integer. This is an ID used to reference that particular timeout, which can then be used in the clearTimeout() method.</li>
+          <li>window.setInterval() - similar to setTimeout(), except that it will repeatedly invoke the callback after every given number of milliseconds. window.clearInterval(repeat) can be used to stop the interval. This is because the ID is assigned to the variable repeat.</li>
+          <li>Warning: when using the <code>this</code> keyword in a callback function called by these timing functions, <code>this</code> will be bound to the window object.</li>
+          <li>setTimeout() and setInterval() can be used to animate elements on a web page, but consider using CSS animations instead.</li>
+        </ul>
       </ul>
+
+      <p class="question">What other methods are used to store session information, besides cookies. I would imagine storing shopping cart details on the server would be more effective than using cookies, for example.</p>
+      
+      <h3>Chapter 14 - HTML5 APIs</h3>
+      <ul>
+        <li>Data Attribute</li>
+        <ul>
+          <li>Used to embed data in a web page.</li>
+          <li>Ignored by the browser.</li>
+          <li>Private to a page. Not intended to be used by an external service.</li>
+          <li>Perfect for adding data that can be used as a hook that the program utilizes about a particular element on the page.</li>
+          <li>Format:</li>
+          <ul>
+            <li>Start with <code>data-</code></li>
+            <li>Contains only lowercase letters, numbers, hyphens, dots, colons, or underscores</li>
+            <li>Can include optional string value</li>
+          </ul>
+          <li>Examples: data-powers, data-rating, data-dropdown, data-user, data-max-length</li>
+          <li>Can then be accessed using the dataset property, as in <code>document.getElementById('hero').dataset.powers</code></li>
+          <li>Hyphens are replaced with camelCase, as in <code>data-max-length</code> to <code>dataset.maxLength</code></li>
+          <li>Data attributes are strings. Can be converted to objects if stored as JSON string or numbers using the Number() method, for example.</li>
+        </ul>
+        <li>HTML5 APIs</li>
+        <ul>
+          <li>Gain access to hardware, such as cameras, batteries, geolocation, graphics card.</li>
+          <li>Use feature detection due to changes in hardware.</li>
+          <li>HTML5 Web Storage - aka localStorage</li>
+          <ul>
+            <li>Key-value storage on client's computer, similar to cookies, but with fewer restrictions, more capacity, and is easier to use.</li>
+            <li>Information is not shared with server on every request</li>
+            <li>Available on multiple windows of the browser (if domain is the same)</li>
+            <li>Storage capacity is, practically, 5GB per domain.</li>
+            <li>Data stored does not automatically expire.</li>
+            <li>localStorage.setItem(key, value) or localStorage.name = "value"</li>
+            <li>localStorage.getItem(key)</li>
+            <li>localStorage.removeItem(key)</li>
+            <li>localStorage.clear() - will remove everything stored in localStorage</li>
+            <li>Every time a value is stored in local storage, a storage event is fired, and only on any other windows or tabs from the same domain, and only if the value of the item is being saved changes. The event object sent by the event listener to the callback has a number of properties that provide info about the updated item:</li>
+            <ul>
+              <li>key</li>
+              <li>newValue</li>
+              <li>oldValue</li>
+              <li>storageArea - local or session</li>
+            </ul>
+            <li>Strings are stored, but using JSON, we can store objects to local storage.</li>
+          </ul>
+          <li>Geolocation</li>
+          <ul>
+            <li>Find user's location to link to nearby places.</li>
+            <li>Measure speed user is moving.</li>
+            <li>Permission must be granted by user.</li>
+            <li>Property of navigator.</li>
+            <li>navigator.geolocation.getCurrentPosition(callbackFunction); - a position object will be passed to the callback function, with a coords property that has a latitude and longitude property, as in position.coords.latitude. The callback function is passed the position object, as in callback(position);</li>
+            <li>Position object has other properties, including: speed, altitude, heading, and timestamp.</li>
+            <li>Position object also has properties that calculate the accuracy of the measurements. Position.accuracy returns the accuracy of the latitude and longitude properties in meters. The lower the returned value, the more accurate the measurements are. The same is true for the position.altitudeAccuracy property.</li>
+            <li>Geolocation object has a watchPosition() method that will call a callback function every tim ethe position of the device is updated. Returns an ID that can be used as a reference to the position being watched.</li>
+            <li>Geolocation.clearWatch(id) can be used to stop the callback being called, using the ID of the watch as an argument.</li>
+            <li>see <a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/Using_geolocation" target="_blank">MDN Using Geolocation</a> for more information.</li>
+          </ul>
+          <li>Web Workers</li>
+          <ul>
+            <li>Allows processes to be run in the background, adding concurrency in JavaScript.</li>
+            <li>Note that this is only for local JavaScript. Check out <a href="https://stackoverflow.com/questions/12645186/ajax-vs-web-sockets-vs-web-workers#:~:text=AJAX%20and%20websockets%20do%20similar,separate%20threads%20of%20JS%20execution.&text=AJAX%20is%20request%2Doriented%20%E2%80%94%20you,and%20the%20connection%20is%20closed." target="_blank">this post on the difference between AJAX, Web sockets and Web Workers</a>.</li>
+            <li>Example: <code>const worker = new Worker('task.js');</code></li>
+            <li>Will download task.js asynchronously. Worker will only start once file has finished downloading completely. If file does not exist, an error is thrown.</li>
+            <li>The variable <code>worker</code> is used to refer to the worker in the main program.</li>
+            <li>The key <code>self</code> is used in task.js to refer to the worker.</li>
+            <li>Messages are used, as in worker.postMessage('Hello') and self.postMessage('Finished'), to communicate back and forth between the main script and worker script. When messages are posted, a message event is fired. The data sent with the message as an argument is stored in the data property of the even tobject that's passed to the callback function.</li>
+            <li>Example: <code>worker.addEventListener('message', (event) => { console.log(event.data); }, false);</code></li>
+            <li>When a worker has completed its task, it can be stopped using the terminate() method, as in <code>worker.terminate();</code>, or using the close() method from within the worker script, as in <code>self.close();</code></li>
+            <li>Shared Web Workers allow for more than one script on the same domain to access the same worker object. See <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/Performance/Using_web_workers" target="_blank">Using Web Workers on MDN</a></li>
+          </ul>
+          <li>Web Sockets</li>
+          <ul>
+            <li>Allows two-way communication with a server, also known as push messaging. Means that a connection si kept open and responses are 'pushed' to the client as soon as they are received.</li>
+            <li>Example: <code>const URL = 'wss://echo.websocket.org/'; const connection = new WebSocket(URL);</code></li>
+            <li>When <code>new WebSocket(URL)</code> runs, it creates an instance of a WebSocket object and tries to connect to the URL. If successful, it fires an 'open' event, one of several events WebSocket can emit.</li>
+            <li>For more examples, see <a href="https://www.websocket.org/demos.html" target="_blank">websocket.org</a></li>
+          </ul>
+          <li>Notifications</li>
+          <ul>
+            <li>Allows you to show messages using the system's notifications. Will still be displayed even if the webpage that calls them isn't the current tab.</li>
+            <li>Need permission from the user, using requestPermission() method, as in <code>Notification.requestPermission()</code></li>
+            <li>This returns a promise with the permission property of the Notification object set to either 'granted' or 'denied". If granted, you can create a new notification using a constructor function.</li>
+            <li>Example: <code>if(window.Notification) { Notification.requestPermission().then((permission) => { if(Notification.permission === 'granted') { new Notification('Hello JavaScript!') } });}</code></li>
+            <li>Notification constructor function has a second, optional parameter, which is an object of options. Example: <code>const notification = new Notification('Required Title', { body: 'Text to include below title', icon: 'link to image' } );</code></li>
+            <li>You can close the notification using the close() method, as in notification.close() - as opposed to letting it close automatically or when the user clicks on it.</li>
+            <li>For more examples, see <a href="https://developer.mozilla.org/en/docs/Web/API/notification" target="_blank">Notification API on MDN</a></li>
+          </ul>
+          <li>Multimedia</li>
+          <ul>
+            <li>HTML5 introduced the audio and video tags to insert audio and video clips in a web page, as well as the Media API for controlling the playback of the clips using JavaScript.</li>
+            <li>Any content inside the tags will only display if the browser does not support them. The controls attribute can be added to display the browsers native controls.</li>
+            <li>Reference the audio or video elements using DOM methods.</li>
+            <li>Play() method will start the clip.</li>
+            <li>Pause() method will pause the clip.</li>
+            <li>Volume property (numeric value) sets the audio volume</li>
+            <li>Muted property (true/valse) mutes the audio</li>
+            <li>CurrentTime property can jump to another part of the clip.</li>
+            <li>PlaybackRate used to fast-forward or rewind the clip by changing its value. A Value of 1 is normal speed.</li>
+            <li>Loop property will repeat if set to true.</li>
+            <li>Duration property to see how long the clip lasts.</li>
+            <li>Audio and video clips have several events that fire when they occur, including:</li>
+            <ul>
+              <li>play event - when starts and resumes</li>
+              <li>pause event</li>
+              <li>volumechange event</li>
+              <li>loadedmetadata event - when metadata has loaded</li>              
+            </ul>
+            <li>See the <a href="https://www.w3.org/2010/05/video/mediaevents.html" target="_blank">full list of all of the properties, methods, and events</a>.</li>
+          </ul>
+          <li>Other APIs</li>
+          <ul>
+            <li>See <a href="">more APIs on MDN</a>, including APIs for accessing the camera, uploading files, accessing battery status, handling push notifications, building drag-and-drop functionality, creating 3D effects with WebGL, and more.</li>
+          </ul>
+        </ul>
+        <li>Canvas</li>
+        <ul>
+          <li>The <code>canvas</code> element was introduced to allow graphics to be drawn onto a web page in real time using JavaScript.</li>
+          <li>See <a href="../week08/week08exercises.html">Week 08 exercises</a> for examples using the canvas element</li>
+        </ul>
+        <li>Shims and Polyfills</li>
+        <ul>
+          <li>Allow you to use APIs as usual, in an environment when APIs are constantly changing.</li>
+          <li>The terms "shim" and "polyfill" are used interchangeably. The main difference is that a ship is a piece of code that adds some missing functionality, and a polyfill is a shim that achieves the same functionality, while also using the API commands that would be used if the feature was supported natively.</li>
+          <li>Advantage is that the same set of API commands can be used - you don't need to write additional code to deal with different levels of support.</li>
+          <li>See <a href="https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills" target="_blank">this list of shims and polyfills by the Modernizr team</a>.</li>
+        </ul>
+      </ul>
+
+      <p class="question">Web sockets vs AJAX. Are these two different solutions for the same problem? When would you use a web socket vs AJAX?</p>
 
     </main>
     <footer class="footer">
