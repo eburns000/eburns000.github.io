@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8" />
+        <title>Local Quakes</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+
+    <body>
+        <main>
+            <h1>Quake List</h1>
+            <select name="radius" id="radius">              
+              <option value="100" selected>100</option>
+              <option value="500">500</option>
+              <option value="1000">1000</option>
+              <option value="2000">2000</option>
+              <option value="5000">5000</option>
+              <option value="10000">10000</option>
+            </select>
+            <ul id="quakeList" ></ul>
+        </main>
+    </body>
+    <script src="./index.js" type="module"></script>
+
+</html>
