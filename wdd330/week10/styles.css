@@ -2,3 +2,13 @@
   list-style: none;
   margin-bottom: 1em;
 }
+
+table {
+  border-collapse: collapse;  
+  width: 80%;
+  margin: 20px;  
+}
+
+table, td {
+  border: 1px solid black;
+}

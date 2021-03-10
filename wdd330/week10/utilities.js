@@ -17,6 +17,3 @@ export const getLocation = function(options) {
       navigator.geolocation.getCurrentPosition(resolve, reject, options);
   });
 };
-
-
-
