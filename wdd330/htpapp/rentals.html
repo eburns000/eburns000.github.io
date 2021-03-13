@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <meta name="description"
+      content="Rentals page for Scoots Cozumel, a site by Eric Burns, a project for WDD 230: Web Frontend Development at Brigham Young University - Idaho">
+   <title>Scoots Cozumel | Rentals</title>
+   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+   <link rel="manifest" href="site.webmanifest">
+   <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+   <meta name="msapplication-TileColor" content="#da532c">
+   <meta name="theme-color" content="#ffffff">   
+   <link rel="stylesheet" href="css/normalize.css">
+   <link rel="stylesheet" href="css/small.css">
+   <link rel="stylesheet" href="css/medium.css">
+   <link rel="stylesheet" href="css/large.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" defer>
+   </script>
+   <script src="js/webfontload.js" defer></script>
+   <script src="js/toggleHamburger.js" defer></script>
+   <script src="js/footerDateTime.js" defer></script>
+   <script src="js/weatherapi.js" defer></script>
+   <script src="js/rentalPrice.js" defer></script>
+   <script src="js/wrapperRentals.js" defer></script>
+</head>
+
+<body id="content" onload="wrapper()">
+   <header class="header">
+      <a href="index.html"><img class="logo-img" src="images/scootslogo.png" alt="scoots cozumel with scooter"></a>
+      <div class="headings">
+         <div>Explore the Island Today</div>
+         <div>Call 1-800-4-SCOOTS</div>
+         <button type="button" onclick="document.location='reservations.html'">Reserve Online</button>
+      </div>
+   </header>
+   <nav class="main-nav">
+      <ul>
+         <li><a href="#" class="ham">&#9776;</a></li>
+         <li><a href="index.html">Home</a></li>
+         <li class="active"><a href="rentals.html">Rentals</a></li>
+         <li><a href="reservations.html">Reservations</a></li>
+         <li><a href="tours.html">Tours</a></li>
+         <li><a href="contact.html">Contact</a></li>
+      </ul>
+   </nav>
+   <div class="scoots-weather">
+      <p>Currently <span id="current-temp"></span> &#8457; with <span id="current-condition"></span> and <span
+            id="current-humidity"></span>% humidity</p>
+      <p>Forecast calls for a high of <span id="forecast-temp"></span> &#8457;</p>
+   </div>
+   <main class="main">
+      <h2>Rental Options</h2>
+      <div class="rental-options">
+         <div class="rental-options-table">
+            <ul class="rental-options-table-row">
+               <li class="rental-options-table-head-2"></li>
+               <li class="rental-options-table-head-2"></li>
+               <li class="rental-options-table-head-2"></li>
+               <li class="rental-options-table-head-2">Reservation</li>
+               <li class="rental-options-table-head-2"></li>
+               <li class="rental-options-table-head-2">Walk-In</li>
+               <li class="rental-options-table-head-2"></li>
+            </ul>
+            <ul class="rental-options-table-row">
+               <li class="rental-options-table-head">Type</li>
+               <li class="rental-options-table-head">Description</li>
+               <li class="rental-options-table-head">Riders</li>
+               <li class="rental-options-table-head">3 Hours</li>
+               <li class="rental-options-table-head">Full Day</li>
+               <li class="rental-options-table-head">3 Hours</li>
+               <li class="rental-options-table-head">Full Day</li>
+            </ul>
+            <ul class="rental-options-table-row rental-price">
+               <li class="rental-options-table-cell"><img class="rental-options-img"
+                     src="images/scoots-honda-metro-49cc.jpg" alt="Honda Metro Scooter"></li>
+               <li class="rental-options-table-cell"></li>
+               <li class="rental-options-table-cell"></li>
+               <li class="rental-options-table-cell"></li>
+               <li class="rental-options-table-cell"></li>
+               <li class="rental-options-table-cell"></li>
+               <li class="rental-options-table-cell"></li>
+            </ul>
+            <ul class="rental-options-table-row rental-price">
+               <li class="rental-options-table-cell"><img class="rental-options-img"
+                     src="images/scoots-honda-dio-110cc.jpeg" alt="Honday Dio Scooter"></li>
+               <li class="rental-options-table-cell"></li>
+               <li class="rental-options-table-cell"></li>
+               <li class="rental-options-table-cell"></li>
+               <li class="rental-options-table-cell"></li>
+               <li class="rental-options-table-cell"></li>
+               <li class="rental-options-table-cell"></li>
+            </ul>
+            <ul class="rental-options-table-row rental-price">
+               <li class="rental-options-table-cell"><img class="rental-options-img"
+                     src="images/scoots-honda-pcx150.jpg" alt="Honda PCX150 Scooter"></li>
+               <li class="rental-options-table-cell"></li>
+               <li class="rental-options-table-cell"></li>
+               <li class="rental-options-table-cell"></li>
+               <li class="rental-options-table-cell"></li>
+               <li class="rental-options-table-cell"></li>
+               <li class="rental-options-table-cell"></li>
+            </ul>
+            <ul class="rental-options-table-row rental-price">
+               <li class="rental-options-table-cell"><img class="rental-options-img"
+                     src="images/scoots-honda-pioneer-1000.jpg" alt="Honda Pioneer ATV"></li>
+               <li class="rental-options-table-cell"></li>
+               <li class="rental-options-table-cell"></li>
+               <li class="rental-options-table-cell"></li>
+               <li class="rental-options-table-cell"></li>
+               <li class="rental-options-table-cell"></li>
+               <li class="rental-options-table-cell"></li>
+            </ul>
+            <ul class="rental-options-table-row rental-price">
+               <li class="rental-options-table-cell"><img class="rental-options-img"
+                     src="images/scoots-jeep-wrangler-4door.jpg" alt="jeep wrangler 4-door"></li>
+               <li class="rental-options-table-cell"></li>
+               <li class="rental-options-table-cell"></li>
+               <li class="rental-options-table-cell"></li>
+               <li class="rental-options-table-cell"></li>
+               <li class="rental-options-table-cell"></li>
+               <li class="rental-options-table-cell"></li>
+            </ul>
+            <ul class="rental-options-table-row rental-price">
+               <li class="rental-options-table-cell"><img class="rental-options-img" src="images/scoots-2-door-jeep.jpg"
+                     alt="jeep wrangler 2-door"></li>
+               <li class="rental-options-table-cell"></li>
+               <li class="rental-options-table-cell"></li>
+               <li class="rental-options-table-cell"></li>
+               <li class="rental-options-table-cell"></li>
+               <li class="rental-options-table-cell"></li>
+               <li class="rental-options-table-cell"></li>
+            </ul>
+         </div>
+      </div>
+   </main>
+   <footer class="footer">
+      <p>&copy; <span id="currentyear"></span> Scoots | <a href="terms.html">Terms | </a> <a href="resources.html">Resources</a> | Eric Burns</p>
+      <p class="datetime"><span id="datetime"></span></p>
+      <p class="contact-address">
+         <a href="#" target="_blank"><img class="social-media"
+               src="images/iconfinder_1_Facebook_colored_svg_copy_5296499.png" alt="Facebook"></a>
+         <a href="#" target="_blank"><img class="social-media"
+               src="images/iconfinder_1_Twitter2_colored_svg_5296515.png" alt="Twitter"></a>
+         <a href="#" target="_blank"><img class="social-media"
+               src="images/iconfinder_1_Pinterest_colored_svg_5296503.png" alt="Pinterest"></a>
+         <a href="#" target="_blank"><img class="social-media"
+               src="images/iconfinder_1_Instagram_colored_svg_1_5296765.png" alt="Instagram"></a>
+      </p>
+   </footer>
+</body>
+
+</html>

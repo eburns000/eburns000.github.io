@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <meta name="description"
+      content="Tours page for Scoots Cozumel, a site by Eric Burns, a project for WDD 230: Web Frontend Development at Brigham Young University - Idaho">
+   <title>Scoots Cozumel | Resources</title>
+   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+   <link rel="manifest" href="site.webmanifest">
+   <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+   <meta name="msapplication-TileColor" content="#da532c">
+   <meta name="theme-color" content="#ffffff">
+   <link rel="stylesheet" href="css/normalize.css">
+   <link rel="stylesheet" href="css/small.css">
+   <link rel="stylesheet" href="css/medium.css">
+   <link rel="stylesheet" href="css/large.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" defer>
+   </script>
+   <script src="js/webfontload.js" defer></script>
+   <script src="js/footerDateTime.js" defer></script>
+   <script src="js/toggleHamburger.js" defer></script>
+   <script src="js/weatherapi.js" defer></script>
+   <script src="js/wrapperTours.js" defer></script>
+</head>
+
+<body id="content" onload="wrapper()">
+   <header class="header">
+      <a href="index.html"><img class="logo-img" src="images/scootslogo.png" alt="scoots cozumel with scooter"></a>
+      <div class="headings">
+         <div>Explore the Island Today</div>
+         <div>Call 1-800-4-SCOOTS</div>
+         <button type="button" onclick="document.location='reservations.html'">Reserve Online</button>
+      </div>
+   </header>
+   <nav class="main-nav">
+      <ul>
+         <li><a href="#" class="ham">&#9776;</a></li>
+         <li><a href="index.html">Home</a></li>
+         <li><a href="rentals.html">Rentals</a></li>
+         <li><a href="reservations.html">Reservations</a></li>
+         <li class="active"><a href="tours.html">Tours</a></li>
+         <li><a href="contact.html">Contact</a></li>
+      </ul>
+   </nav>
+   <div class="scoots-weather">
+      <p>Currently <span id="current-temp"></span> &#8457; with <span id="current-condition"></span> and <span
+            id="current-humidity"></span>% humidity</p>
+      <p>Forecast calls for a high of <span id="forecast-temp"></span> &#8457;</p>
+   </div>
+   <main class="main">
+      <h2>Suggested Places to Visit and Explore</h2>
+      <div class="main-content places">
+         <img src="images/scoots-scooter-beach.jpeg" alt="scooter on beach at sunset">
+         <p>There are many places to explore on the island, but we put together some of our favorites to get you some
+            ideas of what the island can offer for your adventure.</p>
+         <h3>Popular Beaches</h3>
+         <p>You can't go wrong exploring the beaches of Cozumel, some of the most pristine beaches and water in the
+            world. Still, these are some of our staff's favorite beaches to explore, and we believe you will find them
+            to be a paradise dream come true.</p>
+         <ul>
+            <li>Playa San Juan Beach</li>
+            <li>Playa Santa Pilar</li>
+            <li>Playa San Francisco</li>
+            <li>Playa Santa Rosa</li>
+         </ul>
+         <h3>San Miguel de Cozumel, the Island's Capital</h3>
+         <p>Of course you likely have already come through San Miguel de Cozumel, but we have to point it out because
+            you can't leave Cozumel without spending some time here. San Miguel de Cozumel is the island's capital,
+            filled with opportunites for dancing, music, entertainment, shopping and dining. If you want suggestion for
+            where to eat, just ask our front desk staff for their favorites.</p>
+         <h3>Laguna Chanknaab and the National Marine Park</h3>
+         <p>Small fresh water lake south of San Miguel de Cozumel in the National Marine Park
+            The lagoon is part of the Chankanaab Beach Adventure Park</p>
+         <h3>San Gervasio, Cozumel's Mayan Hidden Treasure</h3>
+         <p>San Gervasio was built in AD 800 and is 16 kilometers from San Miguel de Cozumel. There you will see the
+            Temple of Ix-chel, which was a central part of the Mayan empire.</p>
+         <h3>Museum of the Island of Cozumel</h3>
+         <p>Learn about the history of the island and its people from ancient artifacts and visual displays. A highlight
+            of the museum is the exhibit showcasing the marine life around Cozumel. The museum also hosts several art
+            exhibits, both local and international.</p>
+         <h3>Punta Sur Eco Beach Park</h3>
+         <p>Cozumel's largest eco park, located at the southern tip of the island, is Punta Sur Eco Beach Park. The park
+            offers many options for exploring and playing, including scuba diving, swimming, snorkeling and kayaking.
+            The park is over 240 acres so there is plenty to do and areas to explore.</p>
+      </div>
+
+   </main>
+   <footer class="footer">
+      <p>&copy; <span id="currentyear"></span> Scoots | <a href="terms.html">Terms | </a> <a href="resources.html">Resources</a> | Eric Burns</p>
+      <p class="datetime"><span id="datetime"></span></p>
+      <p class="contact-address">
+         <a href="#" target="_blank"><img class="social-media"
+               src="images/iconfinder_1_Facebook_colored_svg_copy_5296499.png" alt="Facebook"></a>
+         <a href="#" target="_blank"><img class="social-media"
+               src="images/iconfinder_1_Twitter2_colored_svg_5296515.png" alt="Twitter"></a>
+         <a href="#" target="_blank"><img class="social-media"
+               src="images/iconfinder_1_Pinterest_colored_svg_5296503.png" alt="Pinterest"></a>
+         <a href="#" target="_blank"><img class="social-media"
+               src="images/iconfinder_1_Instagram_colored_svg_1_5296765.png" alt="Instagram"></a>
+      </p>
+   </footer>
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <meta name="description"
+      content="Reservations for Scoots Cozumel, a site by Eric Burns, a project for WDD 230: Web Frontend Development at Brigham Young University - Idaho">
+   <title>Scoots Cozumel | Reservations</title>
+   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+   <link rel="manifest" href="site.webmanifest">
+   <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+   <meta name="msapplication-TileColor" content="#da532c">
+   <meta name="theme-color" content="#ffffff">
+   <link rel="stylesheet" href="css/normalize.css">
+   <link rel="stylesheet" href="css/small.css">
+   <link rel="stylesheet" href="css/medium.css">
+   <link rel="stylesheet" href="css/large.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" defer>
+   </script>
+   <script src="js/webfontload.js" defer></script>
+   <script src="js/footerDateTime.js" defer></script>
+   <script src="js/toggleHamburger.js" defer></script>
+   <script src="js/weatherapi.js" defer></script>   
+   <script src="js/wrapperReservations.js" defer></script>
+</head>
+
+<body id="content" onload="wrapper()">
+   <header class="header">
+      <a href="index.html"><img class="logo-img" src="images/scootslogo.png" alt="scoots cozumel with scooter"></a>
+      <div class="headings">
+         <div>Explore the Island Today</div>
+         <div>Call 1-800-4-SCOOTS</div>
+         <button type="button" onclick="document.location='reservations.html'">Reserve Online</button>
+      </div>
+   </header>
+   <nav class="main-nav">
+      <ul>
+         <li><a href="#" class="ham">&#9776;</a></li>
+         <li><a href="index.html">Home</a></li>
+         <li><a href="rentals.html">Rentals</a></li>
+         <li class="active"><a href="reservations.html">Reservations</a></li>
+         <li><a href="tours.html">Tours</a></li>
+         <li><a href="contact.html">Contact</a></li>
+      </ul>
+   </nav>
+   <div class="scoots-weather">
+      <p>Currently <span id="current-temp"></span> &#8457; with <span id="current-condition"></span> and <span id="current-humidity"></span>% humidity</p>
+      <p>Forecast calls for a high of <span id="forecast-temp"></span> &#8457;</p>
+   </div>
+   <main class="main">
+      <h2>Rental Agreement Terms and Policies</h2>
+      <div class="main-content">
+         <ul>
+            <li>A $50 security deposit is required to confirm reservations</li>
+            <li>A valid drivers license is required in hand at time of rental</li>
+            <li>No one under 12 years of age are allowed to ride on the scooters</li>
+            <li>Fuel charge not included</li>
+            <li>Unlimited mileage</li>
+            <li>Liability insurance is free of charge</li>
+            <li>Reservations rate requires 24 hour prior notification</li>
+            <li>Free delivery to Cozumel hotel, Airbnb, or private residence for 2+ day rentals</li>
+            <li>Payment via Google Pay, cash, credit card, debit card, or PayPal</li>
+            <li>Rentals may be returned to either location</li>
+         </ul>
+      </div>
+      <h2>Rental Request Form</h2>
+      <div class="main-content">
+         <form method="get" action="confirmation.html">
+            <fieldset>
+               <legend>Personal Information</legend>
+               <label class="top">Full Name*<input type="text" name="name" autofocus required
+                     pattern="^([a-zA-Z]+\s*-*){5,}$"></label>
+               <label class="top">Email<input type="email" name="email" placeholder="name@gmail.com"
+                     pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"></label>
+               <label class="top">Phone*<input type="tel" name="phone" placeholder="###-###-#### or (###) ###-####"
+                     required pattern="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$"></label>
+               <label class="top">Home Country
+                  <select name="homeCountry">
+                     <option value="" selected disabled>Select Home Country ... &#9662;</option>
+                     <option value="canada">Canada</option>
+                     <option value="mexico">Mexico</option>
+                     <option value="unitedstates">United States</option>
+                     <option value="other">Other</option>
+                  </select>
+               </label>
+            </fieldset>
+            <fieldset>
+               <legend>Rental Details</legend>
+               <label class="top">Rental Date <input type="date" name="rentalDate"></label>
+               <label class="top">Rental Type
+                  <select name="rentaltype">
+                     <option value="" selected disabled>Select Rental Type ... &#9662;</option>
+                     <option value="metro">Metro Scooter</option>
+                     <option value="dio">Dio Scooter</option>
+                     <option value="pcx150">PCX150 Scooter</option>
+                     <option value="atv">Pioneer ATV</option>
+                     <option value="jeep4">Jeep 4-door</option>
+                     <option value="jeep2">Jeep 2-door</option>
+                  </select>
+               </label>
+               <label class="top">Number<input type="number" name="numberRentals" value="1" required></label>
+               <label class="top">Period
+                  <select name="period">
+                     <option value="" selected disabled>Select Period ... &#9662;</option>
+                     <option value="fullday">Full Day</option>
+                     <option value="halfday">Half Day (3 hours)</option>
+                  </select>
+               </label>
+            </fieldset>
+            <fieldset>
+               <legend>Additional Information</legend>
+               <label class="top">Cruise Line (if applicable)<input list="cruise-line" id="cruise-line-choice"
+                     name="cruiseLineChoice"></label>
+               <datalist id="cruise-line">
+                  <option value="Carnival"></option>
+                  <option value="Celebrity"></option>
+                  <option value="Disney"></option>
+                  <option value="Holland America"></option>
+                  <option value="Norwegian"></option>
+                  <option value="Oceania"></option>
+                  <option value="Princess"></option>
+                  <option value="Royal Caribbean"></option>
+                  <option value="Silversea"></option>
+               </datalist>
+               <label class="top">Special Accommodations / Comments<textarea id="comments" name="comments" rows="10" cols="36"
+                     placeholder="Enter comments here..."></textarea></label>
+            </fieldset>
+            <input class="submitBtn" type="submit" value="Reserve Now">
+         </form>
+      </div>
+   </main>
+   <footer class="footer">
+      <p>&copy; <span id="currentyear"></span> Scoots | <a href="terms.html">Terms | </a> <a href="resources.html">Resources</a> | Eric Burns</p>
+      <p class="datetime"><span id="datetime"></span></p>
+      <p class="contact-address">
+         <a href="#" target="_blank"><img class="social-media"
+               src="images/iconfinder_1_Facebook_colored_svg_copy_5296499.png" alt="Facebook"></a>
+         <a href="#" target="_blank"><img class="social-media"
+               src="images/iconfinder_1_Twitter2_colored_svg_5296515.png" alt="Twitter"></a>
+         <a href="#" target="_blank"><img class="social-media"
+               src="images/iconfinder_1_Pinterest_colored_svg_5296503.png" alt="Pinterest"></a>
+         <a href="#" target="_blank"><img class="social-media"
+               src="images/iconfinder_1_Instagram_colored_svg_1_5296765.png" alt="Instagram"></a>
+      </p>
+   </footer>
+</body>
+
+</html>

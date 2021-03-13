@@ -1,0 +1,188 @@
+/* Format for medium screen sizes */
+
+@media screen and (min-width: 40rem) {
+
+   /* logo */
+   .logo-img {
+      width: 250px;
+   }
+
+   /* Nav changed to flex */
+   .main-nav ul {
+      display: flex;
+   }
+
+   .main-nav ul li {
+      flex: 0 0 6rem;
+      border-bottom: none;
+   }
+
+   .main-nav ul li {
+      display: block;
+   }
+
+   .main-nav ul li:first-child {
+      display: none;
+   }
+
+   .main-nav {
+      line-height: .8rem;
+      font-size: 1.04rem;
+      text-align: center;
+      font-weight: 700;
+   }
+
+   /* headings */
+
+   .headings div {
+      font-size: 1.2rem;
+   }
+
+   .headings h1 {
+      font-size: 1.8rem;
+   }
+
+   .headings h1,
+   .headings div {
+      line-height: 1.15;
+   }
+
+   .main h2 {
+      font-size: 1.8rem;
+   }
+
+   .footer p {
+      font-size: inherit;
+   }
+
+   .places img {
+      max-width: 400px;
+      float: right;
+      box-shadow: 0 0 20px rgba(0, 0, 0, .75);
+      margin: 12px 10px 10px 30px;
+   }
+
+   .contact {
+      display: flex;
+      align-items: center;
+      flex-direction: row-reverse;
+      flex-wrap: nowrap;
+      justify-content: center;
+      margin: 15px 10px;
+   }
+
+   .contact-map {
+      display: block;
+      margin-left: 0;
+      margin-right: 20px;
+   }
+
+   .contact-address {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+   }
+
+   /* Form */
+   form label.top textarea {
+      max-width: none;
+   }
+
+   /* Equipment Card Styling */
+   .cards section {
+      flex-direction: row-reverse;
+      max-width: 650px;
+      width: 96%;
+   }
+
+   .equipment-img {
+      flex: 0 0 300px;
+   }
+
+   .equipment-data {
+      flex: 1 1 auto;
+      margin: 0;
+   }
+
+   /* Scoots styling */
+   .scoots-hero-heading {
+      font-size: 5rem;
+   }
+
+   /* google map */
+
+   iframe {
+      width: 400px;
+      height: 300px;
+   }
+
+   /* Table Rental Options */
+
+   .rental-options {
+      display: block;
+      margin: 15px auto 25px;
+      width: 800px;
+      color: #444;
+   }
+
+   .rental-options h3 {
+      text-align: center;
+   }
+
+   .rental-options-table {
+      margin-top: 15px;
+      margin-bottom: 5px;
+      display: table;
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+   }
+
+   .rental-options-table-row {
+      display: table-row;
+   }
+
+   .rental-options-table-cell,
+   .rental-options-table-head,
+   .rental-options-table-head-2 {
+      display: table-cell;
+      vertical-align: middle;
+   }
+
+   .rental-options-table-cell,
+   .rental-options-table-head {
+      border: 1px solid rgba(0, 0, 0, .2);
+   }
+
+   .rental-options-table-head-2 {
+      border-top: 1px solid rgba(0, 0, 0, .2);
+   }
+
+   .rental-options-table-head-2:first-child {
+      border-left: 1px solid rgba(0, 0, 0, .2);
+   }
+
+   .rental-options-table-head-2:last-child {
+      border-right: 1px solid rgba(0, 0, 0, .2);
+   }
+
+   .rental-options-table-head,
+   .rental-options-table-head-2 {
+      font-weight: bold;
+      background-color: #0d8efc;
+      color: #FFFAFA;
+      padding: .5rem;
+   }
+
+   .rental-options-table-cell {
+      padding: .2rem;
+   }
+
+   .rental-options-img {
+      width: 70px;
+      height: auto;
+      margin: 5px auto;
+      display: block;
+   }
+
+}
