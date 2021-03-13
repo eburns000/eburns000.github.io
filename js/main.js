@@ -26,6 +26,9 @@ const links = [{
 }, {
     label: "Week 09 Notes & Exercises",
     url: "wdd330/week09/index.html"
+}, {
+    label: "Week 10 Notes & Exercises",
+    url: "wdd330/week10/index.html"
 }]
 
 function wrapper() {

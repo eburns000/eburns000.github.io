@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description"
+    content="Assignment portal for Eric Burns in WDD 330: Web Frontend Development, Week 10 Notes">
+  <title>Notes | Week 10</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/normalize.css">
+  <link rel="stylesheet" href="../../css/small.css">
+  <link rel="stylesheet" href="../../css/medium.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div id="content">
+    <header class="header">
+      <h1>Notes | Week 10</h1>
+    </header>
+    <nav class="nav">
+      <ul>
+        <li class="home"><a href="../../index.html"><span class="fa fa-home"></span> Home</a></li>
+        <li class="home"><a href="../week10/index.html"><span class="fa fa-arrow-right"></span> Week 10</a></li>
+      </ul>
+    </nav>
+    <main class="main">
+      <h2>Notes - MDN: Client-side Form Validation</h2>
+      <ul>
+        <li>Built-in Form Validation</li>
+        <ul>
+          <li>Client-side validation should never supplant server-side validation.</li>
+          <li>Built-in examples: required, minlength/maxlength, min/max, type, pattern</li>
+          <li>Pseudo-classes: :valid, :invalid, :out-of-range, :required</li>
+          <li>Example properties that are part of the ValidityState object: patternMismatch, rangeOverflow, badInput,
+            tooLong, tooShort, stepMismatch, typeMismatch, valueMissing, rangeOverflow, rangeUnderflow, valid,
+            customError.</li>
+          <li>textarea element doesn't support the pattern attribute.</li>
+        </ul>
+        <li>JavaScript Validation</li>
+        <ul>
+          <li>Constraint Validation API - set of methods and properties available on the following form elemenet DOM
+            interfaces
+            <ul>
+              <li>HTMLButtonElement</li>
+              <li>HTMLFieldSetElement</li>
+              <li>HTMLInputElement</li>
+              <li>HTMLOutputElement</li>
+              <li>HTMLSelectElement</li>
+              <li>HTMLTextAreaElement</li>
+            </ul>
+          </li>
+          <li>Constraint Validation API makes the following properties and methods available on the above elements
+            <ul>
+              <li>validationMessage</li>
+              <li>validity (returns validityState object that contains several properties, listed earlier</li>
+              <li>willValidate</li>
+              <li>checkValidity()</li>
+              <li>setCustomValidity(message), example: <code>document.getElementById("mail").setCustomValidity("I am
+                  expecting an email address!");</code></li>
+              <li>Use the novalidate attribute on the form element as in <code>form novalidate</code> to turn off the
+                browser's automatic validation and the script take over. This does not, however, disable support for the
+                constraint validation API nor the application of CSS pseudo-classes like <code>:valid</code>. Even
+                though the browser does not automatically check the validity of the form, you can do it yourself and
+                style accordingly.</li>
+            </ul>
+          </li>
+          <li>Validating forms without a built-in API
+            <ul>
+              <li>You can write your own JavaScript to validate</li>
+              <li>Could be useful with legacy browser support or custom controls</li>
+            </ul>
+          </li>
+          <li>Libraries
+            <ul>
+              <li>There are many libraries to perform validation.</li>
+              <li>Example: <a href="https://rickharrison.github.com/validate.js/" target="_blank">Validate.js</a></li>
+            </ul>
+          </li>
+
+        </ul>
+      </ul>
+      <h2>Notes - MDN: Using Fetch</h2>
+      <ul>
+        <li>Fetch is better than the previously used XMLHttpRequest method.</li>
+        <li>Fetch differs from jQuery.ajax() in that it will not reject on HTTP error status and will not send
+          cross-origin cookies.</li>
+        <li>Basic Fetch request example:<br>
+          <code>fetch(URL)</code><br>
+          <code>.then(response => response.json())</code><br>
+          <code>.then(data => console.log(data))</code><br>
+        </li>
+        <li>In the above example, we are fetching a JSON file. The Fetch returns a promise containing the response
+          object.</li>
+        <li>The json() method extracts the JSON body content from the response, defined on the Body mixin, which is
+          implemented by both the Request and Response objects. The json() method parses JSON data into native
+          JavaScript objects.</li>
+        <li>An optional second parameter, an init object, allows you to control a number of settings, including: method,
+          mode, cache, credentials, headers, redirect, referrerPolicy, and body.</li>
+        <li>Fetch promise will reject with a TypeError when a network error is enocuntered or CORS is misconfigured on
+          the server side. An accurate check for a successful fetch() would include checking that the promise is
+          resolved, then checking that response.ok property is true.</li>
+        <li>Alternative to passing resource and init options to Fetch, ou can create a request object using the
+          Request() constructor, and then pass that into Fetch. For example:
+          <ul>
+            <li><code>const myHeaders = new Headers();</code></li>
+            <li><code>const myInit = {method: 'GET', headers: myHeaders, mode: 'cors', cache: 'default'};</code></li>
+            <li><code>const myRequest = new Request(URL, myInit);</code></li>
+            <li><code>fetch(myRequest).then(response => response.blob()).then(myBlob => {myImage.src =
+                URL.createObjectURL(myBlob);});</code></li>
+            <li><code>const anotherRequest = new Request(myRequest, myInitVersion2);</code> - here, we are making a copy
+              of an existing request, which allows you to use the same request parameters while only changing the init
+              values. The copy must be made before the body is read. When the copy is read, it will also mark the
+              original as read. You can also use the clone() method.</li>
+          </ul>
+        </li>
+        <li>Headers
+          <ul>
+            <li>Allows you to create your own headers via the Headers() constructor.</li>
+            <li>You can append header information to a new header, as in <code>myHeaders.append('Content-Type',
+                'text/plain');</code></li>
+            <li>Use case for using headers is to check whether the content type is correct before processing it further.
+            </li>
+          </ul>
+        </li>
+        <li>Response Objects
+          <ul>
+            <li>Response instances are returned when fetch() promises are resolved.</li>
+            <li>Response properties (common): status (default 200), statusText (default ""), ok (boolean)</li>
+          </ul>
+        </li>
+        <li>Body
+          <ul>
+            <li>Both requests and responses may contain body data. A body is an instance of any of the following types:
+              <ul>
+                <li>ArrayBuffer</li>
+                <li>ArrayBufferView</li>
+                <li>Blob/File</li>
+                <li>String</li>
+                <li>URLSearchParams</li>
+                <li>FormData</li>
+              </ul>
+            </li>
+            <li>The Body mixin defins the following methods to extract a ody (implemented by both Request and Response).
+              These all return a promise:
+              <ul>
+                <li>arrayBuffer()</li>
+                <li>blob()</li>
+                <li>json()</li>
+                <li>text()</li>
+                <li>formData()</li>
+              </ul>
+            </li>
+            <li>This makes use of non-textual data much easier than wtih XHR</li>
+            <li>Request bodies can be set by passing body parameters, for example:<br>
+              <code>const form = new FormData(document.getElementById('login-form'));</code><br>
+              <code>fetch(URL, {</code><br>
+              <code>method: 'POST',</code><br>
+              <code>body: form</code><br>
+              <code>});</code><br>
+            </li>
+            <li>Both request and response will try to intelligently determine the content type, and the request will
+              automatically set a Content-Type header if none is set in the dictionary.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <p class="question">I'm a little confused at what it means to send a Fetch request with credentials. Is this
+        referring to the authentication of the server from which the Fetch is requesting data?</p>
+      <p class="question">In our simple examples of using Fetch, we are getting JSON data from another domain. This
+        would potentially not be allowed because of CORS but is allowed because our requests are "simple requests," is
+        that correct?</p>
+      <p class="question">The Fetch article mentions "Service Workers." After some research, it appears these are used
+        for background syncing to take place after the network connect is restored and to cache updates to the network,
+        allowing the app to continue to function while the network is down. Is this correct? Is Fetch inherently using
+        service workers?</p>
+    </main>
+    <footer class="footer">
+      <p>&copy; <span id="currentyear"></span> | Eric Burns | Washington, USA <span id="footer-pipe">| </span><br><a
+          href="https://www.byui.edu/online" target="_blank">BYU-i Online Learning</a></p>
+      <p class="datetime">Last Updated: <span id="datetime"></span></p>
+    </footer>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js">
+  </script>
+  <script src="../../js/webfontload.js"></script>
+  <script src="../../js/script.js"></script>
+</body>
+
+</html>
