@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Week 11 | Auth Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <script src="week11.js" type="module"></script>
+    <style>
+      .hidden { display: none; }
+    </style>
+  </head>
+  <body>
+    <h1>Week 1</h1>
+    
+    <form id="login">
+      <p>
+        <label>Email: <input type="email" name="username" id="username"></label>
+      </p>
+      <p>
+        <label>Password: <input type="password" name="password" id="password"></label>
+      </p>
+      
+      <p>
+        <button type="submit">Sign In</button>
+      </p>
+      
+    </form>
+    
+    <div id="posts"></div>
+    <form id="add-post" class="hidden">
+      <h2>Add Post</h2>
+      <p>
+        <label>Title: <input id="title"></label>
+      </p>
+      <textarea id="content"></textarea>
+      <p>
+        <button type="submit">Add</button>
+      </p>
+    </form>
+    
+  </body>
+</html>
