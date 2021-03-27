@@ -600,6 +600,44 @@ iframe {
    color: #0d8efc;
 }
 
+/* Edit Status page */
+.editstatus-container {
+   display: grid;
+   grid-template-columns: 1fr;
+   grid-template-rows: 1fr;
+   margin-bottom: 40px;
+}
+
+.editstatus-complete-img {
+   display: flex;
+   justify-content: center;
+   margin: 1.5rem 0;
+}
+
+.editstatus-status p {
+   text-align: right;
+   line-height: .9;
+   font-size: .75rem;
+}
+
+.editstatus-steps ul {
+   list-style: none;
+}
+
+.editstatus-complete {
+   margin: 1.0rem 0;
+}
+
+.editstatus-complete p {
+   text-align: center;
+   font-size: .9rem;
+}
+
+.editstatus-complete p:nth-child(2) {
+   font-size: 1.5rem;
+   color: #0d8efc;
+}
+
 /* Add to Library page */
 .btn-save {
    background-color: #0D8EFC;
