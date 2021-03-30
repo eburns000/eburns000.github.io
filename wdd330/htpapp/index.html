@@ -15,11 +15,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" defer>
   </script>
   <script src="js/webfontload.js" defer></script>
-  <script src="js/toggleHamburger.js" defer></script>
-  <script src="js/wrapperHome.js" defer></script>
+  <script src="js/login.js" defer></script>
 </head>
 
-<body id="content" onload="wrapper()">
+<body id="content">
   <div class="container">
 
     <header class="header">
@@ -35,19 +34,13 @@
     <main class="main">
       <div class="main-content">
 
-        <form action="./my-clients.html">
-          <label for="login-as">Login As</label>
-          <div class="select">            
-            <select class="standard-select" name="login-as" id="login-as">
-              <option value="client">Client</option>
-              <option value="therapist">Therapist</option>
-            </select>
-          </div>
-          <label for="email">Username</label>
-          <input class="input-text" type="email" name="email" id="email">
+        <div id="invalid-message" class="invalid-message display-none">Invalid Username or Password</div>
+        <form action="">
+          <label for="userid">Username</label>
+          <input class="input-text" type="email" name="userid" id="userid">
           <label for="pwd">Password</label>
-          <input class="input-text" type="password" name="pwd" id="pwd">
-          <input class="btn-save" type="submit" value="Login">
+          <input class="input-text" type="password" name="password" id="password">
+          <input class="btn-save" type="button" id="btn-login" value="Login">
         </form>
 
       </div>

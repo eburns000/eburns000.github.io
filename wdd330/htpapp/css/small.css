@@ -20,7 +20,7 @@ body {
 }
 
 .container-responsive {
-   grid-template-rows: 70px 140px 40px 1fr 55px;
+   grid-template-rows: 70px 100px 40px 1fr 55px;
 }
 
 #content {
@@ -359,7 +359,7 @@ form label.top input[type=number] {
    display: grid;
    grid-template-columns: 1fr;   
    /* justify-items: center; */
-   gap: 2%;
+   gap: 10px;
 }
 
 .cards section {
@@ -654,6 +654,13 @@ iframe {
    font-weight: 700;
    line-height: 1.25rem;
    display: block;
+   box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+   transition: 0.2s all;
+}
+
+.btn-save:active {
+  transform: scale(0.98);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
 }
 
 select {
@@ -733,4 +740,13 @@ select {
    width: 100%;
    max-width: 25rem;
    padding: 5px;
+}
+
+/* Login */
+.invalid-message {
+  color: red;
+}
+
+.display-none {
+  display: none;
 }

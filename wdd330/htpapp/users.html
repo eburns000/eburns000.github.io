@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="description"
     content="Therapist view of Clients for Home Therapy Exercises Program, a site by Eric Burns, a project for WDD 330 at Brigham Young University - Idaho">
-  <title>My Clients | HTP</title>
+  <title>Users | HTP</title>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/small.css">
   <link rel="stylesheet" href="css/medium.css">
@@ -17,7 +17,7 @@
   <script src="js/webfontload.js" defer></script>
   <script src="js/toggleHamburger.js" defer></script>
   <script src="js/wrapperHome.js" defer></script>
-  <script src="js/my-clients.js" defer></script>
+  <script src="js/users.js" defer></script>
 </head>
 
 <body id="content" onload="wrapper()">
@@ -26,19 +26,18 @@
     <header class="header">
       <a href="index.html"><img class="logo-img" src="images/AC_horz_htp.png" alt="Achieve Center Pedatric Therapy"></a>
       <div class="headings">
-        <button type="button" onclick="document.location='reservations.html'">Logout</button>
+        <button class="btn-save" type="button" onclick="document.location='./index.html'">Logout</button>
       </div>
     </header>
 
     <nav class="main-nav">
       <ul>
-        <li><a href="#" class="ham">&#9776;</a></li>
-        <li class="active"><a href="./my-clients.html">My Clients</a></li>
-        <li><a href="./adduser.html">Profile</a></li>
+        <li><a href="#" class="ham">&#9776;</a></li>        
+        <li><a href="./adduser.html">Add New User</a></li>
       </ul>
     </nav>
     <div class="main-content">
-      <h2>My Clients</h3>
+      <h2>User Accounts</h3>
     </div>
     
     <main class="main">
