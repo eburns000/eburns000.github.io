@@ -125,6 +125,7 @@ btnLogin.addEventListener('click', () => {
     msg.classList.toggle('display-none');
   } else {
     const user = getUser(username);
+    setActiveUser(user);
     console.log("user: ", user);
     console.log("account type: ", user.accountType);
     switch (user.accountType) {
@@ -143,11 +144,9 @@ btnLogin.addEventListener('click', () => {
   }
 });
 
+/* UTILS ******************************************/
 // Check if the user exists in database
-function isAuthenticated({
-  id,
-  pwd
-}) {
+function isAuthenticated({ id, pwd }) {
   console.log("Is Authenticated was called");
   return (
     // no user found will be -1, which will be not true
@@ -158,4 +157,8 @@ function isAuthenticated({
 function getUser(id) {
   console.log("getUser was called");
   return userList.filter(user => user.userid === id)[0];
+}
+
+function setActiveUser(user) {
+  window.localStorage.setItem('activeUser', user.getUserid());
 }

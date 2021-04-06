@@ -135,12 +135,21 @@ const myUserModel = new UserModel();
 // load user list
 myUserModel.loadLocalData();
 
+// get active user
+const activeUser = window.localStorage.getItem('activeUser');
+console.log("activeUser:", activeUser);
+
+// filter user list to those who are clients and the therapist matches the user
+// this will show only those users that are clients to the therapist user
+const myTherapist = userList.filter(user => user.userid === activeUser)[0].getTherapist();
+const myClients = userList.filter(user => user.therapist === myTherapist && user.accountType === "client");
+
 // display users
 const myUserListView = new UserListView();
 const parentDiv = document.getElementById('user-list');
-myUserListView.renderUserList(parentDiv, userList);
+myUserListView.renderUserList(parentDiv, myClients);
 
-
+// set listener 
 
 
 

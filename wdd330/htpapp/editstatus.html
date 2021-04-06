@@ -17,6 +17,7 @@
   <script src="js/webfontload.js" defer></script>
   <script src="js/toggleHamburger.js" defer></script>
   <script src="js/wrapperHome.js" defer></script>
+  <script src="js/utils.js" defer></script>  
 </head>
 
 <body id="content" onload="wrapper()">
@@ -25,7 +26,7 @@
     <header class="header">
       <a href="index.html"><img class="logo-img" src="images/AC_horz_htp.png" alt="Achieve Center Pedatric Therapy"></a>
       <div class="headings">
-        <button type="button" onclick="document.location='reservations.html'">Logout</button>
+        <button class="btn-save" type="button" id="btn-logout" onclick="logout('./index.html')">Logout</button>
       </div>
     </header>
 
