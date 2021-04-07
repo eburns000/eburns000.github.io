@@ -7,30 +7,6 @@
       padding: .4rem 0;
    }
 
-   /* Equipment Card Styling */
-   .cards {
-      grid-template-columns: 1fr 1fr 1fr;
-   }
 
-   .cards section {
-      flex-direction: column;
-   }
-
-   .equipment-data {
-      margin: 1.0rem .25rem;
-   }
-
-   /* Scoots styling */
-   .scoots-hero-heading {
-      font-size: 8rem;
-   }
-
-   .equipment-img {
-      flex: 0 0 auto;
-   }
-
-   .places img {
-      max-width: 500px;
-   }
 
 }

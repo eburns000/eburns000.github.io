@@ -2,9 +2,8 @@
 
 @media screen and (min-width: 40rem) {
 
-   /* logo */
-   .logo-img {
-      width: 250px;
+   .container {
+      grid-template-rows: 70px 42px 40px 1fr 55px;
    }
 
    /* Nav changed to flex */
@@ -13,7 +12,7 @@
    }
 
    .main-nav ul li {
-      flex: 0 0 6rem;
+      flex: 0 0 auto;
       border-bottom: none;
    }
 
@@ -25,8 +24,7 @@
       display: none;
    }
 
-   .main-nav {
-      line-height: .8rem;
+   .main-nav {      
       font-size: 1.04rem;
       text-align: center;
       font-weight: 700;
@@ -89,19 +87,16 @@
    }
 
    /* Equipment Card Styling */
-   .cards section {
-      flex-direction: row-reverse;
-      max-width: 650px;
-      width: 96%;
+   .cards {
+      grid-template-columns: 1fr 1fr 1fr;
    }
 
-   .equipment-img {
-      flex: 0 0 300px;
+   .cards section {
+      flex-direction: column;
    }
 
    .equipment-data {
-      flex: 1 1 auto;
-      margin: 0;
+      /* margin: 1.0rem .25rem; */
    }
 
    /* Scoots styling */
@@ -186,4 +181,5 @@
    }
 
 }
+
 

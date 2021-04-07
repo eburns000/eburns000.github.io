@@ -100,7 +100,7 @@ class ExerciseLibraryView {
     section.innerHTML = `
       <div class="card-section-left">
         <div class="equipment-img">
-          <img src="images/iconfinder_1_Facebook_colored_svg_copy_5296499.png" alt="person icon">
+          <img src="images/exercise.png" alt="exercise icon">
         </div>
         <div class="equipment-data">
           <h3>${exercise.getTitle()}</h3>              
