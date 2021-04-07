@@ -1,0 +1,12 @@
+/* Format for medium screen sizes */
+
+@media screen and (min-width: 60em) {
+
+   /* form */
+   form label.sbs {
+      padding: .4rem 0;
+   }
+
+
+
+}
