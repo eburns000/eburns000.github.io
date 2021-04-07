@@ -149,8 +149,29 @@ const myUserListView = new UserListView();
 const parentDiv = document.getElementById('user-list');
 myUserListView.renderUserList(parentDiv, myClients);
 
-// set listener 
+// did it this way, so that the current target, or section, would be the "parent" and 
+// so that no matter what part of the card you clicked on, the id of that section woudl be pulled
+const childrenArray = Array.from(parentDiv.children);
+childrenArray.forEach(child => {
+  child.addEventListener('click', e => {
+    setActiveClientID(e.currentTarget.id);
+    const currentUser = userList.filter(user => user.userid === e.currentTarget.id)[0];
+    setActiveClientName(currentUser.getFirst() + " " + currentUser.getLast());
+    console.log("activeClient: ", window.localStorage.getItem('activeClient'));
+    console.log("activeClientName: ", window.localStorage.getItem('activeClientName'));
+    document.location = './client-exercises.html';
+  });
+});
 
+
+/* UTILS *********************************************************************/
+function setActiveClientID(clientID) {
+  window.localStorage.setItem('activeClient', clientID);
+}
+
+function setActiveClientName(clientName) {
+  window.localStorage.setItem('activeClientName', clientName);
+}
 
 
 

@@ -18,6 +18,7 @@
   <script src="js/toggleHamburger.js" defer></script>
   <script src="js/wrapperHome.js" defer></script>
   <script src="js/utils.js" defer></script>  
+  <script src="js/addtolibrary.js" defer></script>
 </head>
 
 <body id="content" onload="wrapper()">
@@ -49,14 +50,14 @@
           <div class="select">
             <select class="standard-select" name="discipline" id="discipline">
               <option value="">Discipline</option>
-              <option value="st">Speech</option>
-              <option value="ot">Occupational</option>
-              <option value="pt">Physical</option>
+              <option value="Speech Therapy">Speech</option>
+              <option value="Occupational Therapy">Occupational</option>
+              <option value="Physicial Therapy">Physical</option>
             </select>
           </div>
           <input class="input-text" type="text" name="modality" id="modality" placeholder="Modality">
-          <textarea class="textarea" name="assignment-text" id="assignment-text" cols="30" rows="10"></textarea>
-          <input class="btn-save" type="submit" value="Save Changes">
+          <textarea class="textarea" name="steps" id="steps" cols="30" rows="10"></textarea>
+          <input class="btn-save" type="button" id="btn-addexercise" value="Save Changes">
         </form>
 
       </div>

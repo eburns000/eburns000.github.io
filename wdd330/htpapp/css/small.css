@@ -16,11 +16,11 @@ body {
   /* width: 100vh; */
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 70px 55px 40px 1fr 55px;
+  grid-template-rows: 70px 52px 40px 1fr 55px;
 }
 
 .container-responsive {
-   grid-template-rows: 70px 100px 40px 1fr 55px;
+   grid-template-rows: 70px 182px 40px 1fr 55px;
 }
 
 #content {
