@@ -552,27 +552,21 @@ iframe {
   padding: 0;  
 }
 
-/* assignment page */
-.assignment-container {
-   display: grid;
-   grid-template-columns: 1fr;
-   grid-template-rows: 1fr 150px;
-}
-
 .assignment-complete-img {
    display: flex;
    justify-content: center;
    margin: 1.5rem 0;
 }
 
-.assignment-status p {
-   text-align: right;
-   line-height: .9;
-   font-size: .75rem;
-}
-
-.assignment-steps ul {
-   list-style: none;
+.assignment-steps {
+   outline: none;
+   resize: none;
+   overflow: auto;
+   border: none;
+   margin: 20px auto;
+   display: block;
+   background-color: white;
+   line-height: 1.5;
 }
 
 .assignment-complete {
@@ -588,6 +582,8 @@ iframe {
    font-size: 1.5rem;
    color: #0d8efc;
 }
+
+
 
 /* Edit Status page */
 .editstatus-container {
@@ -655,6 +651,19 @@ iframe {
 .btn-logout {
    min-width: 5rem;
    max-width: 10rem;   
+}
+
+.btn-update-status {
+  margin: 0 auto;
+}
+
+.btn-update-status:hover {
+  transform: scale(1.1);  
+}
+
+.btn-update-status:active {  
+  transform: scale(0.98);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
 }
 
 select {

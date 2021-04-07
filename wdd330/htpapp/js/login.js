@@ -144,6 +144,8 @@ btnLogin.addEventListener('click', () => {
         document.location = './my-clients.html';
         break;
       case 'client':
+        setActiveClientID(user.getUserid());
+        setActiveClientName(`${user.getFirst()} ${user.getLast()}`);
         document.location = './my-exercises.html';
         break;
       default:
@@ -179,6 +181,14 @@ function getUser(id) {
 
 function setActiveUser(user) {
   window.localStorage.setItem('activeUser', user.getUserid());
+}
+
+function setActiveClientID(clientID) {
+  window.localStorage.setItem('activeClient', clientID);
+}
+
+function setActiveClientName(clientName) {
+  window.localStorage.setItem('activeClientName', clientName);
 }
 
 function initializeLocalStorage() {

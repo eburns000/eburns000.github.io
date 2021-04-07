@@ -17,7 +17,8 @@
   <script src="js/webfontload.js" defer></script>
   <script src="js/toggleHamburger.js" defer></script>
   <script src="js/wrapperHome.js" defer></script>
-  <script src="js/utils.js" defer></script>  
+  <script src="js/utils.js" defer></script>
+  <script src="js/assignment.js" defer></script>
 </head>
 
 <body id="content" onload="wrapper()">
@@ -33,46 +34,15 @@
     <nav class="main-nav">
       <ul>
         <li><a href="#" class="ham">&#9776;</a></li>
-        <li class="active"><a href="index.html">My Exercises</a></li>
-        <li><a href="rentals.html">Profile</a></li>
+        <li><a href="./my-exercises.html">My Exercises</a></li>
       </ul>
     </nav>
     <div class="main-content">
-      <h2>"TH" Sound</h3>
+      <h2><span id="assignment-title"></span></h3>
     </div>
 
     <main class="main">
-      <div class="main-content">
-
-        <div class="assignment-container">
-          <div class="assignment">
-            <div class="assignment-status">
-              <p>Status: <span id="assignment-status-value">Started</span></p>
-              <p><span id="assignment-status-days">5</span> more days to go</p>
-            </div>
-            <div class="assignment-steps">
-              <ul>
-                <li>Step 1...</li>
-                <li>Step 2...</li>
-                <li>Step 3...</li>
-                <li>Step 4...</li>
-              </ul>
-            </div>
-          </div>
-          <div class="assignment-complete">
-            <p>Completing this will earn me <span id="assignment-point-value">10</span> points</p>
-            <p><span id="assignment-mark-complete">Mark Complete!</span></p>
-            <div class="assignment-complete-img">
-              <img src="images/iconfinder_1_Facebook_colored_svg_copy_5296499.png" alt="exercise icon">
-            </div>
-          </div>
-        </div>
-
-        <form action="./my-exercises.html">
-          <input class="btn-save" type="submit" value="Back">
-        </form>
-
-      </div>
+      <div id="assignment" class="main-content"></div>
     </main>
 
     <footer class="footer">
