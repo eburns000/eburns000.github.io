@@ -8,7 +8,7 @@ class User {
     this.userid = email;
     this.password = password;
     this.first = first;
-    this.last = last;    
+    this.last = last;
     this.phone = phone;
     this.clinic = clinic;
     this.accountType = accountType;
@@ -52,7 +52,7 @@ class User {
 // userModel class
 class UserModel {
 
-  createUser (email, password, first, last, phone, clinic, accountType, therapist) {
+  createUser(email, password, first, last, phone, clinic, accountType, therapist) {
     return new User(email, password, first, last, phone, clinic, accountType, therapist);
   }
 
@@ -64,7 +64,11 @@ class UserModel {
     try {
 
       if (window.localStorage.getItem('users')) {
-        const users = window.localStorage.getItem('users');        
+
+        console.log("load attempted");
+        const users = window.localStorage.getItem('users');
+        console.log("User List: ", users);
+
         const tempArray = JSON.parse(users);
 
         // clear the existing array
@@ -75,6 +79,8 @@ class UserModel {
           const tempUser = new User(tempArray[i].userid, tempArray[i].password, tempArray[i].first, tempArray[i].last, tempArray[i].phone, tempArray[i].clinic, tempArray[i].accountType, tempArray[i].therapist, tempArray[i].timestamp);
           userList.push(tempUser);
         }
+
+        console.log("UserList After Parse: ", userList);
       }
 
     } catch (error) {
@@ -86,52 +92,11 @@ class UserModel {
     try {
       const users = JSON.stringify(userList);
       window.localStorage.setItem('users', users);
+      console.log("UserLIst after save: ", userList);
     } catch (error) {
       console.error(error, "Unable to save data to local storage.")
     }
   }
 }
 
-/* VIEW **********************************************************************/
-class UserListView {
-
-  renderUserList(parentElement, myUserList) {
-    // clear user list
-    parentElement.innerHTML = "";
-    myUserList.forEach(user => this.renderUser(parentElement, user));
-  }
-
-  renderUser(parentElement, user) {
-    let userSection = document.createElement('section');
-    userSection.classList.add('card-section');
-    console.log(user.getUserid());
-    userSection.id = user.getUserid();
-    userSection.innerHTML = `
-      <div class="card-section-left">
-        <div class="equipment-img">
-          <img src="images/people.png" alt="person icon">
-        </div>
-        <div class="equipment-data">
-          <h3>${user.getFirst()} ${user.getLast()}</h3>              
-        </div>
-      </div>
-      <div class="card-section-right">
-        <p class="status">Active</p>
-        <p class="account-type">${user.getAccountType()}</p>
-        <p class="clinic">${user.getClinic()}</p>
-      </div>`;
-    parentElement.appendChild(userSection);
-  }
-}
-
-/* CONTROLLER ****************************************************************/
-// create userModel object
-const myUserModel = new UserModel();
-
-// load user list
-myUserModel.loadLocalData();
-
-// display users
-const myUserListView = new UserListView();
-const parentDiv = document.getElementById('user-list');
-myUserListView.renderUserList(parentDiv, userList);
+export default UserModel;

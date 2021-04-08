@@ -1,3 +1,6 @@
+// put this in the Controller class
+// once you do this, get rid of Wrapper, and references to it in the HTML files
+
 function toggleHamburger() {
 
    // toggle hamburger menu

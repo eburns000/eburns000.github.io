@@ -104,7 +104,7 @@ class AssignedExerciseModel {
 }
 
 /* VIEW **********************************************************/
-class AssignedExerciseView {
+class MyExercisesView {
 
   renderExerciseList(parentElement, myExerciseList) {
     // clear list
@@ -134,7 +134,6 @@ class AssignedExerciseView {
       </div>`;
     parentElement.appendChild(section);
   } 
-
 }
 
 /* CONTROLLER ****************************************************************/
@@ -151,11 +150,11 @@ const myAssignedExerciseModel = new AssignedExerciseModel();
 myAssignedExerciseModel.loadLocalData();
 
 // display client's exercises
-const myAssignedExerciseView = new AssignedExerciseView();
+const myMyExercisesView = new MyExercisesView();
 const pDiv = document.getElementById('assigned-exercises');
 console.log("pDiv: ", pDiv);
 const filteredAssignedExercises = assignedExercises.filter(ae => ae.getClientID() === getActiveClientID());
-myAssignedExerciseView.renderExerciseList(pDiv, filteredAssignedExercises);
+myMyExercisesView.renderExerciseList(pDiv, filteredAssignedExercises);
 
 //set listener - refactor this with function in my-clients - will need to change pdiv to parentdiv
 const childrenArray = Array.from(pDiv.children);

@@ -101,7 +101,7 @@ class UserModel {
 }
 
 /* VIEW **********************************************************************/
-class UserListView {
+class MyClientsView {
 
   renderUserList(parentElement, myUserList) {
     // clear user list
@@ -145,9 +145,9 @@ const myTherapist = userList.filter(user => user.userid === activeUser)[0].getTh
 const myClients = userList.filter(user => user.therapist === myTherapist && user.accountType === "client");
 
 // display users
-const myUserListView = new UserListView();
+const myMyClientsView = new MyClientsView();
 const parentDiv = document.getElementById('user-list');
-myUserListView.renderUserList(parentDiv, myClients);
+myMyClientsView.renderUserList(parentDiv, myClients);
 
 // did it this way, so that the current target, or section, would be the "parent" and 
 // so that no matter what part of the card you clicked on, the id of that section woudl be pulled

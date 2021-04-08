@@ -191,7 +191,7 @@ class AssignedExerciseModel {
 }
 
 /* VIEW **********************************************************/
-class ExerciseLibraryView {
+class AssignExerciseLibraryView {
 
   renderExerciseList(parentElement, myExerciseList) {
     // clear list
@@ -217,7 +217,7 @@ const myExerciseModel = new ExerciseModel();
 myExerciseModel.loadLocalData();
 
 // display library
-const myExerciseLibraryView = new ExerciseLibraryView();
+const myExerciseLibraryView = new AssignExerciseLibraryView();
 const pDiv = document.getElementById('exercise-library');
 console.log("pDiv: ", pDiv);
 myExerciseLibraryView.renderExerciseList(pDiv, exerciseLibrary);
