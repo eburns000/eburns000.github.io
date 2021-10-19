@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="description"
     content="Home page for Home Therapy Exercises, a site by Eric Burns, a project for WDD 330 at Brigham Young University - Idaho">
-  <title>My Assignment | HTP</title>
+  <title>Edit Status | HTP</title>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/small.css">
   <link rel="stylesheet" href="css/medium.css">
@@ -17,8 +17,7 @@
   <script src="js/webfontload.js" defer></script>
   <script src="js/toggleHamburger.js" defer></script>
   <script src="js/wrapperHome.js" defer></script>
-  <script src="js/utils.js" defer></script>
-  <script src="js/assignment.js" defer></script>
+  <script src="js/utils.js" defer></script>  
 </head>
 
 <body id="content" onload="wrapper()">
@@ -34,15 +33,65 @@
     <nav class="main-nav">
       <ul>
         <li><a href="#" class="ham">&#9776;</a></li>
-        <li><a href="./my-exercises.html">My Exercises</a></li>
+        <li class="active"><a href="index.html">My Exercises</a></li>
+        <li><a href="rentals.html">Profile</a></li>
       </ul>
     </nav>
     <div class="main-content">
-      <h2><span id="assignment-title"></span></h3>
+      <h2>Assign Exercise</h3>
     </div>
 
     <main class="main">
-      <div id="assignment" class="main-content"></div>
+      <div class="main-content">
+
+        <div class="editstatus-container">
+          <div class="editstatus">
+
+            <div class="editstatus-details">
+              <p>Exercise: <span id="status-exercise">TH Sound</span></p>
+              <p>Discipline: <span id="status-discipline">Speech Therapy</span></p>
+              <p>Modality: <span id="status-modality">Language</span></p>
+              <p>Assignment:</p>
+            </div>
+
+            <div class="editstatus-steps">
+              <ul>
+                <li>Step 1...</li>
+                <li>Step 2...</li>
+                <li>Step 3...</li>
+                <li>Step 4...</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+        <form action="./client-exercises.html">
+          <label for="pointvalue">Point Value</label>
+          <div class="select">
+            <select class="standard-select" name="pointvalue" id="pointvalue">
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+              <option value="25">25</option>
+            </select>
+          </div>
+          <label for="status">Status</label>
+          <div class="select">
+            <select class="standard-select" name="status" id="status">
+              <option value="not-started">Not Started</option>
+              <option value="started">Started</option>
+              <option value="completed">completed</option>
+              <option value="archived">archived</option>
+            </select>
+          </div>
+          <label for="duedate">Due Date</label>
+          <input class="input-text" type="date" id="duedate" name="duedate">
+          <input class="btn-save" type="submit" value="Save Changes">
+        </form>
+
+      </div>
     </main>
 
     <footer class="footer">

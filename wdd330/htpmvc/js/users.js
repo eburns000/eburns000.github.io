@@ -64,11 +64,7 @@ class UserModel {
     try {
 
       if (window.localStorage.getItem('users')) {
-
-        console.log("load attempted");
-        const users = window.localStorage.getItem('users');
-        console.log("User List: ", users);
-        
+        const users = window.localStorage.getItem('users');        
         const tempArray = JSON.parse(users);
 
         // clear the existing array
@@ -79,8 +75,6 @@ class UserModel {
           const tempUser = new User(tempArray[i].userid, tempArray[i].password, tempArray[i].first, tempArray[i].last, tempArray[i].phone, tempArray[i].clinic, tempArray[i].accountType, tempArray[i].therapist, tempArray[i].timestamp);
           userList.push(tempUser);
         }
-        
-        console.log("UserList After Parse: ", userList);
       }
 
     } catch (error) {
@@ -92,12 +86,10 @@ class UserModel {
     try {
       const users = JSON.stringify(userList);
       window.localStorage.setItem('users', users);
-      console.log("UserLIst after save: ", userList);
     } catch (error) {
       console.error(error, "Unable to save data to local storage.")
     }
   }
-
 }
 
 /* VIEW **********************************************************************/
@@ -122,10 +114,14 @@ class UserListView {
         <div class="equipment-data">
           <h3>${user.getFirst()} ${user.getLast()}</h3>              
         </div>
+      </div>
+      <div class="card-section-right">
+        <p class="status">Active</p>
+        <p class="account-type">${user.getAccountType()}</p>
+        <p class="clinic">${user.getClinic()}</p>
       </div>`;
     parentElement.appendChild(userSection);
-  }  
-
+  }
 }
 
 /* CONTROLLER ****************************************************************/
@@ -135,43 +131,7 @@ const myUserModel = new UserModel();
 // load user list
 myUserModel.loadLocalData();
 
-// get active user
-const activeUser = window.localStorage.getItem('activeUser');
-console.log("activeUser:", activeUser);
-
-// filter user list to those who are clients and the therapist matches the user
-// this will show only those users that are clients to the therapist user
-const myTherapist = userList.filter(user => user.userid === activeUser)[0].getTherapist();
-const myClients = userList.filter(user => user.therapist === myTherapist && user.accountType === "client");
-
 // display users
 const myUserListView = new UserListView();
 const parentDiv = document.getElementById('user-list');
-myUserListView.renderUserList(parentDiv, myClients);
-
-// did it this way, so that the current target, or section, would be the "parent" and 
-// so that no matter what part of the card you clicked on, the id of that section woudl be pulled
-// make this a utility function
-const childrenArray = Array.from(parentDiv.children);
-childrenArray.forEach(child => {
-  child.addEventListener('click', e => {
-    setActiveClientID(e.currentTarget.id);
-    const currentUser = userList.filter(user => user.userid === e.currentTarget.id)[0];
-    setActiveClientName(currentUser.getFirst() + " " + currentUser.getLast());
-    document.location = './client-exercises.html';
-  });
-});
-
-
-/* UTILS *********************************************************************/
-function setActiveClientID(clientID) {
-  window.localStorage.setItem('activeClient', clientID);
-}
-
-function setActiveClientName(clientName) {
-  window.localStorage.setItem('activeClientName', clientName);
-}
-
-
-
-
+myUserListView.renderUserList(parentDiv, userList);

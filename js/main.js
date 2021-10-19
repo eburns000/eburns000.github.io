@@ -32,7 +32,11 @@ const links = [{
 }, {
     label: "Week 11 Team Activity",
     url: "wdd330/week11/client/week11.html"
-}]
+}, {
+  label: "Home Therapy Exercises Program",
+  url: "wdd330/htpapp/index.html"
+}
+]
 
 function wrapper() {
     // update links

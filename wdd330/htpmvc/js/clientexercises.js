@@ -104,7 +104,7 @@ class AssignedExerciseModel {
 }
 
 /* VIEW **********************************************************/
-class AssignedExerciseView {
+class ClientExercisesView {
 
   renderExerciseList(parentElement, myExerciseList) {
     // clear list
@@ -151,11 +151,11 @@ const myAssignedExerciseModel = new AssignedExerciseModel();
 myAssignedExerciseModel.loadLocalData();
 
 // display client's exercises
-const myAssignedExerciseView = new AssignedExerciseView();
+const myClientExercisesView = new ClientExercisesView();
 const pDiv = document.getElementById('assigned-exercises');
 console.log("pDiv: ", pDiv);
 const filteredAssignedExercises = assignedExercises.filter(ae => ae.getClientID() === getActiveClientID());
-myAssignedExerciseView.renderExerciseList(pDiv, filteredAssignedExercises);
+myClientExercisesView.renderExerciseList(pDiv, filteredAssignedExercises);
 
 //set listener
 

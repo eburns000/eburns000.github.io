@@ -100,34 +100,6 @@ class UserModel {
 
 }
 
-/* VIEW **********************************************************************/
-class UserListView {
-
-  renderUserList(parentElement, myUserList) {
-    // clear user list
-    parentElement.innerHTML = "";
-    myUserList.forEach(user => this.renderUser(parentElement, user));
-  }
-
-  renderUser(parentElement, user) {
-    let userSection = document.createElement('section');
-    userSection.classList.add('card-section');
-    console.log(user.getUserid());
-    userSection.id = user.getUserid();
-    userSection.innerHTML = `
-      <div class="card-section-left">
-        <div class="equipment-img">
-          <img src="images/people.png" alt="person icon">
-        </div>
-        <div class="equipment-data">
-          <h3>${user.getFirst()} ${user.getLast()}</h3>              
-        </div>
-      </div>`;
-    parentElement.appendChild(userSection);
-  }  
-
-}
-
 /* CONTROLLER ****************************************************************/
 // create userModel object
 const myUserModel = new UserModel();
@@ -135,43 +107,26 @@ const myUserModel = new UserModel();
 // load user list
 myUserModel.loadLocalData();
 
-// get active user
-const activeUser = window.localStorage.getItem('activeUser');
-console.log("activeUser:", activeUser);
+//add event listener to add user buttron - adduser.html
+const btnAddUser = document.getElementById('btn-adduser');
 
-// filter user list to those who are clients and the therapist matches the user
-// this will show only those users that are clients to the therapist user
-const myTherapist = userList.filter(user => user.userid === activeUser)[0].getTherapist();
-const myClients = userList.filter(user => user.therapist === myTherapist && user.accountType === "client");
+btnAddUser.addEventListener('click', () => {
 
-// display users
-const myUserListView = new UserListView();
-const parentDiv = document.getElementById('user-list');
-myUserListView.renderUserList(parentDiv, myClients);
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const first = document.getElementById('first').value;
+  const last = document.getElementById('last').value;
+  const phone = document.getElementById('phone').value;
+  const clinic = document.getElementById('clinic').value;
+  const accountType = document.getElementById('account-type').value;
+  const therapist = document.getElementById('therapist').value;
 
-// did it this way, so that the current target, or section, would be the "parent" and 
-// so that no matter what part of the card you clicked on, the id of that section woudl be pulled
-// make this a utility function
-const childrenArray = Array.from(parentDiv.children);
-childrenArray.forEach(child => {
-  child.addEventListener('click', e => {
-    setActiveClientID(e.currentTarget.id);
-    const currentUser = userList.filter(user => user.userid === e.currentTarget.id)[0];
-    setActiveClientName(currentUser.getFirst() + " " + currentUser.getLast());
-    document.location = './client-exercises.html';
-  });
+  const newUser = myUserModel.createUser(email, password, first, last, phone, clinic, accountType, therapist);
+
+  userList.push(newUser);
+
+  myUserModel.saveLocalData();
+
+  document.location = './users.html';
+
 });
-
-
-/* UTILS *********************************************************************/
-function setActiveClientID(clientID) {
-  window.localStorage.setItem('activeClient', clientID);
-}
-
-function setActiveClientName(clientName) {
-  window.localStorage.setItem('activeClientName', clientName);
-}
-
-
-
-

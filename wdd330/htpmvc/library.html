@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="description"
-    content="Therapist view of a list of a given client's exercises for Home Therapy Exercises, a site by Eric Burns, a project for WDD 330 at Brigham Young University - Idaho">
-  <title>My Client's Exercises | HTP</title>
+    content="Home page for Home Therapy Exercises, a site by Eric Burns, a project for WDD 330 at Brigham Young University - Idaho">
+  <title>Library | HTP</title>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/small.css">
   <link rel="stylesheet" href="css/medium.css">
@@ -18,7 +18,7 @@
   <script src="js/toggleHamburger.js" defer></script>
   <script src="js/wrapperHome.js" defer></script>
   <script src="js/utils.js" defer></script>
-  <script src="js/clientexercises.js" defer></script>
+  <script src="js/library.js" defer></script>
 </head>
 
 <body id="content" onload="wrapper()">
@@ -35,16 +35,15 @@
       <ul>
         <li><a href="#" class="ham">&#9776;</a></li>
         <li><a href="./my-clients.html">My Clients</a></li>
-        <li><a href="./assignexercise.html">Assign New Exercise</a></li>
-        <li><a href="./library.html">Library</a></li>      
+        <li><a href="./addtolibrary.html">Add Exercise to Library</a></li>
       </ul>
     </nav>
     <div class="main-content">
-      <h2><span id="client-name" class="client-name"></span>'s Exercises</h3>
+      <h2>Exercises Library</h3>
     </div>
     
     <main class="main">
-      <div id="assigned-exercises" class="main-content cards"></div>
+      <div id="exercise-library" class="main-content cards"></div>
     </main>
 
     <footer class="footer">

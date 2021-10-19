@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="description"
-    content="Therapist view of a list of a given client's exercises for Home Therapy Exercises, a site by Eric Burns, a project for WDD 330 at Brigham Young University - Idaho">
-  <title>My Client's Exercises | HTP</title>
+    content="Home page for Home Therapy Exercises, a site by Eric Burns, a project for WDD 330 at Brigham Young University - Idaho">
+  <title>Assign Exercise | HTP</title>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/small.css">
   <link rel="stylesheet" href="css/medium.css">
@@ -18,7 +18,7 @@
   <script src="js/toggleHamburger.js" defer></script>
   <script src="js/wrapperHome.js" defer></script>
   <script src="js/utils.js" defer></script>
-  <script src="js/clientexercises.js" defer></script>
+  <script src="js/assignexercise.js" defer></script>
 </head>
 
 <body id="content" onload="wrapper()">
@@ -34,17 +34,48 @@
     <nav class="main-nav">
       <ul>
         <li><a href="#" class="ham">&#9776;</a></li>
-        <li><a href="./my-clients.html">My Clients</a></li>
-        <li><a href="./assignexercise.html">Assign New Exercise</a></li>
-        <li><a href="./library.html">Library</a></li>      
+        <li class="active"><a href="index.html">My Exercises</a></li>
+        <li><a href="rentals.html">Profile</a></li>
       </ul>
     </nav>
     <div class="main-content">
-      <h2><span id="client-name" class="client-name"></span>'s Exercises</h3>
+      <h2>Assign Exercise to <span id="client-name" class="client-name"></span></h3>
     </div>
-    
+
     <main class="main">
-      <div id="assigned-exercises" class="main-content cards"></div>
+      <div class="main-content">
+
+        <form action="">
+          <label for="exercise-library">Select Exercise to Assign</label>
+          <div class="select">
+            <select class="standard-select" name="exercise-library" id="exercise-library"></select>
+          </div>
+
+          <label for="point-value">Point Value</label>
+          <div class="select">
+            <select class="standard-select" name="point-value" id="point-value">
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+              <option value="25">25</option>
+            </select>
+          </div>
+          <label for="status">Status</label>
+          <div class="select">
+            <select class="standard-select" name="status" id="status">
+              <option value="not-started">Not Started</option>
+              <option value="started">Started</option>
+              <option value="completed">completed</option>
+              <option value="archived">archived</option>
+            </select>
+          </div>
+          <label for="due-date">Due Date</label>
+          <input class="input-text" type="date" id="due-date" name="due-date">
+          <input class="btn-save" id="btn-assign-exercise" type="button" value="Assign Exercise">
+        </form>
+
+      </div>
     </main>
 
     <footer class="footer">
